@@ -3,18 +3,41 @@
 [ext_resource type="Script" uid="uid://ckkpn2x3oj1aq" path="res://home_menu.gd" id="1_j6liv"]
 [ext_resource type="Script" uid="uid://cwoblr751htkx" path="res://color_rect.gd" id="2_tqwvy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsb4k"]
-bg_color = Color(0.13075283, 0.62232465, 0.9999998, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqwvy"]
+bg_color = Color(0.7931508, 0.37163964, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.91361, 0.7116639, 1, 1)
+border_blend = true
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqeai"]
+bg_color = Color(0.7921569, 0.37254903, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tel8n"]
+bg_color = Color(0.7921569, 0.37254903, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us6cs"]
+bg_color = Color(0.7921569, 0.37254903, 1, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -34,8 +57,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -11.0
+offset_right = 16.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.18039216, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=1815441165]
 layout_mode = 1
@@ -43,10 +71,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -252.0
-offset_right = 16.0
-offset_bottom = -2.0
+offset_left = -71.0
+offset_top = -225.0
+offset_right = 39.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 50
@@ -74,6 +102,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 80
 text = "Online"
 
 [node name="MarginContainer3" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=147313383]
@@ -86,6 +115,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 80
 text = "Settings"
 
 [node name="MarginContainer4" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=815785846]
@@ -98,54 +128,8 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 80
 text = "Stats"
-
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect" unique_id=757179543]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 1329.0
-offset_right = 1096.0
-offset_bottom = 1579.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/MarginContainer2" unique_id=1287386632]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer2/VBoxContainer2" unique_id=1455171321]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer2/VBoxContainer2/HBoxContainer" unique_id=1515623964]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
-
-[node name="Play_button" type="MenuButton" parent="ColorRect/MarginContainer2/VBoxContainer2/HBoxContainer/MarginContainer" unique_id=1770420692]
-custom_minimum_size = Vector2(600, 150)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 6
-theme_override_styles/normal = SubResource("StyleBoxFlat_vsb4k")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_lti8b")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
-text = "PLAY"
-flat = false
-item_count = 4
-popup/item_0/text = "Game 1"
-popup/item_0/id = 0
-popup/item_1/text = "Game 2"
-popup/item_1/id = 1
-popup/item_2/text = "Game 3"
-popup/item_2/id = 2
-popup/item_3/text = "Game 4"
-popup/item_3/id = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=1046796865]
 clip_contents = false
@@ -154,7 +138,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 200.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 65
 text = "BRAIN BOOST
 "
@@ -172,61 +156,89 @@ offset_bottom = 211.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer" unique_id=919208044]
+[node name="HBoxContainer" type="GridContainer" parent="ColorRect/VBoxContainer" unique_id=221581371]
 layout_mode = 2
 size_flags_horizontal = 4
+columns = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer" unique_id=1900454022]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" unique_id=2122262318]
-custom_minimum_size = Vector2(400, 350)
+[node name="ColorRect" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" unique_id=2066776121]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqwvy")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" unique_id=501708580]
+layout_mode = 2
+theme_override_font_sizes/font_size = 94
+text = "SUDOKU"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer" unique_id=1460780887]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1359053599]
-custom_minimum_size = Vector2(400, 350)
+[node name="ColorRect" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1330890085]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mqeai")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer" unique_id=136738600]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=129260677]
+layout_mode = 2
+theme_override_font_sizes/font_size = 94
+text = "Word 
+Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="GridContainer" parent="ColorRect/VBoxContainer" unique_id=1852265571]
 layout_mode = 2
 size_flags_horizontal = 4
+columns = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=653781408]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=15731032]
-custom_minimum_size = Vector2(400, 350)
+[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=1343033493]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tel8n")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=757135648]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 93
+text = "Logic 
+Game"
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=604972094]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
@@ -238,7 +250,32 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
 
+[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=66433000]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_us6cs")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer2/Panel" unique_id=2098303349]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -130.5
+offset_right = 200.0
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 94
+text = "Anotha
+One"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 227
+
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -307,9 +344,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -961.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/Online_button" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer3/Settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer4/Stats_button" to="." method="_on_stats_button_pressed"]
+[connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" to="." method="_on_margin_container_gui_input"]

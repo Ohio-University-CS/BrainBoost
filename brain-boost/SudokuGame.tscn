@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c65ganfuo1qke"]
+
+[ext_resource type="Script" uid="uid://x6nqvjqo72x2" path="res://sudoku_game.gd" id="1_yx72p"]
+
+[node name="SudokuGame" type="Control" unique_id=514165086]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yx72p")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1299054628]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2145051671]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=652358677]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1281106688]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.8392157, 1)
+theme_override_font_sizes/font_size = 90
+text = "Sudoku"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=336371150]
+custom_minimum_size = Vector2(-40, 0)
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=689412839]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AspectRatioContainer" unique_id=1025134862]
+layout_mode = 2
+
+[node name="Checkbutton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=937432641]
+layout_mode = 2
+size_flags_vertical = 8
