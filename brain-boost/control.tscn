@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://c2uc2vucn7j2l"]
+
+[ext_resource type="Script" uid="uid://bxruojsmebtbm" path="res://wordle_like.gd" id="1_0fbet"]
+
+[node name="Control" type="Control" unique_id=1072055526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=983748565]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=977148620]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -252.0
+offset_right = 16.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer" unique_id=1920929801]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer" unique_id=905343487]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=570891438]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Online_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=278039524]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+text = "Online"
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=315365643]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Settings_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer3" unique_id=1483975115]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+text = "Settings"
+
+[node name="MarginContainer4" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=719324630]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Stats_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer4" unique_id=288515623]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+text = "Stats"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect" unique_id=804239592]
+clip_contents = false
+layout_mode = 0
+offset_left = 344.0
+offset_top = 352.0
+offset_right = 713.0
+offset_bottom = 502.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 65
+text = "R_ndom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect" unique_id=1808418586]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 619.0
+offset_right = 825.0
+offset_bottom = 862.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=1181060895]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -364.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 65
+text = "BRAIN BOOST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="RichTextLabel" parent="ColorRect" unique_id=174399937]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 525.0
+offset_top = 7.0
+offset_right = 161.0
+offset_bottom = 207.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 65
+text = "67"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -348,3 +348,4 @@ grow_vertical = 2
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer3/Settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer4/Stats_button" to="." method="_on_stats_button_pressed"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" to="." method="_on_margin_container_gui_input"]
+[connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
