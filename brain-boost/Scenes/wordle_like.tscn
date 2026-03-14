@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c2uc2vucn7j2l"]
 
-[ext_resource type="Script" uid="uid://bxruojsmebtbm" path="res://wordle_like.gd" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://fewrw44mvp10" path="res://Scripts/wordle_like.gd" id="1_xwfcm"]
 
-[node name="Control" type="Control" unique_id=1072055526]
+[node name="wordle_like" type="Control" unique_id=1072055526]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0fbet")
+script = ExtResource("1_xwfcm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=983748565]
 layout_mode = 1

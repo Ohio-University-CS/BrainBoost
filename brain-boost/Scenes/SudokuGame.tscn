@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c65ganfuo1qke"]
 
-[ext_resource type="Script" uid="uid://x6nqvjqo72x2" path="res://sudoku_game.gd" id="1_yx72p"]
+[ext_resource type="Script" uid="uid://x6nqvjqo72x2" path="res://Scripts/sudoku_game.gd" id="1_yx72p"]
 
 [node name="SudokuGame" type="Control" unique_id=514165086]
 layout_mode = 3

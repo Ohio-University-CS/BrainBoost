@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csi23x73oeomv"]
 
-[ext_resource type="Script" uid="uid://ckkpn2x3oj1aq" path="res://home_menu.gd" id="1_j6liv"]
-[ext_resource type="Script" uid="uid://cwoblr751htkx" path="res://color_rect.gd" id="2_tqwvy"]
+[ext_resource type="Script" uid="uid://ckkpn2x3oj1aq" path="res://Scripts/home_menu.gd" id="1_yeqd6"]
+[ext_resource type="Script" uid="uid://cwoblr751htkx" path="res://Scripts/color_rect.gd" id="2_mx5gi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqwvy"]
 bg_color = Color(0.7931508, 0.37163964, 1, 1)
@@ -50,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_j6liv")
+script = ExtResource("1_yeqd6")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=906799962]
 layout_mode = 1
@@ -287,7 +287,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5137255)
-script = ExtResource("2_tqwvy")
+script = ExtResource("2_mx5gi")
 
 [node name="Online" type="Panel" parent="Popup Wrapper" unique_id=868657331]
 layout_mode = 1
@@ -340,7 +340,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -961.0
 grow_horizontal = 2
 grow_vertical = 2
 

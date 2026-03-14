@@ -44,10 +44,10 @@ func _on_margin_container_gui_input(event):
 	# This checks if the user clicked the Left Mouse Button
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		print("Box clicked! Switching to Sudoku...")
-		get_tree().change_scene_to_file("res://SudokuGame.tscn")
+		get_tree().change_scene_to_file("res://Scenes/SudokuGame.tscn")
 
 
 func _on_margin_container_2_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		print("Box clicked! Switching to Word Game...")
-		get_tree().change_scene_to_file("res://control.tscn")
+		get_tree().change_scene_to_file("res://Scenes/wordle_like.tscn")
