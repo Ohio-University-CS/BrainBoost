@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0unv8asbdwc7"]
+
+[ext_resource type="Script" uid="uid://dxhatil7mr2sn" path="res://Scripts/word_tile.gd" id="1_hksop"]
+
+[node name="WordTile" type="Button" unique_id=289997505]
+custom_minimum_size = Vector2(160, 80)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 32
+script = ExtResource("1_hksop")

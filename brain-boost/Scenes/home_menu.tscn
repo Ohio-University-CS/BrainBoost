@@ -30,19 +30,6 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us6cs"]
-bg_color = Color(0.7921569, 0.37254903, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
 [node name="Home_menu" type="Control" unique_id=179101004]
 layout_mode = 3
 anchors_preset = 15
@@ -209,7 +196,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 columns = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=653781408]
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=653781408]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -219,18 +206,18 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=1343033493]
+[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer3" unique_id=1343033493]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tel8n")
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=757135648]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer3" unique_id=757135648]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 93
 text = "Logic 
 Game"
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=604972094]
+[node name="MarginContainer4" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=604972094]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -240,35 +227,18 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=1564696196]
-custom_minimum_size = Vector2(400, 350)
+[node name="ColorRect" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer4" unique_id=711152639]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mqeai")
 
-[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=66433000]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer4" unique_id=2098303349]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_us6cs")
-
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer2/Panel" unique_id=2098303349]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -130.5
-offset_right = 200.0
-offset_bottom = 130.5
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_font_sizes/font_size = 94
-text = "Anotha
-One"
+text = "Word
+ Stack"
 horizontal_alignment = 1
 vertical_alignment = 1
-justification_flags = 227
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
 visible = false
@@ -348,3 +318,4 @@ grow_vertical = 2
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer4/Stats_button" to="." method="_on_stats_button_pressed"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" to="." method="_on_margin_container_gui_input"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
+[connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer4" to="." method="_on_margin_container_4_gui_input"]

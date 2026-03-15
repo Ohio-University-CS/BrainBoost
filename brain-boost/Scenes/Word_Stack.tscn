@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dt2ow1prkk7v"]
 
 [ext_resource type="Script" uid="uid://32g2r6wsmqre" path="res://Scripts/word_stack.gd" id="1_cdltd"]
+[ext_resource type="PackedScene" uid="uid://bh25oh6jcxfuc" path="res://Scenes/Puzzle_generator.tscn" id="2_bamdy"]
 
 [node name="WordStack" type="Control" unique_id=243639161]
 layout_mode = 3
@@ -11,10 +12,84 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cdltd")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1555192955]
+[node name="PuzzleGenerator" parent="." unique_id=1058279497 instance=ExtResource("2_bamdy")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=983170922]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1978356789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="TopBar" type="HBoxContainer" parent="VBoxContainer" unique_id=841133548]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/TopBar" unique_id=1363966669]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+text = "Home
+"
+
+[node name="StartLabel" type="Label" parent="VBoxContainer" unique_id=719978202]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+
+[node name="ChainRow" type="HBoxContainer" parent="VBoxContainer" unique_id=316141141]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 9.01
+theme_override_constants/separation = 6
+
+[node name="TileArea" type="HFlowContainer" parent="VBoxContainer" unique_id=703064801]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 20.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Feedback" type="Label" parent="VBoxContainer" unique_id=1804483359]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 6.38
+theme_override_font_sizes/font_size = 45
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer" unique_id=807816542]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 23
+
+[node name="CheckButton" type="Button" parent="VBoxContainer/Buttons" unique_id=245579611]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Check"
+
+[node name="UndoButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1225775925]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Undo"
+
+[node name="NewButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1124597212]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+
+[connection signal="gui_input" from="VBoxContainer/TopBar/BackButton" to="." method="_on_back_button_gui_input"]

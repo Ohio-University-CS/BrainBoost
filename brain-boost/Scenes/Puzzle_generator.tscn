@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bnm51yv83wp" path="res://Scripts/puzzle_generator.gd" id="1_ye78w"]
 
-[node name="PuzzleGenerator" type="Control" unique_id=557643946]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PuzzleGenerator" type="Node" unique_id=1058279497]
 script = ExtResource("1_ye78w")
+
+[node name="HTTP" type="HTTPRequest" parent="." unique_id=75278502]
+
+[node name="HTTPPos" type="HTTPRequest" parent="." unique_id=52161426]
