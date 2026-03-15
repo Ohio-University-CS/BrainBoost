@@ -131,3 +131,52 @@ theme_override_font_sizes/normal_font_size = 65
 text = "67"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GameEndPopUp" type="ColorRect" parent="." unique_id=1742893636]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 198.0
+offset_right = 883.0
+offset_bottom = 926.0
+color = Color(0.27450982, 1, 1, 1)
+
+[node name="Final Score" type="RichTextLabel" parent="GameEndPopUp" unique_id=2040610020]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 191.0
+offset_right = 579.0
+offset_bottom = 399.0
+theme_override_font_sizes/normal_font_size = 65
+text = "Final Score: 67"
+fit_content = true
+
+[node name="Congrats" type="RichTextLabel" parent="GameEndPopUp" unique_id=1530927384]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 59.0
+offset_right = 643.0
+offset_bottom = 183.0
+theme_override_font_sizes/normal_font_size = 80
+text = "Congradulation"
+fit_content = true
+
+[node name="Exit" type="MarginContainer" parent="GameEndPopUp" unique_id=6715497]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 393.0
+offset_right = 464.0
+offset_bottom = 543.0
+accessibility_name = "Exit"
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Exit_button" type="Button" parent="GameEndPopUp/Exit" unique_id=1040850235]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 34
+text = "Exit"
+
+[connection signal="button_up" from="GameEndPopUp/Exit/Exit_button" to="." method="_on_exit_button_button_up"]
+[connection signal="gui_input" from="GameEndPopUp/Exit/Exit_button" to="." method="_on_exit_button_gui_input"]
