@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp2sqr5qbenf3"]
 
-[ext_resource type="Script" path="res://control.gd" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://clpffo0y7t8pq" path="res://Scripts/Patterngame.gd" id="1_y6hxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(1, 1, 1, 1)
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_0fbet")
+script = ExtResource("1_y6hxy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=32272813]
 layout_mode = 1
@@ -135,10 +135,19 @@ theme_override_colors/icon_hover_pressed_color = Color(1, 0.7921569, 0.22745098,
 theme_override_colors/icon_disabled_color = Color(1, 0.7921569, 0.22745098, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_0fbet")
 
-[node name="Timer" type="Timer" parent="VBoxContainer" unique_id=54683138]
+[node name="backbutton" type="Button" parent="VBoxContainer" unique_id=1173857141]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 100
+text = "Back to 
+Menu"
 
 [node name="HighScore" type="Label" parent="VBoxContainer" unique_id=689283060]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
+
+[connection signal="pressed" from="VBoxContainer/backbutton" to="." method="_on_backbutton_pressed"]

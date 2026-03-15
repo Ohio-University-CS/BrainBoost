@@ -214,8 +214,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tel8n")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 93
-text = "Logic 
-Game"
+text = "Pattern
+ Game"
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer3" unique_id=701810830]
+layout_mode = 2
+flat = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=604972094]
 custom_minimum_size = Vector2(200, 200)
@@ -318,4 +322,6 @@ grow_vertical = 2
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer4/Stats_button" to="." method="_on_stats_button_pressed"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" to="." method="_on_margin_container_gui_input"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
+[connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer3" to="." method="_on_margin_container_3_gui_input"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer3/Button" to="." method="_on_button_pressed"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer4" to="." method="_on_margin_container_4_gui_input"]

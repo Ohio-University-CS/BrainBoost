@@ -52,6 +52,9 @@ func _on_margin_container_2_gui_input(event: InputEvent) -> void:
 		print("Box clicked! Switching to Word Game...")
 		get_tree().change_scene_to_file("res://Scenes/wordle_like.tscn")
 
+func _on_button_pressed() -> void:
+	print("Invisible button clicked!")
+	get_tree().change_scene_to_file("res://Scenes/Patterngame.tscn")
 
 func _on_margin_container_4_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

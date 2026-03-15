@@ -40,6 +40,7 @@ func _ready():
 	# Wait a second, then start!
 	await get_tree().create_timer(1.0).timeout
 	start_new_round()
+	
 
 func start_new_round():
 	is_cpu_playing = true
@@ -105,3 +106,7 @@ func check_answer():
 		instructions.text = "NICE!"
 		await get_tree().create_timer(0.8).timeout
 		start_new_round()
+
+func _on_backbutton_pressed() -> void:
+	print("Back button clicked! Heading home...")
+	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
