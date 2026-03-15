@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bp2sqr5qbenf3"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://control.gd" id="1_0fbet"]
+=======
+[ext_resource type="Script" uid="uid://fewrw44mvp10" path="res://wordle_like.gd" id="1_0fbet"]
+>>>>>>> Stashed changes
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(1, 1, 1, 1)
@@ -18,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0fbet")
+countdown_time = 20.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=32272813]
 layout_mode = 1
@@ -137,8 +142,96 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0fbet")
 
 [node name="Timer" type="Timer" parent="VBoxContainer" unique_id=54683138]
 
+<<<<<<< Updated upstream
 [node name="HighScore" type="Label" parent="VBoxContainer" unique_id=689283060]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
+=======
+[node name="LineEdit" type="LineEdit" parent="ColorRect" unique_id=1808418586]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 619.0
+offset_right = 825.0
+offset_bottom = 862.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=1181060895]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -364.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 65
+text = "BRAIN BOOST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="RichTextLabel" parent="ColorRect" unique_id=174399937]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 525.0
+offset_top = 7.0
+offset_right = 161.0
+offset_bottom = 207.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 65
+text = "67"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameEndPopUp" type="ColorRect" parent="." unique_id=1742893636]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 198.0
+offset_right = 883.0
+offset_bottom = 926.0
+color = Color(0.27450982, 1, 1, 1)
+
+[node name="Final Score" type="RichTextLabel" parent="GameEndPopUp" unique_id=2040610020]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 191.0
+offset_right = 579.0
+offset_bottom = 399.0
+theme_override_font_sizes/normal_font_size = 65
+text = "Final Score: 67"
+fit_content = true
+
+[node name="Congrats" type="RichTextLabel" parent="GameEndPopUp" unique_id=1530927384]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 59.0
+offset_right = 643.0
+offset_bottom = 183.0
+theme_override_font_sizes/normal_font_size = 80
+text = "Congradulation"
+fit_content = true
+
+[node name="Exit" type="MarginContainer" parent="GameEndPopUp" unique_id=6715497]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 393.0
+offset_right = 464.0
+offset_bottom = 543.0
+accessibility_name = "Exit"
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Exit_button" type="Button" parent="GameEndPopUp/Exit" unique_id=1040850235]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 34
+text = "Exit"
+
+[connection signal="button_up" from="GameEndPopUp/Exit/Exit_button" to="." method="_on_exit_button_button_up"]
+[connection signal="gui_input" from="GameEndPopUp/Exit/Exit_button" to="." method="_on_exit_button_gui_input"]
+>>>>>>> Stashed changes
