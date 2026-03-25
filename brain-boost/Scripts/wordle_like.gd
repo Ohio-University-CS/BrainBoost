@@ -7,39 +7,70 @@ extends Control
 @onready var popUp: ColorRect = $GameEndPopUp
 @onready var finalScore: RichTextLabel = $"GameEndPopUp/Final Score"
 
-@export var countdown_time: float = 5
+@export var countdown_time: float = 300
 
 var time
 var words
+var possible_words
 var answer
+var answer_counts: Array[int]
+var answer_chars: Array[String]
 var score = 0
 var new_word_needed
 var countdownActive
 
-func read_text(file_path) -> void:
+func read_text(file_path) -> Array[String]:
 # vector of words
-	words = []
+	var new_words: Array[String] = []
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file:
 		while not file.eof_reached():
 			var word = file.get_line()
 			# Process each line as needed
 			if(word != ""):
-				words.append(word)
+				new_words.append(word)
 		file.close()
 	else:
 		print("Error opening file: ", file_path)
+		
+	return new_words
 
 
+func char_counts(word, chars: Array, counts: Array):
+	for i in range(word.length()):
+		var ch = word[i]
+		var notCounted = true
+		for j in range(chars.size()):
+			if ch == chars[j]:
+				notCounted = false
+		if notCounted:
+			chars.append(ch)
+			counts.append(1)
+		else:
+			for j in range(chars.size()):
+				if ch == chars[j]:
+					counts[j] += 1
+
+func find_possible(new_words: Array, chars: Array, counts: Array):
+	for i in range(new_words.size() - 2):
+		var item_chars = []
+		var item_counts = []
+		char_counts(new_words[i], item_chars, item_counts)
+		
+		if(item_chars == chars and item_counts == counts):
+			pass
+		else:
+			possible_words.remove_at(i)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scoreOutput.text = str(score)
-	read_text("res://sgb-words.txt")
+	words = read_text("res://wordles.txt")
 	time = countdown_time
 	countdownActive = true
 	new_word_needed = true
 	popUp.hide()
+
 	
 	
 	
@@ -64,6 +95,13 @@ func _process(delta: float) -> void:
 	if new_word_needed:
 		answer = words[randi() % words.size()]
 		
+		#finds all possible answers
+		answer_chars = []
+		answer_counts = []
+		char_counts(answer, answer_chars, answer_counts)
+		possible_words = read_text("res://sgb-words.txt")
+		find_possible(possible_words, answer_chars, answer_counts)
+		
 		#scramble answer!!
 		var scram_answer = answer
 		for i in range(1):
@@ -72,15 +110,27 @@ func _process(delta: float) -> void:
 			var scram2 = answer.substr(index, answer.length())
 			scram_answer = scram2 + scram1
 		text.text = scram_answer
-		print(answer)
 		new_word_needed = false
+		
+		print(answer)
+		print(answer_chars)
+		print(answer_counts)
 	else:
-		#check if input is answer
-		if inputText.text == answer:
-			new_word_needed = true
-			score = score + 1
-			scoreOutput.text = str(score)
-			inputText.text = ""
+		#finds inputs unqiue chars and char count
+		var input_chars = []
+		var input_counts = []
+		char_counts(inputText.text, input_chars, input_counts)
+		
+		#checks if input is possible word
+		#needs more work!!!!
+		#make so chars order doesnt matter
+		#check that word is real (prob using sgb-words)
+		for i in range(possible_words.size()):
+			if possible_words[i] == inputText.text:
+				new_word_needed = true
+				score = score + 1
+				scoreOutput.text = str(score)
+				inputText.text = ""
 
 func _on_exit_button_button_up() -> void:
 	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
