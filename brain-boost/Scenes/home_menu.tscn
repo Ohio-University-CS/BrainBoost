@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" uid="uid://ckkpn2x3oj1aq" path="res://Scripts/home_menu.gd" id="1_yeqd6"]
 [ext_resource type="Script" uid="uid://cwoblr751htkx" path="res://Scripts/color_rect.gd" id="2_mx5gi"]
+[ext_resource type="FontFile" uid="uid://sr7vkvuyeamu" path="res://extraFonts/MontereyMediumFLF.ttf" id="2_xwvs7"]
+[ext_resource type="FontFile" uid="uid://d07afxd60oy6p" path="res://extraFonts/Olde English Regular.ttf" id="3_q0p7g"]
+[ext_resource type="FontFile" uid="uid://bk81ix1fq66ot" path="res://extraFonts/MontereyFLF-Bold.ttf" id="4_p3ope"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u77pj"]
+bg_color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+border_width_left = 10
+border_width_top = 12
+border_width_right = 10
+border_width_bottom = 12
+shadow_color = Color(0.107535, 0.07689334, 0.036209505, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qskiq"]
+bg_color = Color(0.9529412, 0.6, 0.6, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqwvy"]
 bg_color = Color(0.7931508, 0.37163964, 1, 1)
@@ -15,6 +30,13 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="MeshTexture" id="MeshTexture_yeqd6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mx5gi"]
+texture = SubResource("MeshTexture_yeqd6")
+texture_margin_left = 1229.0
+modulate_color = Color(0.21568628, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqeai"]
 bg_color = Color(0.7921569, 0.37254903, 1, 1)
@@ -85,6 +107,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_xwvs7")
 theme_override_font_sizes/font_size = 80
 text = "Online"
 
@@ -98,6 +121,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_xwvs7")
 theme_override_font_sizes/font_size = 80
 text = "Settings"
 
@@ -111,6 +135,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_xwvs7")
 theme_override_font_sizes/font_size = 80
 text = "Stats"
 
@@ -122,7 +147,11 @@ anchor_right = 1.0
 offset_bottom = 200.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 65
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("3_q0p7g")
+theme_override_font_sizes/normal_font_size = 81
+theme_override_styles/normal = SubResource("StyleBoxFlat_u77pj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qskiq")
 text = "BRAIN BOOST
 "
 horizontal_alignment = 1
@@ -163,7 +192,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tqwvy")
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer" unique_id=501708580]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.10980392, 0.18431373, 0.2627451, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_p3ope")
 theme_override_font_sizes/font_size = 94
+theme_override_styles/focus = SubResource("StyleBoxTexture_mx5gi")
 text = "SUDOKU"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -185,9 +220,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mqeai")
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=129260677]
 layout_mode = 2
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_p3ope")
 theme_override_font_sizes/font_size = 94
-text = "Word 
-Game"
+text = "Scrambled"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -213,12 +250,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tel8n")
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer3" unique_id=757135648]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_p3ope")
 theme_override_font_sizes/font_size = 93
 text = "Pattern
  Game"
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer3" unique_id=701810830]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_p3ope")
 flat = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=604972094]
@@ -238,6 +279,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mqeai")
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2/MarginContainer4" unique_id=2098303349]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.8901961, 0, 0, 0)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_p3ope")
 theme_override_font_sizes/font_size = 94
 text = "Word
  Stack"
