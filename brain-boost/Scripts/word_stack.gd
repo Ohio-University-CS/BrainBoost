@@ -14,8 +14,17 @@ extends Control
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 
 const START_WORDS = [
-	"soccer", "sun", "fire", "hand",
-	"water", "book", "snow", "door"
+  "air","arm","ant","back","ball","bat","bee","bell","bird","blue","book","car","cat","cave","chalk",
+  "check","chip","church","day","dead","death","door","down","ear","earth","egg","face","fair","farm",
+  "fast","fire","fish","foot","gate","gear","glass","goal","gold","grand","half","hand","hard","head",
+  "heart","hill","home","horse","hot","ice","in","iron","jail","jaw","jelly","jump","junk","key","kick",
+  "knee","knap","land","lap","lay","life","light","line","mail","main","man","marks","match","moon","mountain",
+  "mud","neck","net","night","note","off","out","paint","pan","paper","para","patch","pay","pin","pipe","pitch",
+  "plain","play","post","quarter","quick","rail","rain","race","road","roof","run","safe","sand","school",
+  "score", "sea","set","ship","shoe","show","side","table","tail","team","text","time","tooth","tool","turn",
+  "under","up","walk","ware","watch","water","web","week","well","wheel","white","wild","wind","wing","wood",
+  "work","world","year","your"
+
 ]
 
 var current_puzzle: Dictionary = {}
@@ -72,7 +81,7 @@ func _render():
 func _add_chain_label(word: String, is_start: bool):
 	var lbl = Label.new()
 	lbl.text = word
-	lbl.add_theme_font_size_override("font_size", 62)
+	lbl.add_theme_font_size_override("font_size", 18)
 	if is_start:
 		lbl.add_theme_color_override("font_color", Color(0.55, 0.47, 0.95))
 	else:
@@ -82,14 +91,12 @@ func _add_chain_label(word: String, is_start: bool):
 func _add_arrow_label():
 	var lbl = Label.new()
 	lbl.text = "→"
-	lbl.add_theme_font_size_override("font_size", 62)
 	lbl.add_theme_color_override("font_color", Color(0.45, 0.45, 0.45))
 	chain_row.add_child(lbl)
 
 func _add_empty_slot():
 	var lbl = Label.new()
 	lbl.text = "[ ? ]"
-	lbl.add_theme_font_size_override("font_size", 62)
 	lbl.add_theme_color_override("font_color", Color(0.4, 0.4, 0.4))
 	chain_row.add_child(lbl)
 
@@ -123,10 +130,4 @@ func _set_buttons_disabled(val: bool):
 	undo_btn.disabled  = val
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
-
-
-func _on_back_button_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print("Box clicked! Switching to Home...")
-		get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")

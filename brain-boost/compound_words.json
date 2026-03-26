@@ -1,237 +1,98 @@
 {
-	"compoundWords": [
-		"air ball", "air bed", "air brush", "air field", "air flow",
-		"air head", "air line", "air lock", "air mail", "air man",
-		"air park", "air port", "air play", "air ship", "air show",
-		"air space", "air speed", "air stream", "air strip",
-		"air tight", "air time", "air wave", "air way",
-
-		"ankle bone", "ant hill",
-
-		"arm band", "arm chair", "arm hole", "arm pit", "arm rest",
-
-		"back bone", "back board", "back country",
-		"back drop", "back field", "back fire", "back flip",
-		"back hand", "back log", "back pack", "back room",
-		"back side", "back yard",
-
-		"bag pipe", "ball game", "ball park", "ball player",
-		"ball room", "ball point", "band stand", "bank roll",
-		"barn yard", "base ball", "base line", "basket ball",
-
-		"bath house", "bath room", "bath tub",
-
-		"beach front", "beach head", "beach side", "bee hive",
-
-		"bell boy", "bell hop",
-
-		"belly ache", "belly band", "belly button",
-
-		"bench mark", "bird bath", "bird cage", "bird house",
-		"bird seed",
-
-		"boat house", "body guard",
-
-		"book case", "book end", "book mark",
-		"book shelf", "book store", "book worm",
-
-		"brief case",
-
-		"butter milk",
-
-		"camp fire", "camp ground", "camp site",
-
-		"candle light", "candle stick",
-
-		"card board",
-
-		"care taker",
-
-		"car pool", "car port",
-
-		"cart wheel",
-
-		"cat nap", "cat walk",
-
-		"chair lift",
-
-		"chalk board",
-
-		"check book", "check point", "check up",
-
-		"cheek bone",
-
-		"cheese burger",
-
-		"chess board",
-
-		"chop stick",
-
-		"class room", "class mate",
-
-		"clock work",
-
-		"cloud burst",
-
-		"club house",
-
-		"coffee house", "coffee maker",
-
-		"cook out",
-
-		"copy cat",
-
-		"court house", "court room",
-
-		"cow boy", "cow girl",
-
-		"cross walk", "cross word",
-
-		"cup cake",
-
-		"dash board",
-
-		"data base",
-
-		"day care", "day dream", "day light",
-
-		"door bell", "door knob",
-
-		"draw bridge",
-
-		"drive way",
-
-		"drop out",
-
-		"dust pan",
-
-		"ear drum",
-
-		"egg plant", "egg shell",
-
-		"eye ball", "eye brow", "eye lash",
-
-		"fire truck", "fire fighter", "fire house",
-		"fire place", "fire wood",
-
-		"fish bowl",
-
-		"foot ball", "foot print",
-
-		"fork lift",
-
-		"full time",
-
-		"game play",
-
-		"gate way",
-
-		"gold fish",
-
-		"grand father", "grand mother",
-
-		"grass hopper",
-
-		"green house",
-
-		"ground hog",
-
-		"hand shake",
-
-		"head ache", "head phone",
-
-		"heart break",
-
-		"home work",
-
-		"honey bee",
-
-		"horse power",
-
-		"hot dog",
-
-		"ice berg",
-
-		"jelly fish",
-
-		"key board",
-
-		"land mark",
-
-		"life style", "life time",
-
-		"light house",
-
-		"lock down",
-
-		"mail box", "mail man",
-
-		"moon light",
-
-		"mountain top",
-
-		"note book",
-
-		"out side",
-
-		"over time",
-
-		"paper back", "paper work",
-
-		"pay check",
-
-		"play ground",
-
-		"post card",
-
-		"rail road",
-
-		"rain bow",
-
-		"road way",
-
-		"sand castle",
-
-		"school house",
-
-		"score board",
-
-		"sea side",
-
-		"ship wreck",
-
-		"shoe lace",
-
-		"side walk",
-
-		"snow ball",
-
-		"sun light", "sun rise", "sun set",
-
-		"table cloth",
-
-		"team work",
-
-		"text book",
-
-		"tooth brush", "tooth paste",
-
-		"under ground",
-
-		"up load",
-
-		"water fall",
-
-		"week end",
-
-		"wheel chair",
-
-		"wind mill",
-
-		"wood work",
-
-		"work out",
-
-		"year book"
-	]
+  "A": [
+	"air flow", "air stream", "air pack", "air port", "air wave", "air space",
+	"arm band", "arm rest", "arm hole", "arm chair", "ankle bone", "ant hill"
+  ],
+  "B": [
+	"back pack", "back drop", "back yard", "back bone", "back board", "back fire",
+	"ball park", "ball room", "ball point", "ball game", "bat tle", "bath room",
+	"bee hive", "bell boy", "bell hop", "bird bath", "bird cage", "bird house",
+	"blue berry", "blue bird", "book case", "book mark", "book shelf", "book store"
+  ],
+  "C": [
+	"car pool", "car port", "cart wheel", "cat nap", "cat walk", "cave in",
+	"chalk board", "check point", "check book", "check up", "chip shop", "church yard"
+  ],
+  "D": [
+	"day break", "day care", "day dream", "dead lock", "dead beat", "death bed",
+	"door bell", "door knob", "door mat", "door step", "down stream", "down town"
+  ],
+  "E": [
+	"ear drum", "ear ring", "earth quake", "earth worm", "egg head", "egg nog",
+	"egg plant", "egg shell"
+  ],
+  "F": [
+	"face lift", "face plate", "fair ground", "fair way", "farm house", "farm yard",
+	"fast ball", "fire house", "fire place", "fire man", "fish pond", "fish hook",
+	"foot path", "foot print", "foot step", "foot wear"
+  ],
+  "G": [
+	"gate house", "gate keeper", "gear box", "gear shift", "glass work", "goal post",
+	"gold fish", "gold mine", "grand child", "grand mother", "grand father"
+  ],
+  "H": [
+	"half back", "half way", "hand shake", "hand write", "hard back", "hard ship",
+	"head ache", "head band", "head board", "heart burn", "heart break", "heart land",
+	"hill top", "home work", "horse shoe", "hot dog"
+  ],
+  "I": [
+	"ice breaker", "ice pack", "ice house", "in bound", "in come", "in mate", "iron work"
+  ],
+  "J": [
+	"jail break", "jaw bone", "jelly fish", "jump start", "junk yard"
+  ],
+  "K": [
+	"key hole", "key board", "kick off", "kick back", "knee cap", "knap sack"
+  ],
+  "L": [
+	"land mark", "land lord", "land slide", "lap dog", "lap top", "lay over",
+	"life guard", "life line", "life time", "light house", "line up", "line graph"
+  ],
+  "M": [
+	"mail box", "mail man", "main stream", "man hole", "man made", "marks man",
+	"match maker", "moon light", "moon shine", "mountain top", "mud slide"
+  ],
+  "N": [
+	"neck line", "net work", "night fall", "night life", "night time", "note book"
+  ],
+  "O": [
+	"off shore", "off line", "out back", "out come", "out door", "out field",
+	"out going", "out law", "out let", "out look", "out post", "out put"
+  ],
+  "P": [
+	"paint brush", "pan cake", "paper back", "paper work", "para chute", "patch work",
+	"pay check", "pay roll", "pay off", "pin point", "pipe line", "pitch fork",
+	"plain clothes", "play back", "play ground", "play maker", "play off", "post card"
+  ],
+  "Q": [
+	"quarter back", "quick sand"
+  ],
+  "R": [
+	"rail road", "rain bow", "rain fall", "rain storm", "rain water", "race track",
+	"road block", "road side", "road way", "road work", "roof top", "run way"
+  ],
+  "S": [
+	"safe guard", "sand bank", "sand bar", "sand castle", "sand paper", "sand stone",
+	"sand storm", "school house", "school book", "school room", "score card", "score board",
+	"sea board", "sea shore", "sea side", "set back", "ship wreck", "shoe horn",
+	"shoe lace", "shoe maker", "show down", "show room", "side walk", "side line"
+  ],
+  "T": [
+	"table cloth", "tail gate", "tail back", "team mate", "team work", "text book",
+	"time table", "tooth brush", "tooth paste", "tool box", "turn over", "turn pike"
+  ],
+  "U": [
+	"under cover", "under dog", "under ground", "under way", "up beat", "up keep",
+	"up load", "up stairs", "up turn"
+  ],
+  "W": [
+	"walk out", "walk way", "ware house", "watch dog", "watch maker", "water fall",
+	"water front", "water line", "water mark", "water proof", "water shed", "water way",
+	"web page", "week end", "well spring", "wheel chair", "white board", "wild life",
+	"wind fall", "wind mill", "wind pipe", "wind shield", "wing span", "wood work",
+	"wood pecker", "work out", "world wide"
+  ],
+  "Y": [
+	"year book", "your self"
+  ]
 }
