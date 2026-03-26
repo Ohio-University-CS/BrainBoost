@@ -2,14 +2,14 @@ extends Control
 
 # Child node reference — NOT an autoload
 @onready var puzzle_gen  = $PuzzleGenerator
-@onready var start_label = $VBoxContainer/StartLabel
+@onready var start_label = $VBoxContainer/VBoxContainer/ColorRect/StartLabel
 @onready var chain_row   = $VBoxContainer/ChainRow
-@onready var tile_area   = $VBoxContainer/TileArea
+@onready var tile_area   = $Tile_Area
 @onready var feedback    = $VBoxContainer/Feedback
-@onready var check_btn   = $VBoxContainer/Buttons/CheckButton
-@onready var new_btn     = $VBoxContainer/Buttons/NewButton
-@onready var undo_btn    = $VBoxContainer/Buttons/UndoButton
-@onready var back_btn    = $VBoxContainer/TopBar/BackButton
+@onready var check_btn   = $Buttons/CheckButton
+@onready var new_btn     = $Buttons/NewButton
+@onready var undo_btn    = $Buttons/UndoButton
+@onready var back_btn    = $TopBar/BackButton
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 
@@ -36,6 +36,7 @@ func _ready():
 	undo_btn.pressed.connect(undo_last)
 	back_btn.pressed.connect(_on_back_pressed)
 	new_puzzle()
+	
 
 func new_puzzle():
 	player_chain = []
@@ -56,11 +57,13 @@ func new_puzzle():
 	_render()
 
 func _render():
-	start_label.text = "Start:  " + current_puzzle["start"].to_upper()
+	start_label.text = current_puzzle["start"]
 	feedback.text = ""
 
 	for c in chain_row.get_children(): c.queue_free()
-	for c in tile_area.get_children():  c.queue_free()
+	for c in tile_area.get_children():
+		tile_area.remove_child(c)
+		c.queue_free()
 
 	_add_chain_label(current_puzzle["start"], true)
 	for word in player_chain:
@@ -69,30 +72,23 @@ func _render():
 	if player_chain.size() < current_puzzle["solution"].size():
 		_add_arrow_label()
 		_add_empty_slot()
+		
+		
 
 	for word in current_puzzle["tiles"]:
 		if player_chain.has(word):
 			continue
-		var tile: Button = WordTileScene.instantiate()
+		var tile: Control = WordTileScene.instantiate()
 		tile.setup(word)
-		tile.tile_pressed.connect(_on_tile_pressed)
 		tile_area.add_child(tile)
-
+		print("Added tile: ", word, " | tile_area child count: ", tile_area.get_child_count())
+		
+	print("Puzzle tiles: ", current_puzzle.get("tiles", []))
 func _add_chain_label(word: String, is_start: bool):
-	var lbl = Label.new()
-	lbl.text = word
-	lbl.add_theme_font_size_override("font_size", 18)
-	if is_start:
-		lbl.add_theme_color_override("font_color", Color(0.55, 0.47, 0.95))
-	else:
-		lbl.add_theme_color_override("font_color", Color(0.25, 0.75, 0.55))
-	chain_row.add_child(lbl)
+	return
 
 func _add_arrow_label():
-	var lbl = Label.new()
-	lbl.text = "→"
-	lbl.add_theme_color_override("font_color", Color(0.45, 0.45, 0.45))
-	chain_row.add_child(lbl)
+	return
 
 func _add_empty_slot():
 	var lbl = Label.new()

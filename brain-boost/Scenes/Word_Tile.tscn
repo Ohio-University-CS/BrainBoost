@@ -1,10 +1,40 @@
 [gd_scene format=3 uid="uid://d0unv8asbdwc7"]
 
-[ext_resource type="Script" uid="uid://dxhatil7mr2sn" path="res://Scripts/word_tile.gd" id="1_hksop"]
+[ext_resource type="Script" uid="uid://d17t4e8rbps0n" path="res://Scripts/word_tile.gd" id="1_hksop"]
 
-[node name="WordTile" type="Button" unique_id=289997505]
-custom_minimum_size = Vector2(160, 80)
-offset_right = 8.0
-offset_bottom = 8.0
-theme_override_font_sizes/font_size = 32
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a8odq"]
+
+[node name="Control" type="Control" unique_id=508920077]
+z_index = 3
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -559.0
+offset_bottom = 99.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_hksop")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=289545767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_a8odq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect" unique_id=1958742557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 63
+text = "PlaceHolder"
+fit_content = true
+horizontal_alignment = 1

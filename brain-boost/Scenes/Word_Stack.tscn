@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://32g2r6wsmqre" path="res://Scripts/word_stack.gd" id="1_cdltd"]
 [ext_resource type="PackedScene" uid="uid://bh25oh6jcxfuc" path="res://Scenes/Puzzle_generator.tscn" id="2_bamdy"]
+[ext_resource type="Texture2D" uid="uid://dwip8c1ravemo" path="res://Textures/arrow-small-down.svg" id="3_flbnf"]
 
 [node name="WordStack" type="Control" unique_id=243639161]
 layout_mode = 3
@@ -23,28 +24,267 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3665946, 0.3665946, 0.36659458, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1978356789]
+[node name="Tile_Area" type="FlowContainer" parent="." unique_id=134901670]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.72700006
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -25.0
+anchor_bottom = 0.88900006
+offset_left = -0.52000046
+offset_top = 0.15991211
+offset_right = -20.0
+offset_bottom = 0.11987305
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 14
+grow_vertical = 0
+theme_override_constants/h_separation = 12
+vertical = true
 
-[node name="TopBar" type="HBoxContainer" parent="VBoxContainer" unique_id=841133548]
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=807816542]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -523.0
+offset_top = -200.0
+offset_right = 523.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 23
+
+[node name="CheckButton" type="Button" parent="Buttons" unique_id=245579611]
+custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Check"
 
-[node name="BackButton" type="Button" parent="VBoxContainer/TopBar" unique_id=1363966669]
+[node name="UndoButton" type="Button" parent="Buttons" unique_id=1225775925]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Undo"
+
+[node name="NewButton" type="Button" parent="Buttons" unique_id=1124597212]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+
+[node name="TopBar" type="HBoxContainer" parent="." unique_id=841133548]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 1080.0
+offset_bottom = 79.0
+
+[node name="BackButton" type="Button" parent="TopBar" unique_id=1363966669]
 layout_mode = 2
 theme_override_font_sizes/font_size = 53
 text = "Home
 "
 
-[node name="StartLabel" type="Label" parent="VBoxContainer" unique_id=719978202]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1978356789]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -815.0
+offset_right = 260.5
+offset_bottom = 815.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=77925465]
 layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 90
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1457188180]
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[node name="StartLabel" type="Label" parent="VBoxContainer/VBoxContainer/ColorRect" unique_id=719978202]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -49.5
+offset_right = 106.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/ColorRect" unique_id=1525940740]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.5
+offset_right = 50.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_flbnf")
+expand_mode = 5
+
+[node name="SnapRect" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=273578374]
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect" unique_id=754075855]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.5
+offset_right = 50.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_flbnf")
+expand_mode = 5
+
+[node name="SnapRect2" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=5166303]
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect2" unique_id=540883929]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.5
+offset_right = 50.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_flbnf")
+expand_mode = 5
+
+[node name="SnapRect3" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1372930441]
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect3" unique_id=1059817517]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.5
+offset_right = 50.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_flbnf")
+expand_mode = 5
+
+[node name="SnapRect4" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=757148928]
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect4" unique_id=167282210]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.5
+offset_right = 50.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_flbnf")
+expand_mode = 5
+
+[node name="SnapRect5" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1625773092]
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect5" unique_id=338482084]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 45.5
+offset_right = 50.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_flbnf")
+expand_mode = 5
+
+[node name="SnapRect6" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=238938876]
+custom_minimum_size = Vector2(521, 99)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
 
 [node name="ChainRow" type="HBoxContainer" parent="VBoxContainer" unique_id=316141141]
 custom_minimum_size = Vector2(0, 52)
@@ -53,14 +293,6 @@ size_flags_vertical = 10
 size_flags_stretch_ratio = 9.01
 theme_override_constants/separation = 6
 
-[node name="TileArea" type="HFlowContainer" parent="VBoxContainer" unique_id=703064801]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-size_flags_vertical = 10
-size_flags_stretch_ratio = 20.0
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-
 [node name="Feedback" type="Label" parent="VBoxContainer" unique_id=1804483359]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
@@ -68,28 +300,4 @@ size_flags_vertical = 10
 size_flags_stretch_ratio = 6.38
 theme_override_font_sizes/font_size = 45
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer" unique_id=807816542]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-theme_override_constants/separation = 23
-
-[node name="CheckButton" type="Button" parent="VBoxContainer/Buttons" unique_id=245579611]
-custom_minimum_size = Vector2(300, 200)
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Check"
-
-[node name="UndoButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1225775925]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Undo"
-
-[node name="NewButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1124597212]
-custom_minimum_size = Vector2(300, 200)
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "New Game"
-
-[connection signal="gui_input" from="VBoxContainer/TopBar/BackButton" to="." method="_on_back_button_gui_input"]
+[connection signal="gui_input" from="TopBar/BackButton" to="." method="_on_back_button_gui_input"]
