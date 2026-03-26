@@ -11,7 +11,7 @@ extends Control
 
 var time
 var words
-var possible_words
+var possible_answers
 var answer
 var answer_counts: Array[int]
 var answer_chars: Array[String]
@@ -51,16 +51,18 @@ func char_counts(word, chars: Array, counts: Array):
 				if ch == chars[j]:
 					counts[j] += 1
 
-func find_possible(new_words: Array, chars: Array, counts: Array):
-	for i in range(new_words.size() - 2):
+func find_possible(chars: Array, counts: Array):
+	var new_answers : Array[String]
+	for i in range(possible_answers.size()):
 		var item_chars = []
 		var item_counts = []
-		char_counts(new_words[i], item_chars, item_counts)
+		char_counts(possible_answers[i], item_chars, item_counts)
 		
 		if(item_chars == chars and item_counts == counts):
-			pass
-		else:
-			possible_words.remove_at(i)
+			new_answers.append(possible_answers[i])
+	
+	possible_answers = new_answers
+	print(possible_answers)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -99,8 +101,8 @@ func _process(delta: float) -> void:
 		answer_chars = []
 		answer_counts = []
 		char_counts(answer, answer_chars, answer_counts)
-		possible_words = read_text("res://sgb-words.txt")
-		find_possible(possible_words, answer_chars, answer_counts)
+		possible_answers = read_text("res://sgb-words.txt")
+		find_possible(answer_chars, answer_counts)
 		
 		#scramble answer!!
 		var scram_answer = answer
@@ -125,8 +127,8 @@ func _process(delta: float) -> void:
 		#needs more work!!!!
 		#make so chars order doesnt matter
 		#check that word is real (prob using sgb-words)
-		for i in range(possible_words.size()):
-			if possible_words[i] == inputText.text:
+		for i in range(possible_answers.size()):
+			if possible_answers[i] == inputText.text:
 				new_word_needed = true
 				score = score + 1
 				scoreOutput.text = str(score)
