@@ -186,8 +186,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mqeai")
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=129260677]
 layout_mode = 2
 theme_override_font_sizes/font_size = 94
-text = "Word 
-Game"
+text = "Scrambled"
 horizontal_alignment = 1
 vertical_alignment = 1
 
