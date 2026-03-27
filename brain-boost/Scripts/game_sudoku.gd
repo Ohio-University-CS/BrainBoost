@@ -65,7 +65,12 @@ func selectButton(btn):
 # 
 func _process(delta: float) -> void:
 	
-	$TimerLabel.set_text(str(int($Timer.get_time_left())))
+	var timeLeft = $Timer.time_left
+	var minutes = floor(timeLeft / 60.0)
+	var seconds = int(timeLeft) % 60
+	# Format 
+	$TimerLabel.text = "%02d:%02d" % [minutes, seconds]
+	
 	
 	var input = {
 		"one": 1,"two": 2,"three": 3,"four": 4,"five": 5,"six": 6,"seven": 7,"eight": 8,"nine": 9,
