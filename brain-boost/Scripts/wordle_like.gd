@@ -84,6 +84,20 @@ func format_time(cur_time) -> String:
 	var secs = int(cur_time) % 60
 	return "%1d:%02d" % [mins, secs]
 
+func answer_found() -> void:
+	new_word_needed = true
+	score = score + 1
+	scoreOutput.text = str(score)
+	inputText.text = ""
+
+func end_game() -> void:
+	time = 0
+	countdownActive = false;
+	inputText.text = ""
+	timeText.text = "0:00"
+	popUp.show()
+	finalScore.text = "Final Score: " + str(score)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scoreOutput.text = str(score)
@@ -105,13 +119,8 @@ func _process(delta: float) -> void:
 		time -= delta
 		timeText.text = format_time(time)
 	else:
-		#end game
-		time = 0
-		countdownActive = false;
-		inputText.text = ""
-		timeText.text = "0:00"
-		popUp.show()
-		finalScore.text = "Final Score: " + str(score)
+		end_game()
+		
 	if new_word_needed:
 		answer = words[randi() % words.size()]
 		
@@ -138,10 +147,7 @@ func _process(delta: float) -> void:
 		
 		for i in range(possible_answers.size()):
 			if possible_answers[i] == inputText.text:
-				new_word_needed = true
-				score = score + 1
-				scoreOutput.text = str(score)
-				inputText.text = ""
+				answer_found()
 
 func _on_exit_button_button_up() -> void:
 	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
