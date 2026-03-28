@@ -53,12 +53,12 @@ func char_counts(word, chars: Array, counts: Array):
 					counts[j] += 1
 
 #make so chars order doesnt matter
-func find_possible(chars: Array, counts: Array):
+func find_possible(all_words: Array, chars: Array, counts: Array) -> Array[String]:
 	var new_answers : Array[String]
-	for i in range(possible_answers.size()):
+	for i in range(all_words.size()):
 		var item_chars = []
 		var item_counts = []
-		char_counts(possible_answers[i], item_chars, item_counts)
+		char_counts(all_words[i], item_chars, item_counts)
 		
 		var sameChars = true
 		for j in range(item_chars.size()):
@@ -66,9 +66,9 @@ func find_possible(chars: Array, counts: Array):
 				sameChars = false
 		
 		if sameChars and item_counts == counts:
-			new_answers.append(possible_answers[i])
+			new_answers.append(all_words[i])
 	
-	possible_answers = new_answers
+	return new_answers
 
 func scramble(new_answer, index = (randi() % (new_answer.length() - 1)) + 1) -> String:
 	var scram_answer = new_answer
@@ -79,7 +79,7 @@ func scramble(new_answer, index = (randi() % (new_answer.length() - 1)) + 1) -> 
 	
 	return scram_answer
 	
-static func format_time(cur_time) -> String:
+func format_time(cur_time) -> String:
 	var mins = floor(cur_time /60)
 	var secs = int(cur_time) % 60
 	return "%1d:%02d" % [mins, secs]
@@ -120,7 +120,7 @@ func _process(delta: float) -> void:
 		answer_counts = []
 		char_counts(answer, answer_chars, answer_counts)
 		possible_answers = read_text("res://sgb-words.txt")
-		find_possible(answer_chars, answer_counts)
+		find_possible(possible_answers, answer_chars, answer_counts)
 		
 		var scram_answer = scramble(answer)
 		text.text = scram_answer
