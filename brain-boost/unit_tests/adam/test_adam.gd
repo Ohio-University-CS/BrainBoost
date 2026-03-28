@@ -2,12 +2,7 @@ extends GutTest
 
 var Scram = preload("res://Scripts/wordle_like.gd").new()
 
-# ════════════════════════════════════════════════════════════
-# TEST 1 — char_counts()
-# Verifies that characters and their frequencies are recorded
-# correctly across normal words, repeated letters, and
-# single-character edge cases.
-# ════════════════════════════════════════════════════════════
+#char_counts()
 func test_char_counts_normal_word() -> void:
 	# Normal case: "hello" has h×1, e×1, l×2, o×1
 	var chars := []
@@ -49,11 +44,7 @@ func test_char_counts_empty_string() -> void:
 	assert_eq(chars.size(), 0,    "Empty string should produce no unique chars")
 	assert_eq(counts.size(), 0,   "Empty string should produce no counts")
 
-# ════════════════════════════════════════════════════════════
-# TEST 2 — find_possible()
-# Verifies that only anagrams of the target word survive the
-# filter, including degenerate lists and duplicate entries.
-# ════════════════════════════════════════════════════════════
+#find_possible()
 func test_find_possible_returns_anagrams_only() -> void:
 	# Normal case: "listen" anagrams include "enlist", "tinsel", "silent"
 	var target_chars := []
@@ -101,12 +92,7 @@ func test_find_possible_exact_match_included() -> void:
 	assert_true(result.has("heart"), "'heart' is an anagram of 'earth'")
 	assert_false(result.has("ocean"), "'ocean' is not an anagram of 'earth'")
  
-# ════════════════════════════════════════════════════════════
-# TEST 3 — scramble_word()
-# Verifies that the rotation-based scramble produces the
-# correct output, handles boundary indices, and preserves
-# all characters.
-# ════════════════════════════════════════════════════════════
+# scramble()
 func test_scramble_word_mid_index() -> void:
 	# Normal case: split "apple" at index 2 → "pleap"
 	Scram.scrambles = 1
@@ -137,11 +123,7 @@ func test_scramble_word_full_length_minus_one() -> void:
 	var result = Scram.scramble("abcde", 4)
 	assert_eq(result, "eabcd", "Index 4 should move last char to the front")
  
-# ════════════════════════════════════════════════════════════
-# TEST 4 — format_time()
-# Verifies minute/second formatting for normal gameplay time,
-# the boundary at exactly 0, and values just above zero.
-# ════════════════════════════════════════════════════════════
+#format_time()
 func test_format_time_full_five_minutes() -> void:
 	# Normal case: 300 s → "5:00"
 	assert_eq(Scram.format_time(300.0), "5:00",
