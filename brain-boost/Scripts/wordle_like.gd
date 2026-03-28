@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready var text: RichTextLabel = $ColorRect/RichTextLabel2
 @onready var inputText: LineEdit = $ColorRect/LineEdit
@@ -7,7 +7,8 @@ extends Control
 @onready var popUp: ColorRect = $GameEndPopUp
 @onready var finalScore: RichTextLabel = $"GameEndPopUp/Final Score"
 
-@export var countdown_time: float = 300
+@export var countdown_time: float = 300.0
+@export var scrambles: int = 1
 
 var time
 var words
@@ -59,10 +60,29 @@ func find_possible(chars: Array, counts: Array):
 		var item_counts = []
 		char_counts(possible_answers[i], item_chars, item_counts)
 		
-		if(item_chars == chars and item_counts == counts):
+		var sameChars = true
+		for j in range(item_chars.size()):
+			if !(chars.has(item_chars[j])):
+				sameChars = false
+		
+		if sameChars and item_counts == counts:
 			new_answers.append(possible_answers[i])
 	
 	possible_answers = new_answers
+
+func scramble(new_answer, index = (randi() % (new_answer.length() - 1)) + 1) -> String:
+	var scram_answer = new_answer
+	for i in range(scrambles):
+		var scram1 = new_answer.substr(0, index) 
+		var scram2 = new_answer.substr(index, new_answer.length())
+		scram_answer = scram2 + scram1
+	
+	return scram_answer
+	
+static func format_time(cur_time) -> String:
+	var mins = floor(cur_time /60)
+	var secs = int(cur_time) % 60
+	return "%1d:%02d" % [mins, secs]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -83,9 +103,7 @@ func _process(delta: float) -> void:
 	#check if time > 0
 	if (int(time) % 60) > 0 or floor(time /60) > 0:
 		time -= delta
-		var mins = floor(time /60)
-		var secs = int(time) % 60
-		timeText.text = "%1d:%02d" % [mins, secs]
+		timeText.text = format_time(time)
 	else:
 		#end game
 		time = 0
@@ -104,14 +122,9 @@ func _process(delta: float) -> void:
 		possible_answers = read_text("res://sgb-words.txt")
 		find_possible(answer_chars, answer_counts)
 		
-		#scramble answer!!
-		var scram_answer = answer
-		for i in range(1):
-			var index = (randi() % (answer.length() - 1)) + 1
-			var scram1 = answer.substr(0, index) 
-			var scram2 = answer.substr(index, answer.length())
-			scram_answer = scram2 + scram1
+		var scram_answer = scramble(answer)
 		text.text = scram_answer
+		
 		new_word_needed = false
 		
 		print(possible_answers)
