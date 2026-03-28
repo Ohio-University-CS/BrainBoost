@@ -51,6 +51,7 @@ func char_counts(word, chars: Array, counts: Array):
 				if ch == chars[j]:
 					counts[j] += 1
 
+#make so chars order doesnt matter
 func find_possible(chars: Array, counts: Array):
 	var new_answers : Array[String]
 	for i in range(possible_answers.size()):
@@ -62,7 +63,6 @@ func find_possible(chars: Array, counts: Array):
 			new_answers.append(possible_answers[i])
 	
 	possible_answers = new_answers
-	print(possible_answers)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -114,7 +114,7 @@ func _process(delta: float) -> void:
 		text.text = scram_answer
 		new_word_needed = false
 		
-		print(answer)
+		print(possible_answers)
 		print(answer_chars)
 		print(answer_counts)
 	else:
@@ -123,10 +123,6 @@ func _process(delta: float) -> void:
 		var input_counts = []
 		char_counts(inputText.text, input_chars, input_counts)
 		
-		#checks if input is possible word
-		#needs more work!!!!
-		#make so chars order doesnt matter
-		#check that word is real (prob using sgb-words)
 		for i in range(possible_answers.size()):
 			if possible_answers[i] == inputText.text:
 				new_word_needed = true
