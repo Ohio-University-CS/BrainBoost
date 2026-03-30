@@ -1,6 +1,6 @@
 extends Control
 
-# Child node reference — NOT an autoload
+# Child node references
 @onready var puzzle_gen  = $PuzzleGenerator
 @onready var start_label = $VBoxContainer/VBoxContainer/ColorRect/StartLabel
 @onready var chain_row   = $VBoxContainer/ChainRow
@@ -12,118 +12,103 @@ extends Control
 @onready var back_btn    = $TopBar/BackButton
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
-
-const START_WORDS = [
-  "air","arm","ant","back","ball","bat","bee","bell","bird","blue","book","car","cat","cave","chalk",
-  "check","chip","church","day","dead","death","door","down","ear","earth","egg","face","fair","farm",
-  "fast","fire","fish","foot","gate","gear","glass","goal","gold","grand","half","hand","hard","head",
-  "heart","hill","home","horse","hot","ice","in","iron","jail","jaw","jelly","jump","junk","key","kick",
-  "knee","knap","land","lap","lay","life","light","line","mail","main","man","marks","match","moon","mountain",
-  "mud","neck","net","night","note","off","out","paint","pan","paper","para","patch","pay","pin","pipe","pitch",
-  "plain","play","post","quarter","quick","rail","rain","race","road","roof","run","safe","sand","school",
-  "score", "sea","set","ship","shoe","show","side","table","tail","team","text","time","tooth","tool","turn",
-  "under","up","walk","ware","watch","water","web","week","well","wheel","white","wild","wind","wing","wood",
-  "work","world","year","your"
-
+var START_WORDS = [
+	"air"
 ]
 
-var current_puzzle: Dictionary = {}
+var current_puzzle: Array = []
 var player_chain: Array = []
+var start_word: String = ""
 
 func _ready():
 	check_btn.pressed.connect(check_chain)
 	new_btn.pressed.connect(new_puzzle)
-	undo_btn.pressed.connect(undo_last)
+	undo_btn.pressed.connect(reset_puzzle)
 	back_btn.pressed.connect(_on_back_pressed)
 	new_puzzle()
-	
 
-func new_puzzle():
-	player_chain = []
+
+func new_puzzle() -> void:
+	
 	feedback.text = "Loading..."
 	_set_buttons_disabled(true)
-
-	var start = START_WORDS[randi() % START_WORDS.size()]
-	current_puzzle = await puzzle_gen.generate_puzzle(start, 4)
-
+	start_word = START_WORDS[randi() % START_WORDS.size()]
+	current_puzzle = await puzzle_gen.generate_puzzle(start_word, 6)
 	_set_buttons_disabled(false)
-
 	if current_puzzle.is_empty():
 		feedback.text = "Couldn't build a puzzle — trying another word."
 		await get_tree().create_timer(1.5).timeout
 		new_puzzle()
 		return
-
+	player_chain = [start_word]
 	_render()
 
-func _render():
-	start_label.text = current_puzzle["start"]
+
+func _render() -> void:
 	feedback.text = ""
 
-	for c in chain_row.get_children(): c.queue_free()
+	# Reset all slots
+	for slot in get_tree().get_nodes_in_group("chain_slots"):
+		slot.set_meta("occupied", false)
+		slot.set_meta("occupying_tile", null)
+
+	# Clear and rebuild tile area
 	for c in tile_area.get_children():
 		tile_area.remove_child(c)
 		c.queue_free()
 
-	_add_chain_label(current_puzzle["start"], true)
-	for word in player_chain:
-		_add_arrow_label()
-		_add_chain_label(word, false)
-	if player_chain.size() < current_puzzle["solution"].size():
-		_add_arrow_label()
-		_add_empty_slot()
-		
-		
+	var start_word: String = current_puzzle[0]
+	var solution: Array = current_puzzle.slice(1)  # words the player must place
 
-	for word in current_puzzle["tiles"]:
+	start_label.text = start_word
+
+	for word in solution:
 		if player_chain.has(word):
 			continue
 		var tile: Control = WordTileScene.instantiate()
 		tile.setup(word)
 		tile_area.add_child(tile)
-		print("Added tile: ", word, " | tile_area child count: ", tile_area.get_child_count())
-		
-	print("Puzzle tiles: ", current_puzzle.get("tiles", []))
-func _add_chain_label(word: String, is_start: bool):
-	return
+		tile.tile_placed.connect(_on_tile_placed)
+		tile.tile_removed.connect(_on_tile_removed)
+		tile.add_to_group("active_tiles")  # ← add this
 
-func _add_arrow_label():
-	return
 
-func _add_empty_slot():
-	var lbl = Label.new()
-	lbl.text = "[ ? ]"
-	lbl.add_theme_color_override("font_color", Color(0.4, 0.4, 0.4))
-	chain_row.add_child(lbl)
 
-func _on_tile_pressed(word: String):
+func _on_tile_placed(word: String) -> void:
 	player_chain.append(word)
+
+func check_chain() -> void:
+	print(player_chain)
+	print(current_puzzle)
+	var full = player_chain
+	if range(full.size() - 1) == range(current_puzzle.size() - 1):
+		feedback.text = "chain finished"
+		for i in range(full.size() - 1):
+			if full[i] != current_puzzle[i]:
+				feedback.text = 'Try again!'
+				return
+		feedback.text = "Perfect chain!"
+		feedback.add_theme_color_override("font_color", Color(0.2, 0.8, 0.45))
+	else:
+		feedback.text = "Puzzle not finished yet!"
+
+func reset_puzzle() -> void:
+	if player_chain.is_empty():
+		return
+	player_chain = [start_word]
+	# Free any tiles that were reparented to root during dragging
+	for tile in get_tree().get_nodes_in_group("active_tiles"):
+		tile.queue_free()
 	_render()
-	if player_chain.size() == current_puzzle["solution"].size():
-		check_chain()
 
-func check_chain():
-	var full = [current_puzzle["start"]] + player_chain
-	for i in range(full.size() - 1):
-		if not puzzle_gen.is_valid_pair(full[i], full[i + 1]):
-			feedback.text = '"%s" + "%s" is not a valid pair. Try again!' \
-				% [full[i], full[i + 1]]
-			feedback.add_theme_color_override("font_color", Color(0.9, 0.3, 0.3))
-			player_chain = []
-			_render()
-			return
-	feedback.text = "Perfect chain!"
-	feedback.add_theme_color_override("font_color", Color(0.2, 0.8, 0.45))
+func _on_tile_removed(word: String) -> void:
+	player_chain.erase(word)
+	print("player_chain after removal: ", player_chain)
 
-func undo_last():
-	if player_chain.is_empty(): return
-	player_chain.pop_back()
-	_render()
-
-func _set_buttons_disabled(val: bool):
+func _set_buttons_disabled(val: bool) -> void:
 	check_btn.disabled = val
 	new_btn.disabled   = val
 	undo_btn.disabled  = val
 
-func _on_back_pressed():
+func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")

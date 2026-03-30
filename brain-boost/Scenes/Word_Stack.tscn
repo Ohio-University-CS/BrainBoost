@@ -150,7 +150,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=273578374]
+[node name="SnapRect" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=273578374 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -176,7 +176,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect2" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=5166303]
+[node name="SnapRect2" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=5166303 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -202,7 +202,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect3" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1372930441]
+[node name="SnapRect3" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1372930441 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -228,7 +228,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect4" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=757148928]
+[node name="SnapRect4" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=757148928 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -254,7 +254,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect5" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1625773092]
+[node name="SnapRect5" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1625773092 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -280,7 +280,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect6" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=238938876]
+[node name="SnapRect6" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=238938876 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
 size_flags_horizontal = 0
