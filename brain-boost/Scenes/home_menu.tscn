@@ -199,7 +199,7 @@ theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("4_p3ope")
 theme_override_font_sizes/font_size = 94
 theme_override_styles/focus = SubResource("StyleBoxTexture_mx5gi")
-text = "SUDOKU"
+text = "Sudoku"
 horizontal_alignment = 1
 vertical_alignment = 1
 

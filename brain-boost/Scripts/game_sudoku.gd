@@ -159,3 +159,17 @@ func _on_timer_timeout() -> void:
 	$Victory.text = "Time's Up"
 	$ColorRect.color = Color.RED
 	$CenterContainer/GridContainer.hide()
+	$ReplayButton.text = "Replay"
+
+
+func _on_replay_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Sudoku.tscn")
+	
+	$StartButton.emit_signal("pressed")
+	
+	#$ReplayButton.hide()
+	#$Victory.hide()
+	#$ColorRect.color = Color(0.102, 0.102, 0.18)
+	#$Timer.start()
+	#boardData.fill(0)
+	#$CenterContainer/GridContainer.show()
