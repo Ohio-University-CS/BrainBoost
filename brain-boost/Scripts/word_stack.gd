@@ -70,27 +70,39 @@ func _render() -> void:
 		tile_area.add_child(tile)
 		tile.tile_placed.connect(_on_tile_placed)
 		tile.tile_removed.connect(_on_tile_removed)
-		tile.add_to_group("active_tiles")  # ← add this
+		tile.add_to_group("active_tiles")
 
 
 
 func _on_tile_placed(word: String) -> void:
-	player_chain.append(word)
+	print("Tile placed: ", word)
+
+func _on_tile_removed(word: String) -> void:
+	print("Tile removed: ", word)
 
 func check_chain() -> void:
-	print(player_chain)
-	print(current_puzzle)
-	var full = player_chain
-	if range(full.size() - 1) == range(current_puzzle.size() - 1):
-		feedback.text = "chain finished"
-		for i in range(full.size() - 1):
-			if full[i] != current_puzzle[i]:
-				feedback.text = 'Try again!'
-				return
-		feedback.text = "Perfect chain!"
-		feedback.add_theme_color_override("font_color", Color(0.2, 0.8, 0.45))
-	else:
+	var slots = get_tree().get_nodes_in_group("chain_slots")
+	slots.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
+	
+	player_chain = [start_word]
+	for slot in slots:
+		if slot.get_meta("occupied", false) and slot.has_meta("occupying_tile"):
+			var tile = slot.get_meta("occupying_tile")
+			if tile != null:
+				player_chain.append(tile.word)
+
+	print("Chain built from slots: ", player_chain)
+
+	if player_chain.size() < current_puzzle.size() - 1:
 		feedback.text = "Puzzle not finished yet!"
+		return
+
+	for i in range(player_chain.size()):
+		if not player_chain[i] == current_puzzle[i]:
+			feedback.text = "Try again!"
+		else:
+			feedback.text = "Perfect chain!"
+			feedback.add_theme_color_override("font_color", Color(0.2, 0.8, 0.45))
 
 func reset_puzzle() -> void:
 	if player_chain.is_empty():
@@ -101,9 +113,7 @@ func reset_puzzle() -> void:
 		tile.queue_free()
 	_render()
 
-func _on_tile_removed(word: String) -> void:
-	player_chain.erase(word)
-	print("player_chain after removal: ", player_chain)
+
 
 func _set_buttons_disabled(val: bool) -> void:
 	check_btn.disabled = val

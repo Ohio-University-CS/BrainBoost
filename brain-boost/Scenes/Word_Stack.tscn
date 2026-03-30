@@ -67,7 +67,8 @@ text = "Check"
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Undo"
+text = "Reset
+"
 
 [node name="NewButton" type="Button" parent="Buttons" unique_id=1124597212]
 custom_minimum_size = Vector2(300, 200)

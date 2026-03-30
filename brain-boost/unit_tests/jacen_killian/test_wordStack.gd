@@ -40,10 +40,6 @@ func test_new_puzzle():
 		fail_test("Error: should have detected empty START_WORDS")
 	game.START_WORDS = original
 
-# ─────────────────────────────────────────────
-# test_render
-# ─────────────────────────────────────────────
-
 func test_render():
 	# Normal: tile_area has correct number of tiles after render
 	await game.new_puzzle()
@@ -74,38 +70,48 @@ func test_render():
 	assert_true(errored,
 		"Error: render should detect empty puzzle and skip gracefully")
 
-# ─────────────────────────────────────────────
-# test_chain_check
-# ─────────────────────────────────────────────
 
 func test_chain_check():
 	await game.new_puzzle()
 	await get_tree().process_frame
 
-	# Normal: correct full chain returns Perfect chain
-	game.player_chain = game.current_puzzle
+	var solution = game.current_puzzle.slice(1)
+	var slots = game.get_tree().get_nodes_in_group("chain_slots")
+	slots.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
+
+	# Normal: all slots filled with correct words — should return Perfect chain
+	for i in range(solution.size()):
+		var tile = load("res://Scenes/Word_Tile.tscn").instantiate()
+		add_child(tile)
+		await get_tree().process_frame
+		tile.word = solution[i]
+		slots[i].set_meta("occupied", true)
+		slots[i].set_meta("occupying_tile", tile)
 	game.check_chain()
 	assert_eq(game.feedback.text, "Perfect chain!",
 		"Normal: correct full chain should return Perfect chain")
 
 	# Edge: correct length but all wrong words — should fail validation
-	var solution = game.current_puzzle.slice(1)
-	game.player_chain = [game.start_word]
 	for i in range(solution.size()):
-		game.player_chain.append("zzzzz")
+		var tile = load("res://Scenes/Word_Tile.tscn").instantiate()
+		add_child(tile)
+		await get_tree().process_frame
+		tile.word = "zzzzz"
+		slots[i].set_meta("occupied", true)
+		slots[i].set_meta("occupying_tile", tile)
 	game.check_chain()
 	assert_ne(game.feedback.text, "Perfect chain!",
 		"Edge: wrong words of correct length should not pass")
+		
 
-	# Error: empty player_chain — should flag puzzle as unfinished
-	game.player_chain = [game.start_word]
+	# Error: no slots filled — should flag puzzle as unfinished
+	for slot in slots:
+		slot.set_meta("occupied", false)
+		slot.set_meta("occupying_tile", null)
 	game.check_chain()
 	assert_eq(game.feedback.text, "Puzzle not finished yet!",
-		"Error: empty player_chain should flag puzzle as unfinished")
-
-# ─────────────────────────────────────────────
-# test_reset
-# ─────────────────────────────────────────────
+		"Error: empty slots should flag puzzle as unfinished")
+	
 
 func test_reset():
 	await game.new_puzzle()
@@ -143,43 +149,56 @@ func test_reset():
 		crashed = false
 	assert_false(crashed,
 		"Error: reset before puzzle generated should not crash")
+	
 
-# ─────────────────────────────────────────────
-# test_tile_placed
-# ─────────────────────────────────────────────
+
 
 func test_tile_placed():
 	await game.new_puzzle()
 	await get_tree().process_frame
 
-	# Normal: placing a tile appends its word to player_chain
 	var solution = game.current_puzzle.slice(1)
-	game._on_tile_placed(solution[0])
-	assert_eq(game.player_chain.size(), 2,
-		"Normal: player_chain should have one word after placing one tile")
-	assert_eq(game.player_chain[1], solution[0],
-		"Normal: placed word should match the tile's word")
+	var slots = game.get_tree().get_nodes_in_group("chain_slots")
+	slots.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
 
-	# Edge: moving a tile from one slot to another removes and re-adds it
-	# Simulate tile being picked up from slot (removes from chain)
-	game._on_tile_removed(solution[0])
-	assert_false(game.player_chain.has(solution[0]),
-		"Edge: word should be removed from player_chain when tile is picked up")
-	# Simulate tile being dropped into a new slot (re-adds to chain)
-	game._on_tile_placed(solution[0])
+	# Normal: placing a tile in a slot and checking builds player_chain correctly
+	var slot = slots[0]
+	# Create a real tile and put it in the slot
+	var tile = load("res://Scenes/Word_Tile.tscn").instantiate()
+	add_child(tile)
+	await get_tree().process_frame
+	tile.word = solution[0]
+	slot.set_meta("occupied", true)
+	slot.set_meta("occupying_tile", tile)
+	game.check_chain()
 	assert_true(game.player_chain.has(solution[0]),
-		"Edge: word should be re-added to player_chain when dropped in new slot")
+		"Normal: word in slot should appear in player_chain after check_chain")
+	assert_eq(game.player_chain.size(), 2,
+		"Normal: player_chain should have one entry for one filled slot")
+
+	# Edge: moving tile to a different slot updates player_chain order
+	# Remove from first slot
+	slot.set_meta("occupied", false)
+	slot.set_meta("occupying_tile", null)
+	# Place in second slot instead
+	var slot2 = slots[1]
+	slot2.set_meta("occupied", true)
+	slot2.set_meta("occupying_tile", tile)
+	game.check_chain()
+	assert_true(game.player_chain.has(solution[0]),
+		"Edge: word should still appear in player_chain after moving to new slot")
 	assert_eq(game.player_chain.size(), 2,
 		"Edge: player_chain should still only have one entry after move")
+	# Confirm it was read from slot2 position not slot1
+	assert_eq(game.player_chain[1], solution[0],
+		"Edge: word should match the tile in the new slot position")
 
-	# Error: placing a tile on an occupied slot should not change player_chain
-	var slots = game.get_tree().get_nodes_in_group("chain_slots")
-	if slots.size() > 0:
-		var slot = slots[0]
-		slot.set_meta("occupied", true)
-		slot.set_meta("occupying_tile", solution[0])
-		var previous_chain = game.player_chain.duplicate()
-		if slot.get_meta("occupied", false):
-			pass
-		assert_eq(game.player_chain, previous_chain,
-			"Error: placing a tile on an occupied slot should not change player_chain")
+	# Error: occupied slot with no valid tile reference — check_chain skips it
+	slot2.set_meta("occupied", true)
+	slot2.set_meta("occupying_tile", null)  # occupied but no tile reference
+	game.check_chain()
+	assert_false(game.player_chain.has(solution[0]),
+		"Error: slot marked occupied but null tile should be skipped in chain build")
+
+	# Cleanup
+	tile.queue_free()
