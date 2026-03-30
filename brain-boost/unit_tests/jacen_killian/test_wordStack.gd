@@ -20,7 +20,7 @@ func test_new_puzzle():
 		"Normal: current_puzzle should not be empty")
 	assert_true(game.current_puzzle.size() > 1,
 		"Normal: puzzle should have start word plus at least one solution word")
-	assert_eq(game.player_chain, [],
+	assert_eq(game.player_chain, [game.start_word],
 		"Normal: player_chain should be empty after new puzzle")
 
 	# Edge: start word with no valid chain returns empty and retries gracefully
@@ -83,14 +83,14 @@ func test_chain_check():
 	await get_tree().process_frame
 
 	# Normal: correct full chain returns Perfect chain
-	game.player_chain = game.current_puzzle.slice(1).duplicate()
+	game.player_chain = game.current_puzzle
 	game.check_chain()
 	assert_eq(game.feedback.text, "Perfect chain!",
 		"Normal: correct full chain should return Perfect chain")
 
 	# Edge: correct length but all wrong words — should fail validation
 	var solution = game.current_puzzle.slice(1)
-	game.player_chain = []
+	game.player_chain = [game.start_word]
 	for i in range(solution.size()):
 		game.player_chain.append("zzzzz")
 	game.check_chain()
@@ -98,7 +98,7 @@ func test_chain_check():
 		"Edge: wrong words of correct length should not pass")
 
 	# Error: empty player_chain — should flag puzzle as unfinished
-	game.player_chain = []
+	game.player_chain = [game.start_word]
 	game.check_chain()
 	assert_eq(game.feedback.text, "Puzzle not finished yet!",
 		"Error: empty player_chain should flag puzzle as unfinished")
@@ -115,7 +115,7 @@ func test_reset():
 	game.player_chain = game.current_puzzle.slice(1).duplicate()
 	game.reset_puzzle()
 	await get_tree().process_frame
-	assert_eq(game.player_chain, [],
+	assert_eq(game.player_chain, [game.start_word],
 		"Normal: player_chain should be empty after reset")
 	var expected = game.current_puzzle.size() - 1
 	assert_eq(game.tile_area.get_child_count(), expected,
@@ -125,10 +125,10 @@ func test_reset():
 			"Normal: all slots should be unoccupied after reset")
 
 	# Edge: reset called when nothing has been placed — should be a safe no-op
-	game.player_chain = []
+	game.player_chain = [game.start_word]
 	game.reset_puzzle()
 	await get_tree().process_frame
-	assert_eq(game.player_chain, [],
+	assert_eq(game.player_chain, [game.start_word],
 		"Edge: player_chain should still be empty after reset with nothing placed")
 	assert_eq(game.tile_area.get_child_count(), expected,
 		"Edge: tile count should be unchanged after reset with nothing placed")
@@ -155,9 +155,9 @@ func test_tile_placed():
 	# Normal: placing a tile appends its word to player_chain
 	var solution = game.current_puzzle.slice(1)
 	game._on_tile_placed(solution[0])
-	assert_eq(game.player_chain.size(), 1,
+	assert_eq(game.player_chain.size(), 2,
 		"Normal: player_chain should have one word after placing one tile")
-	assert_eq(game.player_chain[0], solution[0],
+	assert_eq(game.player_chain[1], solution[0],
 		"Normal: placed word should match the tile's word")
 
 	# Edge: moving a tile from one slot to another removes and re-adds it
@@ -169,7 +169,7 @@ func test_tile_placed():
 	game._on_tile_placed(solution[0])
 	assert_true(game.player_chain.has(solution[0]),
 		"Edge: word should be re-added to player_chain when dropped in new slot")
-	assert_eq(game.player_chain.size(), 1,
+	assert_eq(game.player_chain.size(), 2,
 		"Edge: player_chain should still only have one entry after move")
 
 	# Error: placing a tile on an occupied slot should not change player_chain
