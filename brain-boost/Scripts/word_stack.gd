@@ -2,14 +2,14 @@ extends Control
 
 # Child node references
 @onready var puzzle_gen  = $PuzzleGenerator
-@onready var start_label = $VBoxContainer/VBoxContainer/ColorRect/StartLabel
-@onready var tile_area   = $Tile_Area
-@onready var feedback    = $VBoxContainer/Feedback
-@onready var check_btn   = $Buttons/CheckButton
-@onready var new_btn     = $Buttons/NewButton
-@onready var undo_btn    = $Buttons/UndoButton
-@onready var back_btn    = $TopBar/Panel/BackButton
-@onready var label       = $TopBar/Panel/Label
+@onready var start_label = $Container/Panel/VBoxContainer2/ColorRect/StartLabel
+@onready var tile_area   = $Container/VBoxContainer/Tile_Area
+@onready var feedback    = $FeedBack
+@onready var check_btn   = $Container/Buttons/CheckButton
+@onready var new_btn     = $Container/Buttons/NewButton
+@onready var undo_btn    = $Container/Buttons/UndoButton
+@onready var back_btn    = $Container/TopBar/Panel/BackButton
+@onready var label       = $Container/TopBar/Panel/Label
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 var START_WORDS = [
@@ -84,6 +84,7 @@ func _render() -> void:
 		tile.tile_placed.connect(_on_tile_placed)
 		tile.tile_removed.connect(_on_tile_removed)
 		tile.add_to_group("active_tiles")
+		
 
 
 

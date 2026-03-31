@@ -17,6 +17,7 @@ func setup(w: String) -> void:
 	word = w
 	if is_inside_tree() and txt:
 		txt.text = w
+		
 	else:
 		call_deferred("_deferred_setup", w)
 
@@ -53,10 +54,20 @@ func _try_snap() -> void:
 		snapped_slot = best_slot
 		best_slot.set_meta("occupied", true)
 		best_slot.set_meta("occupying_tile", self)
+		size = Vector2(721, 99)
+		$Rect.size = Vector2(721, 99)
+		$Rect/RichTextLabel.size = Vector2(721, 99)
 		global_position = best_slot.global_position + (best_slot.size - size) / 2
 		emit_signal("tile_placed", word)
+		
+		
 	else:
 		# Return to home — reparent back to original tile_area and reset position
+		
+		size = Vector2(466, 99)
+		$Rect.size = Vector2(466, 99)
+		$Rect/RichTextLabel.size = Vector2(466, 99)
+		
 		var root = get_tree().root
 		root.remove_child(self)
 		home_parent.add_child(self)
