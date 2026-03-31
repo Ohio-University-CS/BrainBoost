@@ -16,7 +16,9 @@ BrainBoost is a mobile application designed to replace the habit of mindless "do
 <img width="400" height="500" alt="Screenshot 2026-03-31 124506" src="https://github.com/user-attachments/assets/5486597f-2b73-47d3-8b16-34771f6f3c14" />
 
 
+
 🚀 Features
+
 Diverse Game Library: Multiple logic puzzles designed for cognitive health.
 
 Quick-Play Design: Sessions are designed to be fast, allowing you to jump in and out instantly.
@@ -27,7 +29,20 @@ Offline Mode: Play your favorite brain teasers without needing an internet conne
 
 Clean UI: Minimalist, distraction-free interface to keep the focus on the gameplay.
 
+
+🕹️ How to Play
+Launch BrainBoost from your app drawer.
+
+Select a Game from the main menu (Sudoku, Word Hunt, or Pattern Matching).
+
+Complete the Puzzle as fast as you can to boost your daily stats!
+
+Check your Progress on the main dashboard to see your current streak.
+
+
+
 🎮 Games Included
+
 Sudoku Classic: 9x9 logic-based number placement puzzles.
 
 Word Hunt: Find hidden words in a grid to expand your vocabulary.
@@ -35,6 +50,7 @@ Word Hunt: Find hidden words in a grid to expand your vocabulary.
 Pattern Matching: A fast-paced game to test and improve your short-term memory and visual processing.
 
 🛠️ Tech Stack
+
 Engine: Godot 4.x
 
 Scripting: GDScript
@@ -43,7 +59,10 @@ Target Platform: Android (.apk)
 
 Version Control: Git + GitHub
 
+
+
 📦 Installation & Deployment
+
 To install BrainBoost on your Android device:
 
 Download the APK: Navigate to the Releases page.
@@ -56,7 +75,9 @@ Note: You may need to enable "Install from Unknown Sources" in your Android secu
 
 Play: Launch the app and start strengthening your brain!
 
+
 🏗️ Development & Testing
+
 To run the source code locally:
 
 Clone the repository:
@@ -67,7 +88,9 @@ Open Godot 4.x and import project.godot.
 
 Unit Tests: To view or run tests for specific modules (e.g., the Pattern Game), navigate to the unit_tests/ directory within the Godot editor.
 
+
 👥 The Team
+
 Abby Gorrell – Pattern Game Logic, Unit Testing, & Documentation
 
 Jacen Killian – Release Management & Lead Development
