@@ -110,3 +110,7 @@ Jacen Killian – Release Management & Lead Development
 Adam Ghose – Word Hunt Mechanics & Game Logic
 
 Caden Rogers – UI/UX Design & Sudoku Implementation
+
+
+🤝 Contributions
+This project was developed as a collaborative effort. We utilized GitHub Issues for task tracking and Pull Requests for code reviews to ensure a stable main branch.
