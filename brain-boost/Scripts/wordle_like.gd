@@ -129,7 +129,7 @@ func _process(delta: float) -> void:
 		answer_counts = []
 		char_counts(answer, answer_chars, answer_counts)
 		possible_answers = read_text("res://sgb-words.txt")
-		find_possible(possible_answers, answer_chars, answer_counts)
+		possible_answers = find_possible(possible_answers, answer_chars, answer_counts)
 		
 		var scram_answer = scramble(answer)
 		text.text = scram_answer
