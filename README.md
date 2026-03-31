@@ -5,6 +5,14 @@ BrainBoost is a mobile application designed to replace the habit of mindless "do
 
 <img width="400" height="500" alt="Screenshot 2026-03-31 124100" src="https://github.com/user-attachments/assets/83cb1138-4288-4857-9cd9-3196fe55ad3a" />
 
+<img width="400" height="500" alt="Screenshot 2026-03-31 124256" src="https://github.com/user-attachments/assets/fadec393-24d8-4f2a-aca0-15c8f7c3cabe" />
+
+<img width="400" height="500" alt="Screenshot 2026-03-31 124333" src="https://github.com/user-attachments/assets/856afc91-5b22-4cee-9543-29f39653e70a" />
+
+<img width="400" height="500" alt="Screenshot 2026-03-31 124420" src="https://github.com/user-attachments/assets/6cd01437-4df9-46e0-a0bd-d0ea612cc7ac" />
+
+<img width="400" height="500" alt="Screenshot 2026-03-31 124506" src="https://github.com/user-attachments/assets/5486597f-2b73-47d3-8b16-34771f6f3c14" />
+
 
 🚀 Features
 Diverse Game Library: Multiple logic puzzles designed for cognitive health.
