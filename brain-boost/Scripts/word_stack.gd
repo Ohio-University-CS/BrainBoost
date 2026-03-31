@@ -10,6 +10,7 @@ extends Control
 @onready var new_btn     = $Buttons/NewButton
 @onready var undo_btn    = $Buttons/UndoButton
 @onready var back_btn    = $TopBar/BackButton
+@onready var label       = $TopBar/Label
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 var START_WORDS = [
@@ -19,6 +20,7 @@ var START_WORDS = [
 var current_puzzle: Array = []
 var player_chain: Array = []
 var start_word: String = ""
+var elapsed_seconds: float = 0
 
 func _ready():
 	check_btn.pressed.connect(check_chain)
@@ -26,7 +28,19 @@ func _ready():
 	undo_btn.pressed.connect(reset_puzzle)
 	back_btn.pressed.connect(_on_back_pressed)
 	new_puzzle()
+	elapsed_seconds = 0
+	
 
+
+
+func _process(delta: float) -> void:
+	elapsed_seconds += delta
+	label.text = format_time(int(elapsed_seconds))
+
+func format_time(seconds: int) -> String:
+	var minutes = seconds / 60
+	var secs = seconds % 60
+	return "%02d:%02d" % [minutes, secs]
 
 func new_puzzle() -> void:
 	
