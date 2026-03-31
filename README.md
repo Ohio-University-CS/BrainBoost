@@ -72,7 +72,7 @@ Version Control: Git + GitHub
 
 To install BrainBoost on your Android device:
 
-Download the APK: Navigate to the Releases page.
+Download the APK: Navigate to the Releases page. (https://github.com/Ohio-University-CS/BrainBoost/releases/latest)
 
 Select Latest Version: Download the BrainBoost_Alpha_v1.apk (or the most recent version available).
 
