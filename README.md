@@ -1,6 +1,8 @@
 
 BrainBoost 🧠
+
 Stop Scrolling. Start Strengthening.
+
 BrainBoost is a mobile application designed to replace the habit of mindless "doom-scrolling" with quick, engaging, and cognitively stimulating mini-games. Whether you have 5 or 10 minutes, BrainBoost helps you stay sharp during your free time.
 
 <img width="400" height="500" alt="Screenshot 2026-03-31 124100" src="https://github.com/user-attachments/assets/83cb1138-4288-4857-9cd9-3196fe55ad3a" />
