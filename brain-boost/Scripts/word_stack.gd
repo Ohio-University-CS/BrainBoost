@@ -121,4 +121,5 @@ func _set_buttons_disabled(val: bool) -> void:
 	undo_btn.disabled  = val
 
 func _on_back_pressed() -> void:
+	reset_puzzle()
 	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
