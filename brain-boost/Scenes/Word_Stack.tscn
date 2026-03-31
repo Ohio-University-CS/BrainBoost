@@ -5,6 +5,64 @@
 [ext_resource type="Texture2D" uid="uid://dwip8c1ravemo" path="res://Textures/arrow-small-down.svg" id="3_flbnf"]
 [ext_resource type="Texture2D" uid="uid://bue5dmjqawkyq" path="res://Textures/home.svg" id="3_pnuqk"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kly06"]
+border_blend = true
+shadow_color = Color(0, 0, 0, 0.30588236)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7i1l"]
+content_margin_left = 12.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmyuw"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olkqw"]
+bg_color = Color(0.9694374, 0.7343868, 0.10274724, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnuqk"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a4y4"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rwyv"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul71a"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h605f"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gb3ps"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
 [node name="WordStack" type="Control" unique_id=243639161]
 layout_mode = 3
 anchors_preset = 15
@@ -44,35 +102,33 @@ vertical = true
 [node name="Buttons" type="HBoxContainer" parent="." unique_id=807816542]
 z_index = 2
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -523.0
-offset_top = -200.0
-offset_right = 523.0
+offset_left = -4.0
+offset_top = -150.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 10
-theme_override_constants/separation = 23
 
 [node name="CheckButton" type="Button" parent="Buttons" unique_id=245579611]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(360, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Check"
 
 [node name="UndoButton" type="Button" parent="Buttons" unique_id=1225775925]
-custom_minimum_size = Vector2(400, 200)
+custom_minimum_size = Vector2(360, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Reset
 "
 
 [node name="NewButton" type="Button" parent="Buttons" unique_id=1124597212]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(360, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "New Game"
@@ -81,234 +137,241 @@ text = "New Game"
 layout_mode = 0
 offset_top = -2.0
 offset_right = 1080.0
-offset_bottom = 79.0
+offset_bottom = 123.0
 
-[node name="BackButton" type="Button" parent="TopBar" unique_id=1363966669]
-custom_minimum_size = Vector2(100, 100)
+[node name="Panel" type="Panel" parent="TopBar" unique_id=497948882]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_kly06")
+
+[node name="Label" type="Label" parent="TopBar/Panel" unique_id=1663400679]
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -54.5
+offset_bottom = 54.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7i1l")
+text = "00:00"
+
+[node name="BackButton" type="Button" parent="TopBar/Panel" unique_id=1363966669]
+custom_minimum_size = Vector2(120, 110)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -55.0
+offset_right = 120.0
+offset_bottom = 55.0
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmyuw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cmyuw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmyuw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cmyuw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_cmyuw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cmyuw")
 text = "
 "
 icon = ExtResource("3_pnuqk")
 flat = true
 expand_icon = true
 
-[node name="Label" type="Label" parent="TopBar" unique_id=1663400679]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 45
-text = "
-00:00"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1978356789]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -260.5
-offset_top = -815.0
-offset_right = 260.5
-offset_bottom = 815.0
+offset_top = -816.0
+offset_bottom = 668.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=77925465]
 layout_mode = 2
-size_flags_horizontal = 6
-theme_override_constants/separation = 90
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 75
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1457188180]
-custom_minimum_size = Vector2(521, 99)
+[node name="ColorRect" type="Panel" parent="VBoxContainer/VBoxContainer" unique_id=1658236271]
+custom_minimum_size = Vector2(521, 198)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
-color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_olkqw")
 
 [node name="StartLabel" type="Label" parent="VBoxContainer/VBoxContainer/ColorRect" unique_id=719978202]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -106.0
-offset_top = -49.5
-offset_right = 106.0
-offset_bottom = 49.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/ColorRect" unique_id=1525940740]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 45.5
-offset_right = 50.0
-offset_bottom = 145.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 81.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=273578374 groups=["chain_slots"]]
+[node name="SnapRect" type="Panel" parent="VBoxContainer/VBoxContainer" unique_id=2076586005 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pnuqk")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect" unique_id=754075855]
-custom_minimum_size = Vector2(100, 100)
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect" unique_id=1469964882]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 45.5
-offset_right = 50.0
-offset_bottom = 145.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 81.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect2" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=5166303 groups=["chain_slots"]]
+[node name="SnapRect2" type="Panel" parent="VBoxContainer/VBoxContainer" unique_id=1572369191 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7a4y4")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect2" unique_id=540883929]
-custom_minimum_size = Vector2(100, 100)
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect2" unique_id=1071935870]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 45.5
-offset_right = 50.0
-offset_bottom = 145.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 81.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect3" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1372930441 groups=["chain_slots"]]
+[node name="SnapRect3" type="Panel" parent="VBoxContainer/VBoxContainer" unique_id=626311857 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6rwyv")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect3" unique_id=1059817517]
-custom_minimum_size = Vector2(100, 100)
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect3" unique_id=359432872]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 45.5
-offset_right = 50.0
-offset_bottom = 145.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 81.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect4" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=757148928 groups=["chain_slots"]]
+[node name="SnapRect4" type="Panel" parent="VBoxContainer/VBoxContainer" unique_id=1007851676 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ul71a")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect4" unique_id=167282210]
-custom_minimum_size = Vector2(100, 100)
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect4" unique_id=1651980825]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 45.5
-offset_right = 50.0
-offset_bottom = 145.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 81.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect5" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=1625773092 groups=["chain_slots"]]
+[node name="SnapRect5" type="Panel" parent="VBoxContainer/VBoxContainer" unique_id=2091090354 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_h605f")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect5" unique_id=338482084]
-custom_minimum_size = Vector2(100, 100)
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/SnapRect5" unique_id=470387337]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 45.5
-offset_right = 50.0
-offset_bottom = 145.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 81.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_flbnf")
 expand_mode = 5
 
-[node name="SnapRect6" type="ColorRect" parent="VBoxContainer/VBoxContainer" unique_id=238938876 groups=["chain_slots"]]
+[node name="SnapRect6" type="Panel" parent="VBoxContainer/VBoxContainer" unique_id=151591865 groups=["chain_slots"]]
 custom_minimum_size = Vector2(521, 99)
 layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0.27752772, 0.27752772, 0.27752772, 1)
-
-[node name="ChainRow" type="HBoxContainer" parent="VBoxContainer" unique_id=316141141]
-custom_minimum_size = Vector2(0, 52)
-layout_mode = 2
-size_flags_vertical = 10
-size_flags_stretch_ratio = 9.01
-theme_override_constants/separation = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_gb3ps")
 
 [node name="Feedback" type="Label" parent="VBoxContainer" unique_id=1804483359]
 custom_minimum_size = Vector2(0, 28)
@@ -317,4 +380,4 @@ size_flags_vertical = 10
 size_flags_stretch_ratio = 6.38
 theme_override_font_sizes/font_size = 45
 
-[connection signal="gui_input" from="TopBar/BackButton" to="." method="_on_back_button_gui_input"]
+[connection signal="gui_input" from="TopBar/Panel/BackButton" to="." method="_on_back_button_gui_input"]

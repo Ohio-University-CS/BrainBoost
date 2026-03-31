@@ -3,14 +3,13 @@ extends Control
 # Child node references
 @onready var puzzle_gen  = $PuzzleGenerator
 @onready var start_label = $VBoxContainer/VBoxContainer/ColorRect/StartLabel
-@onready var chain_row   = $VBoxContainer/ChainRow
 @onready var tile_area   = $Tile_Area
 @onready var feedback    = $VBoxContainer/Feedback
 @onready var check_btn   = $Buttons/CheckButton
 @onready var new_btn     = $Buttons/NewButton
 @onready var undo_btn    = $Buttons/UndoButton
-@onready var back_btn    = $TopBar/BackButton
-@onready var label       = $TopBar/Label
+@onready var back_btn    = $TopBar/Panel/BackButton
+@onready var label       = $TopBar/Panel/Label
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 var START_WORDS = [
