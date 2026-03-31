@@ -19,6 +19,7 @@ BrainBoost is a mobile application designed to replace the habit of mindless "do
 
 🚀 Features
 
+
 Diverse Game Library: Multiple logic puzzles designed for cognitive health.
 
 Quick-Play Design: Sessions are designed to be fast, allowing you to jump in and out instantly.
@@ -31,6 +32,7 @@ Clean UI: Minimalist, distraction-free interface to keep the focus on the gamepl
 
 
 🕹️ How to Play
+
 Launch BrainBoost from your app drawer.
 
 Select a Game from the main menu (Sudoku, Word Hunt, or Pattern Matching).
@@ -43,13 +45,17 @@ Check your Progress on the main dashboard to see your current streak.
 
 🎮 Games Included
 
+
 Sudoku Classic: 9x9 logic-based number placement puzzles.
 
 Word Hunt: Find hidden words in a grid to expand your vocabulary.
 
 Pattern Matching: A fast-paced game to test and improve your short-term memory and visual processing.
 
+
+
 🛠️ Tech Stack
+
 
 Engine: Godot 4.x
 
@@ -62,6 +68,7 @@ Version Control: Git + GitHub
 
 
 📦 Installation & Deployment
+
 
 To install BrainBoost on your Android device:
 
@@ -76,7 +83,10 @@ Note: You may need to enable "Install from Unknown Sources" in your Android secu
 Play: Launch the app and start strengthening your brain!
 
 
+
+
 🏗️ Development & Testing
+
 
 To run the source code locally:
 
@@ -89,7 +99,9 @@ Open Godot 4.x and import project.godot.
 Unit Tests: To view or run tests for specific modules (e.g., the Pattern Game), navigate to the unit_tests/ directory within the Godot editor.
 
 
+
 👥 The Team
+
 
 Abby Gorrell – Pattern Game Logic, Unit Testing, & Documentation
 
