@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://dt2ow1prkk7v"]
 
+[ext_resource type="Theme" uid="uid://cw4qcyl50232v" path="res://Themes/dark.tres" id="1_7a4y4"]
 [ext_resource type="Script" uid="uid://32g2r6wsmqre" path="res://Scripts/word_stack.gd" id="1_cdltd"]
 [ext_resource type="PackedScene" uid="uid://bh25oh6jcxfuc" path="res://Scenes/Puzzle_generator.tscn" id="2_bamdy"]
 [ext_resource type="Texture2D" uid="uid://dwip8c1ravemo" path="res://Textures/arrow-small-down.svg" id="3_flbnf"]
 [ext_resource type="Texture2D" uid="uid://bue5dmjqawkyq" path="res://Textures/home.svg" id="3_pnuqk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kly06"]
-bg_color = Color(0.101960786, 0.15294118, 0.26666668, 1)
-border_blend = true
-shadow_color = Color(0, 0, 0, 0.30588236)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7i1l"]
 content_margin_left = 12.0
@@ -21,31 +17,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 content_margin_left = 20.0
 content_margin_top = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qt06"]
-bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olkqw"]
-bg_color = Color(0.9411765, 0.64705884, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnuqk"]
-bg_color = Color(0.11764706, 0.1764706, 0.3137255, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.22745098, 0.30980393, 0.47843137, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a4y4"]
-bg_color = Color(0.05985026, 0.095006905, 0.18774486, 1)
-
 [node name="WordStack" type="Control" unique_id=243639161]
 layout_mode = 3
 anchors_preset = 15
@@ -53,18 +24,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7a4y4")
 script = ExtResource("1_cdltd")
 
 [node name="PuzzleGenerator" parent="." unique_id=1058279497 instance=ExtResource("2_bamdy")]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=983170922]
+[node name="ColorRect" type="Panel" parent="." unique_id=2056110465]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.16470589, 0.22745098, 0.36862746, 1)
+theme_type_variation = &"Background"
 
 [node name="FeedBack" type="Label" parent="." unique_id=196577946]
 layout_mode = 0
@@ -90,7 +62,7 @@ size_flags_vertical = 2
 [node name="Panel" type="Panel" parent="Container/TopBar" unique_id=497948882]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_kly06")
+theme_type_variation = &"Areas"
 
 [node name="Label" type="Label" parent="Container/TopBar/Panel" unique_id=1663400679]
 custom_minimum_size = Vector2(100, 100)
@@ -108,7 +80,6 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 10
 size_flags_stretch_ratio = 0.0
-theme_override_colors/font_color = Color(0.9098039, 0.9098039, 0.9411765, 1)
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7i1l")
 text = "00:00"
@@ -142,56 +113,37 @@ expand_icon = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 19.8
-theme_override_styles/panel = SubResource("StyleBoxFlat_1qt06")
+theme_type_variation = &"Areas"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Container/Panel" unique_id=77925465]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -137.0
+offset_top = -153.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 82
+theme_override_constants/separation = 79
 
-[node name="ColorRect" type="Panel" parent="Container/Panel/VBoxContainer2" unique_id=1658236271]
-custom_minimum_size = Vector2(721, 128)
+[node name="StartLabel" type="Label" parent="Container/Panel/VBoxContainer2" unique_id=719978202]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_stretch_ratio = 0.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_olkqw")
-
-[node name="StartLabel" type="Label" parent="Container/Panel/VBoxContainer2/ColorRect" unique_id=719978202]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -271.0
-offset_top = -65.0
-offset_right = 271.0
-offset_bottom = 65.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_vertical = 1
+theme_type_variation = &"FirstWord"
 theme_override_font_sizes/font_size = 95
 text = "placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/ColorRect" unique_id=1525940740]
+[node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/StartLabel" unique_id=1525940740]
 custom_minimum_size = Vector2(80, 80)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = 1.0
-offset_right = 40.0
-offset_bottom = 81.0
+layout_mode = 0
+offset_left = 231.0
+offset_top = 136.0
+offset_right = 311.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -204,7 +156,7 @@ expand_mode = 5
 custom_minimum_size = Vector2(721, 99)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pnuqk")
+theme_type_variation = &"SnapRect"
 
 [node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/SnapRect" unique_id=1469964882]
 custom_minimum_size = Vector2(80, 80)
@@ -230,7 +182,7 @@ expand_mode = 5
 custom_minimum_size = Vector2(721, 99)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pnuqk")
+theme_type_variation = &"SnapRect"
 
 [node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/SnapRect2" unique_id=1071935870]
 custom_minimum_size = Vector2(80, 80)
@@ -256,7 +208,7 @@ expand_mode = 5
 custom_minimum_size = Vector2(721, 99)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pnuqk")
+theme_type_variation = &"SnapRect"
 
 [node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/SnapRect3" unique_id=359432872]
 custom_minimum_size = Vector2(80, 80)
@@ -282,7 +234,7 @@ expand_mode = 5
 custom_minimum_size = Vector2(721, 99)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pnuqk")
+theme_type_variation = &"SnapRect"
 
 [node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/SnapRect4" unique_id=1651980825]
 custom_minimum_size = Vector2(80, 80)
@@ -308,7 +260,7 @@ expand_mode = 5
 custom_minimum_size = Vector2(721, 99)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pnuqk")
+theme_type_variation = &"SnapRect"
 
 [node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/SnapRect5" unique_id=470387337]
 custom_minimum_size = Vector2(80, 80)
@@ -334,7 +286,7 @@ expand_mode = 5
 custom_minimum_size = Vector2(721, 99)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pnuqk")
+theme_type_variation = &"SnapRect"
 
 [node name="VBoxContainer" type="CenterContainer" parent="Container" unique_id=492719615]
 custom_minimum_size = Vector2(0, 480)
@@ -347,7 +299,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_1qt06")
+theme_type_variation = &"Areas"
 
 [node name="Tile_Area" type="VFlowContainer" parent="Container/VBoxContainer" unique_id=1949084278]
 custom_minimum_size = Vector2(956, 309)
@@ -370,55 +322,20 @@ theme_override_constants/separation = 4
 [node name="UndoButton" type="Button" parent="Container/Buttons" unique_id=1225775925]
 custom_minimum_size = Vector2(357, 150)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.9098039, 0.9411765, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7a4y4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1qt06")
 text = "Reset
 "
 
 [node name="CheckButton" type="Button" parent="Container/Buttons" unique_id=245579611]
 custom_minimum_size = Vector2(360, 150)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.9098039, 0.9411765, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7a4y4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1qt06")
 text = "Check"
 
 [node name="NewButton" type="Button" parent="Container/Buttons" unique_id=1124597212]
 custom_minimum_size = Vector2(357, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7a4y4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1qt06")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1qt06")
 text = "New Game"
 
 [connection signal="gui_input" from="Container/TopBar/Panel/BackButton" to="." method="_on_back_button_gui_input"]
