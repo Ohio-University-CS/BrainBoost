@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dt2ow1prkk7v"]
 
-[ext_resource type="Theme" uid="uid://cw4qcyl50232v" path="res://Themes/dark.tres" id="1_7a4y4"]
+[ext_resource type="Theme" uid="uid://c32ih3n5kvtbr" path="res://Themes/deep_blue.tres" id="1_7a4y4"]
 [ext_resource type="Script" uid="uid://32g2r6wsmqre" path="res://Scripts/word_stack.gd" id="1_cdltd"]
 [ext_resource type="PackedScene" uid="uid://bh25oh6jcxfuc" path="res://Scenes/Puzzle_generator.tscn" id="2_bamdy"]
 [ext_resource type="Texture2D" uid="uid://dwip8c1ravemo" path="res://Textures/arrow-small-down.svg" id="3_flbnf"]
@@ -139,11 +139,16 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Container/Panel/VBoxContainer2/StartLabel" unique_id=1525940740]
 custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 231.0
-offset_top = 136.0
-offset_right = 311.0
-offset_bottom = 216.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 6.0
+offset_right = 40.0
+offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4

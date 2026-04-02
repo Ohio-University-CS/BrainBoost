@@ -2,7 +2,7 @@ extends Control
 
 # Child node references
 @onready var puzzle_gen  = $PuzzleGenerator
-@onready var start_label = $Container/Panel/VBoxContainer2/ColorRect/StartLabel
+@onready var start_label = $Container/Panel/VBoxContainer2/StartLabel
 @onready var tile_area   = $Container/VBoxContainer/Tile_Area
 @onready var feedback    = $FeedBack
 @onready var check_btn   = $Container/Buttons/CheckButton
@@ -13,7 +13,112 @@ extends Control
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 var START_WORDS = [
-	"air"
+		"air",
+	"back",
+	"ball",
+	"barn",
+	"black",
+	"blood",
+	"blue",
+	"bone",
+	"book",
+	"break",
+	"broad",
+	"brush",
+	"butter",
+	"camp",
+	"candle",
+	"child",
+	"cliff",
+	"corn",
+	"cow",
+	"cross",
+	"day",
+	"door",
+	"down",
+	"drum",
+	"egg",
+	"eye",
+	"farm",
+	"fire",
+	"fish",
+	"flag",
+	"folk",
+	"foot",
+	"free",
+	"gold",
+	"grand",
+	"grave",
+	"grey",
+	"gun",
+	"hand",
+	"hard",
+	"hay",
+	"head",
+	"heart",
+	"high",
+	"hill",
+	"home",
+	"honey",
+	"horse",
+	"house",
+	"ice",
+	"iron",
+	"key",
+	"land",
+	"life",
+	"light",
+	"log",
+	"mill",
+	"moon",
+	"mud",
+	"night",
+	"out",
+	"over",
+	"paper",
+	"park",
+	"pass",
+	"pay",
+	"pin",
+	"pipe",
+	"play",
+	"pond",
+	"rain",
+	"road",
+	"rock",
+	"rose",
+	"round",
+	"sail",
+	"sand",
+	"sea",
+	"ship",
+	"shoe",
+	"side",
+	"sky",
+	"snow",
+	"song",
+	"star",
+	"steam",
+	"stone",
+	"sun",
+	"swan",
+	"tail",
+	"thunder",
+	"tide",
+	"timber",
+	"time",
+	"trade",
+	"trail",
+	"tree",
+	"under",
+	"war",
+	"water",
+	"whale",
+	"wild",
+	"wind",
+	"wolf",
+	"wood",
+    "yard"
 ]
 
 var current_puzzle: Array = []
@@ -42,7 +147,8 @@ func format_time(seconds: int) -> String:
 	return "%02d:%02d" % [minutes, secs]
 
 func new_puzzle() -> void:
-	
+	elapsed_seconds = 0
+	reset_puzzle()
 	feedback.text = "Loading..."
 	_set_buttons_disabled(true)
 	start_word = START_WORDS[randi() % START_WORDS.size()]
@@ -55,6 +161,7 @@ func new_puzzle() -> void:
 		return
 	player_chain = [start_word]
 	_render()
+	print(current_puzzle)
 
 
 func _render() -> void:
