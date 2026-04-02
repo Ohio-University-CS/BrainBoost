@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dt2ow1prkk7v"]
 
-[ext_resource type="Theme" uid="uid://c32ih3n5kvtbr" path="res://Themes/deep_blue.tres" id="1_7a4y4"]
+[ext_resource type="Theme" uid="uid://cw4qcyl50232v" path="res://Themes/dark.tres" id="1_7a4y4"]
 [ext_resource type="Script" uid="uid://32g2r6wsmqre" path="res://Scripts/word_stack.gd" id="1_cdltd"]
 [ext_resource type="PackedScene" uid="uid://bh25oh6jcxfuc" path="res://Scenes/Puzzle_generator.tscn" id="2_bamdy"]
 [ext_resource type="Texture2D" uid="uid://dwip8c1ravemo" path="res://Textures/arrow-small-down.svg" id="3_flbnf"]
@@ -125,6 +125,7 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
+mouse_filter = 2
 theme_override_constants/separation = 79
 
 [node name="StartLabel" type="Label" parent="Container/Panel/VBoxContainer2" unique_id=719978202]
@@ -133,7 +134,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 1
 theme_type_variation = &"FirstWord"
 theme_override_font_sizes/font_size = 95
-text = "placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -335,7 +335,7 @@ text = "Reset
 custom_minimum_size = Vector2(360, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Check"
+text = "Check 3/3"
 
 [node name="NewButton" type="Button" parent="Container/Buttons" unique_id=1124597212]
 custom_minimum_size = Vector2(357, 150)
@@ -343,4 +343,84 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "New Game"
 
+[node name="Panel" type="Panel" parent="." unique_id=539650823]
+z_index = 82
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=1145209759]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -520.0
+offset_right = 320.0
+offset_bottom = 520.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Popups"
+
+[node name="NewButton" type="Button" parent="Panel/Panel" unique_id=955747300]
+custom_minimum_size = Vector2(357, 150)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 873.0
+offset_right = 374.0
+offset_bottom = 1023.0
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+
+[node name="BackButton" type="Button" parent="Panel/Panel" unique_id=1598800401]
+custom_minimum_size = Vector2(120, 110)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 382.0
+offset_top = 356.0
+offset_right = 623.0
+offset_bottom = 501.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_font_sizes/font_size = 53
+text = "HOME"
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel/Panel" unique_id=1695862097]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 153.0
+offset_bottom = 273.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 68
+text = "Place Holder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/Panel" unique_id=517624505]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -103.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 62
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="gui_input" from="Container/TopBar/Panel/BackButton" to="." method="_on_back_button_gui_input"]
+[connection signal="gui_input" from="Panel/Panel/NewButton" to="." method="_on_new_button_gui_input"]
+[connection signal="gui_input" from="Panel/Panel/BackButton" to="." method="_on_back_button_gui_input"]
