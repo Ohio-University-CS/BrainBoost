@@ -31,10 +31,10 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="MeshTexture" id="MeshTexture_yeqd6"]
+[sub_resource type="MeshTexture" id="MeshTexture_xwvs7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mx5gi"]
-texture = SubResource("MeshTexture_yeqd6")
+texture = SubResource("MeshTexture_xwvs7")
 texture_margin_left = 1229.0
 modulate_color = Color(0.21568628, 1, 1, 1)
 
@@ -109,7 +109,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_xwvs7")
 theme_override_font_sizes/font_size = 80
-text = "Online"
+text = "Login"
 
 [node name="MarginContainer3" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=147313383]
 layout_mode = 2
@@ -289,7 +289,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -308,6 +307,7 @@ color = Color(0, 0, 0, 0.5137255)
 script = ExtResource("2_mx5gi")
 
 [node name="Online" type="Panel" parent="Popup Wrapper" unique_id=868657331]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -325,7 +325,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Item" type="ColorRect" parent="Popup Wrapper/Online" unique_id=592636152]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Settings" type="Control" parent="Popup Wrapper" unique_id=1755817445]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -360,6 +366,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.54901963, 0.16470589, 1, 1)
+
+[node name="Global" type="RichTextLabel" parent="Popup Wrapper/Stats" unique_id=1285109892]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 4.0
+offset_right = 525.0
+offset_bottom = 77.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Global Scores:"
+
+[node name="GlobalList" type="ItemList" parent="Popup Wrapper/Stats" unique_id=623832627]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 63.0
+offset_right = 1003.0
+offset_bottom = 611.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Personal" type="RichTextLabel" parent="Popup Wrapper/Stats" unique_id=2010834956]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 612.0
+offset_right = 504.0
+offset_bottom = 685.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Personal Scores:"
+
+[node name="PersonalList" type="ItemList" parent="Popup Wrapper/Stats" unique_id=782917933]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 676.0
+offset_right = 1006.0
+offset_bottom = 943.0
+theme_override_font_sizes/font_size = 35
 
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/Online_button" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer3/Settings_button" to="." method="_on_settings_button_pressed"]

@@ -17,6 +17,7 @@ var answer
 var answer_counts: Array[int]
 var answer_chars: Array[String]
 var score = 0
+var finalScoreNum = -1
 var new_word_needed
 var countdownActive
 
@@ -96,8 +97,14 @@ func end_game() -> void:
 	inputText.text = ""
 	timeText.text = "0:00"
 	popUp.show()
-	finalScore.text = "Final Score: " + str(score)
+	finalScoreNum = score
+	finalScore.text = "Final Score: " + str(finalScoreNum)
+	if AcountManager.is_logged_in:
+		AcountManager.save_score("Scrambled", score)
+		AcountManager.score_saved.connect(_on_score_saved, CONNECT_ONE_SHOT)
 
+func _on_score_saved():
+	$ColorRect/Saved.show()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scoreOutput.text = str(score)
@@ -119,7 +126,8 @@ func _process(delta: float) -> void:
 		time -= delta
 		timeText.text = format_time(time)
 	else:
-		end_game()
+		if finalScoreNum == -1:
+			end_game()
 		
 	if new_word_needed:
 		answer = words[randi() % words.size()]

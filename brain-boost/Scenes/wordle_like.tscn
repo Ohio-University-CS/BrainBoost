@@ -132,6 +132,15 @@ text = "67"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Saved" type="ColorRect" parent="ColorRect" unique_id=419559467]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 16.0
+offset_right = 690.0
+offset_bottom = 189.0
+color = Color(0.3117309, 0.7245022, 0.369421, 1)
+
 [node name="GameEndPopUp" type="ColorRect" parent="." unique_id=1742893636]
 layout_mode = 0
 offset_left = 200.0
