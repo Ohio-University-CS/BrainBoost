@@ -1,28 +1,6 @@
 [gd_scene format=3 uid="uid://d7s076ur6gfk"]
 
 [ext_resource type="Script" uid="uid://b0xqycqosytv4" path="res://Scripts/login.gd" id="1_fxa43"]
-[ext_resource type="FontFile" uid="uid://d07afxd60oy6p" path="res://extraFonts/Olde English Regular.ttf" id="1_hbxdl"]
-[ext_resource type="FontFile" uid="uid://bk81ix1fq66ot" path="res://extraFonts/MontereyFLF-Bold.ttf" id="2_fxa43"]
-[ext_resource type="FontFile" uid="uid://b82rhgufpoujd" path="res://extraFonts/MontereyFLF.ttf" id="4_vrdhx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrdhx"]
-bg_color = Color(0.23031491, 0.23031494, 0.23031494, 1)
-border_width_left = 10
-border_width_top = 12
-border_width_right = 10
-border_width_bottom = 12
-shadow_color = Color(0.107535, 0.07689334, 0.036209505, 0.6)
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5iow8"]
-bg_color = Color(0.9529412, 0.6, 0.6, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpd3p"]
-bg_color = Color(0.7921569, 0.37254903, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [node name="Control" type="Control" unique_id=86958003]
 layout_mode = 3
@@ -33,14 +11,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fxa43")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=629380841]
+[node name="ColorRect" type="Panel" parent="." unique_id=835818269]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+theme_type_variation = &"Background"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=1906884413]
 clip_contents = false
@@ -49,12 +27,6 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 200.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("1_hbxdl")
-theme_override_font_sizes/normal_font_size = 81
-theme_override_styles/normal = SubResource("StyleBoxFlat_vrdhx")
-theme_override_styles/focus = SubResource("StyleBoxFlat_5iow8")
 text = "Login Now!
 "
 horizontal_alignment = 1
@@ -77,17 +49,9 @@ theme_override_constants/margin_bottom = 25
 [node name="Button" type="Button" parent="ColorRect/MarginContainer3" unique_id=1759023470]
 layout_mode = 2
 
-[node name="ColorRect" type="Panel" parent="ColorRect/MarginContainer3" unique_id=1267820181]
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dpd3p")
-
 [node name="Label" type="Label" parent="ColorRect/MarginContainer3" unique_id=46325258]
 layout_mode = 2
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("2_fxa43")
-theme_override_font_sizes/font_size = 94
+theme_override_font_sizes/font_size = 72
 text = "Sign Up"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -109,17 +73,9 @@ theme_override_constants/margin_bottom = 25
 [node name="Button" type="Button" parent="ColorRect/MarginContainer2" unique_id=1978095389]
 layout_mode = 2
 
-[node name="ColorRect" type="Panel" parent="ColorRect/MarginContainer2" unique_id=2121471975]
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dpd3p")
-
 [node name="Label" type="Label" parent="ColorRect/MarginContainer2" unique_id=188543570]
 layout_mode = 2
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("2_fxa43")
-theme_override_font_sizes/font_size = 94
+theme_override_font_sizes/font_size = 72
 text = "Login"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -130,19 +86,22 @@ offset_left = 205.0
 offset_top = 406.0
 offset_right = 861.0
 offset_bottom = 559.0
-theme_override_fonts/font = ExtResource("4_vrdhx")
+theme_override_colors/font_placeholder_color = Color(0.6862745, 0.6862745, 0.6862745, 0.6)
 theme_override_font_sizes/font_size = 55
+placeholder_text = "EMAIL"
+alignment = 1
 
 [node name="Password" type="LineEdit" parent="ColorRect" unique_id=249130135]
 layout_mode = 0
-offset_left = 213.0
+offset_left = 205.0
 offset_top = 662.0
-offset_right = 869.0
+offset_right = 861.0
 offset_bottom = 815.0
-theme_override_fonts/font = ExtResource("4_vrdhx")
+theme_override_colors/font_placeholder_color = Color(0.6862745, 0.6862745, 0.6862745, 0.6)
 theme_override_font_sizes/font_size = 55
+placeholder_text = "PASSWORD"
+alignment = 1
 
 [connection signal="pressed" from="ColorRect/MarginContainer3/Button" to="." method="_on_button_pressed"]
 [connection signal="gui_input" from="ColorRect/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
 [connection signal="button_up" from="ColorRect/MarginContainer2/Button" to="." method="_on_button_button_up"]
-[connection signal="gui_input" from="ColorRect/MarginContainer2/ColorRect" to="." method="_on_color_rect_gui_input"]

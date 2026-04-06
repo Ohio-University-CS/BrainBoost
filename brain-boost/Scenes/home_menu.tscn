@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckkpn2x3oj1aq" path="res://Scripts/home_menu.gd" id="1_yeqd6"]
 [ext_resource type="Script" uid="uid://cwoblr751htkx" path="res://Scripts/color_rect.gd" id="2_mx5gi"]
-[ext_resource type="Script" uid="uid://c72cjhhcenf70" path="res://Scenes/texture_rect.gd" id="3_p3ope"]
+[ext_resource type="Script" path="res://Scenes/texture_rect.gd" id="3_p3ope"]
 [ext_resource type="Texture2D" uid="uid://b1h5picyyi41j" path="res://Textures/pastime.png" id="4_u77pj"]
 [ext_resource type="Texture2D" uid="uid://bkgcbmbak020e" path="res://Textures/abc-block.png" id="5_qskiq"]
 [ext_resource type="Texture2D" uid="uid://b0733t8ppphy" path="res://Textures/card-game.png" id="6_2pdi2"]
@@ -267,6 +267,7 @@ size_flags_horizontal = 0
 text = "Stats"
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -366,7 +367,6 @@ popup/item_2/text = "Blue"
 popup/item_2/id = 2
 
 [node name="Stats" type="Control" parent="Popup Wrapper" unique_id=518157743]
-visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -376,14 +376,14 @@ offset_bottom = 960.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Popup Wrapper/Stats" unique_id=1131577524]
+[node name="ColorRect" type="Panel" parent="Popup Wrapper/Stats" unique_id=62765591]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.54901963, 0.16470589, 1, 1)
+theme_type_variation = &"Areas"
 
 [node name="Global" type="RichTextLabel" parent="Popup Wrapper/Stats" unique_id=1285109892]
 layout_mode = 0
