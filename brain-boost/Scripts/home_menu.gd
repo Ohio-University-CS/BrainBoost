@@ -5,8 +5,12 @@ extends Control
 @onready var online_menu = $"Popup Wrapper/Online"
 @onready var settings_menu = $"Popup Wrapper/Settings"
 @onready var stats_menu = $"Popup Wrapper/Stats"
+@onready var themes_drop_down = $"Popup Wrapper/Settings/VBoxContainer/HBoxContainer/OptionButton"
+
+
 
 func _ready() -> void:
+	ThemeManager.load_saved_theme()
 	popup.hide()
 	online_menu.hide()
 	settings_menu.hide()
@@ -75,3 +79,6 @@ func _on_button_pressed() -> void:
 func _on_margin_container_4_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		get_tree().change_scene_to_file("res://Scenes/Word_Stack.tscn")
+ 
+func _on_option_button_item_selected(index: int) -> void:
+	ThemeManager.apply_theme(index)

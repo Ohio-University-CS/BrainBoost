@@ -1,20 +1,7 @@
 [gd_scene format=3 uid="uid://c2uc2vucn7j2l"]
 
 [ext_resource type="Script" uid="uid://fewrw44mvp10" path="res://Scripts/wordle_like.gd" id="1_xwfcm"]
-[ext_resource type="FontFile" uid="uid://d07afxd60oy6p" path="res://extraFonts/Olde English Regular.ttf" id="2_v17wb"]
 [ext_resource type="FontFile" uid="uid://b82rhgufpoujd" path="res://extraFonts/MontereyFLF.ttf" id="3_lt7j1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt7j1"]
-bg_color = Color(0.23031491, 0.23031494, 0.23031494, 1)
-border_width_left = 10
-border_width_top = 12
-border_width_right = 10
-border_width_bottom = 12
-shadow_color = Color(0.107535, 0.07689334, 0.036209505, 0.6)
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qedsl"]
-bg_color = Color(0.9529412, 0.6, 0.6, 1)
 
 [node name="wordle_like" type="Control" unique_id=1072055526]
 layout_mode = 3
@@ -26,30 +13,26 @@ grow_vertical = 2
 script = ExtResource("1_xwfcm")
 scrambles = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=983748565]
+[node name="ColorRect" type="Panel" parent="." unique_id=779162184]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+theme_type_variation = &"Background"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect" unique_id=424102491]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 3.0
+offset_left = 42.0
 offset_top = 4.0
-offset_right = 3.0
+offset_right = 42.0
 offset_bottom = 204.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("2_v17wb")
-theme_override_font_sizes/normal_font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_lt7j1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_qedsl")
+theme_type_variation = &"wrdl_like_txt"
 text = "BRAIN BOOST
 "
 fit_content = true
@@ -62,8 +45,7 @@ offset_left = 344.0
 offset_top = 352.0
 offset_right = 713.0
 offset_bottom = 502.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_lt7j1")
+theme_type_variation = &"wrdl_like_txt"
 theme_override_font_sizes/normal_font_size = 65
 text = "R_ndom"
 horizontal_alignment = 1
@@ -77,6 +59,7 @@ offset_right = 825.0
 offset_bottom = 795.0
 theme_override_fonts/font = ExtResource("3_lt7j1")
 theme_override_font_sizes/font_size = 60
+alignment = 1
 
 [node name="Score" type="RichTextLabel" parent="ColorRect" unique_id=174399937]
 clip_contents = false
@@ -88,9 +71,7 @@ offset_top = 7.0
 offset_right = 161.0
 offset_bottom = 207.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0.99215686, 0.99215686, 0.99215686, 1)
-theme_override_fonts/normal_font = ExtResource("2_v17wb")
-theme_override_font_sizes/normal_font_size = 100
+theme_type_variation = &"wrdl_like_txt"
 text = "67"
 tab_size = 0
 horizontal_alignment = 1

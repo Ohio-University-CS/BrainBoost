@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://d0unv8asbdwc7"]
 
-[ext_resource type="Theme" uid="uid://c32ih3n5kvtbr" path="res://Themes/deep_blue.tres" id="1_dl70n"]
 [ext_resource type="Script" uid="uid://d17t4e8rbps0n" path="res://Scripts/word_tile.gd" id="1_hksop"]
 
 [node name="Control" type="Control" unique_id=508920077]
@@ -16,7 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_dl70n")
 script = ExtResource("1_hksop")
 
 [node name="Rect" type="Panel" parent="." unique_id=1032711418]

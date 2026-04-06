@@ -14,14 +14,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w2ve3")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1434203096]
+[node name="ColorRect" type="Panel" parent="." unique_id=1136849839]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+theme_type_variation = &"Background"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=331196367]
 layout_mode = 1
@@ -37,6 +37,9 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=163076990]
+layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=95145696]
 layout_mode = 2

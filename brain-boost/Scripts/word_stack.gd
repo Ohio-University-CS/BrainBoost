@@ -17,6 +17,7 @@ extends Control
 @onready var scoretxt = $Panel/Panel/Label2
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
+
 var START_WORDS = [
 	"air","back","ball","barn","black","blood","blue","bone","book","break","broad","brush","butter","camp","candle",
 	"child","cliff","corn","cow","cross","day","door","down","drum","egg","eye","farm","fire","fish","flag","folk",
@@ -44,7 +45,7 @@ func _ready():
 	back_btn2.pressed.connect(_on_back_pressed)
 	new_puzzle()
 	elapsed_seconds = 0
-	
+	$".".theme =load("res://Scenes/home_menu.tscn")
 
 func _score(elpsed_seconds: int) -> String:
 	var time = elapsed_seconds
