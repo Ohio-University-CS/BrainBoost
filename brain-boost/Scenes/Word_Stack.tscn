@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://32g2r6wsmqre" path="res://Scripts/word_stack.gd" id="1_cdltd"]
 [ext_resource type="PackedScene" uid="uid://bh25oh6jcxfuc" path="res://Scenes/Puzzle_generator.tscn" id="2_bamdy"]
+[ext_resource type="Texture2D" uid="uid://dpfe31ntjub7k" path="res://Textures/home.png" id="3_7a4y4"]
 [ext_resource type="Texture2D" uid="uid://dwip8c1ravemo" path="res://Textures/arrow-small-down.svg" id="3_flbnf"]
-[ext_resource type="Texture2D" uid="uid://bue5dmjqawkyq" path="res://Textures/home.svg" id="3_pnuqk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7i1l"]
 content_margin_left = 12.0
@@ -101,7 +101,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cmyuw")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cmyuw")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_cmyuw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_cmyuw")
-icon = ExtResource("3_pnuqk")
+icon = ExtResource("3_7a4y4")
 flat = true
 expand_icon = true
 
