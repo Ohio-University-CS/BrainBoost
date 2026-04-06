@@ -8,7 +8,7 @@ extends Node
 @onready var finalScore: RichTextLabel = $"GameEndPopUp/Final Score"
 
 @export var countdown_time: float = 300.0
-@export var scrambles: int = 1
+@export var scrambles: int
 
 var time
 var words
@@ -71,12 +71,17 @@ func find_possible(all_words: Array, chars: Array, counts: Array) -> Array[Strin
 	
 	return new_answers
 
-func scramble(new_answer, index = (randi() % (new_answer.length() - 1)) + 1) -> String:
+func scramble(new_answer) -> String:
+	if new_answer.length() == 1:
+		return new_answer
 	var scram_answer = new_answer
 	for i in range(scrambles):
-		var scram1 = new_answer.substr(0, index) 
+		var index = (randi() % (new_answer.length() - 1)) + 1
+		var scram1 = scramble(new_answer.substr(0, index))
 		var scram2 = new_answer.substr(index, new_answer.length())
 		scram_answer = scram2 + scram1
+		print(index)
+		print(scram_answer)
 	
 	return scram_answer
 	
