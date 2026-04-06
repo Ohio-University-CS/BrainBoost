@@ -219,9 +219,11 @@ func signup(email: String, password: String, username: String) -> void:
 	var body = JSON.stringify({
 		"email": email,
 		"password": password,
-		"data": { "username": username }
+		"data": { "username": username, "display_name": username }
 	})
+	print(body)
 	var http = _make_request(url, HTTPClient.METHOD_POST, _base_headers(), body)
+	print(http)
 	http.request_completed.connect(_on_signup_complete)
 
 func login(email: String, password: String) -> void:
@@ -385,6 +387,5 @@ func _write_headers() -> PackedStringArray:
 func _make_request(url: String, method: int, headers: PackedStringArray, body: String) -> HTTPRequest:
 	var http = HTTPRequest.new()
 	add_child(http)
-	http.request_completed.connect(func(_r, _c, _h, _b): http.queue_free(), CONNECT_ONE_SHOT)
 	http.request(url, headers, method, body)
 	return http

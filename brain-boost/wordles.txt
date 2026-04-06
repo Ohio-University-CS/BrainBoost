@@ -2056,7 +2056,6 @@ gourd
 ankle
 coast
 sappy
-caput
 smash
 droll
 tried

@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://c2uc2vucn7j2l"]
 
 [ext_resource type="Script" uid="uid://fewrw44mvp10" path="res://Scripts/wordle_like.gd" id="1_xwfcm"]
+[ext_resource type="FontFile" uid="uid://d07afxd60oy6p" path="res://extraFonts/Olde English Regular.ttf" id="2_v17wb"]
+[ext_resource type="FontFile" uid="uid://b82rhgufpoujd" path="res://extraFonts/MontereyFLF.ttf" id="3_lt7j1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt7j1"]
+bg_color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+border_width_left = 10
+border_width_top = 12
+border_width_right = 10
+border_width_bottom = 12
+shadow_color = Color(0.107535, 0.07689334, 0.036209505, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qedsl"]
+bg_color = Color(0.9529412, 0.6, 0.6, 1)
 
 [node name="wordle_like" type="Control" unique_id=1072055526]
 layout_mode = 3
@@ -18,69 +32,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.18039216, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=977148620]
+[node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect" unique_id=424102491]
+clip_contents = false
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -252.0
-offset_right = 16.0
-offset_bottom = -2.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 3.0
+offset_bottom = 204.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer" unique_id=1920929801]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer" unique_id=905343487]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=570891438]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
-
-[node name="Online_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=278039524]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 6
-text = "Online"
-
-[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=315365643]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
-
-[node name="Settings_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer3" unique_id=1483975115]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 6
-text = "Settings"
-
-[node name="MarginContainer4" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=719324630]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
-
-[node name="Stats_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer4" unique_id=288515623]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 6
-text = "Stats"
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_v17wb")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_lt7j1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qedsl")
+text = "BRAIN BOOST
+"
+fit_content = true
+vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect" unique_id=804239592]
 clip_contents = false
@@ -89,7 +61,8 @@ offset_left = 344.0
 offset_top = 352.0
 offset_right = 713.0
 offset_bottom = 502.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_lt7j1")
 theme_override_font_sizes/normal_font_size = 65
 text = "R_ndom"
 horizontal_alignment = 1
@@ -100,21 +73,9 @@ layout_mode = 0
 offset_left = 249.0
 offset_top = 619.0
 offset_right = 825.0
-offset_bottom = 862.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=1181060895]
-clip_contents = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -364.0
-offset_bottom = 200.0
-grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 65
-text = "BRAIN BOOST"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_bottom = 795.0
+theme_override_fonts/font = ExtResource("3_lt7j1")
+theme_override_font_sizes/font_size = 60
 
 [node name="Score" type="RichTextLabel" parent="ColorRect" unique_id=174399937]
 clip_contents = false
@@ -126,9 +87,11 @@ offset_top = 7.0
 offset_right = 161.0
 offset_bottom = 207.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 65
+theme_override_colors/default_color = Color(0.99215686, 0.99215686, 0.99215686, 1)
+theme_override_fonts/normal_font = ExtResource("2_v17wb")
+theme_override_font_sizes/normal_font_size = 100
 text = "67"
+tab_size = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -142,6 +105,7 @@ offset_bottom = 189.0
 color = Color(0.3117309, 0.7245022, 0.369421, 1)
 
 [node name="GameEndPopUp" type="ColorRect" parent="." unique_id=1742893636]
+visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_top = 198.0

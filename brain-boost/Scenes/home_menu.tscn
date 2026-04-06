@@ -307,7 +307,6 @@ color = Color(0, 0, 0, 0.5137255)
 script = ExtResource("2_mx5gi")
 
 [node name="Online" type="Panel" parent="Popup Wrapper" unique_id=868657331]
-visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -331,7 +330,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Settings" type="Control" parent="Popup Wrapper" unique_id=1755817445]
-visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5

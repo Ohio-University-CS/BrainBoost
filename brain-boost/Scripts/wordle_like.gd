@@ -3,7 +3,7 @@ extends Node
 @onready var text: RichTextLabel = $ColorRect/RichTextLabel2
 @onready var inputText: LineEdit = $ColorRect/LineEdit
 @onready var scoreOutput: RichTextLabel = $ColorRect/Score
-@onready var timeText: RichTextLabel = $ColorRect/RichTextLabel
+@onready var timeText: RichTextLabel = $ColorRect/RichTextLabel3
 @onready var popUp: ColorRect = $GameEndPopUp
 @onready var finalScore: RichTextLabel = $"GameEndPopUp/Final Score"
 
@@ -95,7 +95,7 @@ func end_game() -> void:
 	time = 0
 	countdownActive = false;
 	inputText.text = ""
-	timeText.text = "0:00"
+	timeText.text = "	0:00"
 	popUp.show()
 	finalScoreNum = score
 	finalScore.text = "Final Score: " + str(finalScoreNum)
@@ -124,7 +124,7 @@ func _process(delta: float) -> void:
 	#check if time > 0
 	if (int(time) % 60) > 0 or floor(time /60) > 0:
 		time -= delta
-		timeText.text = format_time(time)
+		timeText.text = "	" + format_time(time)
 	else:
 		if finalScoreNum == -1:
 			end_game()
@@ -142,7 +142,8 @@ func _process(delta: float) -> void:
 		var scram_answer = scramble(answer)
 		text.text = scram_answer
 		
-		new_word_needed = false
+		if possible_answers.size() != 0:
+			new_word_needed = false
 		
 		print(possible_answers)
 		print(answer_chars)

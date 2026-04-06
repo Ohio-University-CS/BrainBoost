@@ -1,6 +1,7 @@
 extends Control
 
 @onready var popup = $"Popup Wrapper"
+@onready var stats = $"Popup Wrapper/Stats"
 @onready var online_menu = $"Popup Wrapper/Online"
 @onready var settings_menu = $"Popup Wrapper/Settings"
 @onready var stats_menu = $"Popup Wrapper/Stats"
@@ -46,6 +47,7 @@ func _on_online_button_pressed():
 func _on_settings_button_pressed() -> void:
 	popup.show()
 	settings_menu.show()
+	stats.hide()
 
 func _on_stats_button_pressed() -> void:
 	popup.show()
