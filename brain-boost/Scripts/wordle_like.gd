@@ -6,6 +6,7 @@ extends Node
 @onready var timeText: RichTextLabel = $ColorRect/RichTextLabel3
 @onready var popUp: ColorRect = $GameEndPopUp
 @onready var finalScore: RichTextLabel = $"GameEndPopUp/Final Score"
+@onready var home = $Button
 
 @export var countdown_time: float = 300.0
 @export var scrambles: int
@@ -118,6 +119,7 @@ func _ready() -> void:
 	countdownActive = true
 	new_word_needed = true
 	popUp.hide()
+	home.pressed.connect(_home)
 
 	
 	
@@ -164,4 +166,8 @@ func _process(delta: float) -> void:
 				answer_found()
 
 func _on_exit_button_button_up() -> void:
+	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
+
+
+func _home() -> void:
 	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fewrw44mvp10" path="res://Scripts/wordle_like.gd" id="1_xwfcm"]
 [ext_resource type="FontFile" uid="uid://b82rhgufpoujd" path="res://extraFonts/MontereyFLF.ttf" id="3_lt7j1"]
+[ext_resource type="Texture2D" uid="uid://dpfe31ntjub7k" path="res://Textures/home.png" id="3_qedsl"]
 
 [node name="wordle_like" type="Control" unique_id=1072055526]
 layout_mode = 3
@@ -27,10 +28,10 @@ clip_contents = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 42.0
-offset_top = 4.0
-offset_right = 42.0
-offset_bottom = 204.0
+offset_left = 305.0
+offset_top = 5.0
+offset_right = 305.0
+offset_bottom = 205.0
 grow_horizontal = 2
 theme_type_variation = &"wrdl_like_txt"
 text = "BRAIN BOOST
@@ -116,11 +117,9 @@ text = "Congradulation"
 fit_content = true
 
 [node name="Exit" type="MarginContainer" parent="GameEndPopUp" unique_id=6715497]
-layout_mode = 0
-offset_left = 214.0
-offset_top = 393.0
-offset_right = 464.0
-offset_bottom = 543.0
+layout_mode = 1
+offset_right = 250.0
+offset_bottom = 150.0
 accessibility_name = "Exit"
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
@@ -133,5 +132,17 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 34
 text = "Exit"
 
+[node name="Button" type="Button" parent="." unique_id=310825985]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 47.0
+offset_top = 49.0
+offset_right = 147.0
+offset_bottom = 149.0
+icon = ExtResource("3_qedsl")
+flat = true
+expand_icon = true
+
 [connection signal="button_up" from="GameEndPopUp/Exit/Exit_button" to="." method="_on_exit_button_button_up"]
 [connection signal="gui_input" from="GameEndPopUp/Exit/Exit_button" to="." method="_on_exit_button_gui_input"]
+[connection signal="gui_input" from="Button" to="." method="_on_button_gui_input"]
