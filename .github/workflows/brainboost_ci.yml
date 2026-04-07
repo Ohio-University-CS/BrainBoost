@@ -16,7 +16,7 @@ jobs:
         run: pip3 install gdtoolkit
 
       - name: Run GDLint (Code Formatting Check)
-        run: gdlint . --ignore brain-boost/addons/
+        run: gdlint --ignore brain-boost/addons/ .
 
       - name: Final Validation
         run: echo "All automated checks passed for the BrainBoost team!"
