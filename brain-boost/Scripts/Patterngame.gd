@@ -83,6 +83,7 @@ func check_answer():
 	# WRONG ANSWER
 	if player_sequence[last_index] != cpu_sequence[last_index]:
 		is_cpu_playing = true # Stop inputs
+		$FailSound.play()
 		
 		var current_score = cpu_sequence.size() - 1
 		if current_score > high_score:
@@ -104,6 +105,7 @@ func check_answer():
 	if player_sequence.size() == cpu_sequence.size():
 		score_label.text = "Current: " + str(cpu_sequence.size())
 		instructions.text = "NICE!"
+		$WinSound.play()
 		await get_tree().create_timer(0.8).timeout
 		start_new_round()
 

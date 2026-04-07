@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bp2sqr5qbenf3"]
 
 [ext_resource type="Script" uid="uid://clpffo0y7t8pq" path="res://Scripts/Patterngame.gd" id="1_y6hxy"]
+[ext_resource type="AudioStream" uid="uid://dbukyqguq47fh" path="res://Sounds/mixkit-winning-a-coin-video-game-2069.wav" id="2_34761"]
+[ext_resource type="AudioStream" uid="uid://byykpgfjvii5x" path="res://Sounds/mixkit-player-losing-or-failing-2042.wav" id="3_bka3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(1, 1, 1, 1)
@@ -222,5 +224,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
+
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=1539161949]
+stream = ExtResource("2_34761")
+
+[node name="FailSound" type="AudioStreamPlayer" parent="." unique_id=1800147727]
+stream = ExtResource("3_bka3e")
 
 [connection signal="pressed" from="VBoxContainer/backbutton" to="." method="_on_backbutton_pressed"]
