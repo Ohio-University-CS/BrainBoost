@@ -38,9 +38,11 @@ jobs:
           unzip Godot_v4.6.1-stable_export_templates.tpz -d /tmp/templates
           mv /tmp/templates/templates/* ~/.local/share/godot/export_templates/4.6.1.stable/
 
+      - name: Create Android Directory
+        run: mkdir -p /home/runner/.android
+        
       - name: Generate Debug Keystore
         run: |
-          mkdir -p ~/.android
           keytool -genkey -v \
             -keystore ~/.android/debug.keystore \
             -storepass android \
