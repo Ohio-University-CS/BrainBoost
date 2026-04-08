@@ -53,13 +53,20 @@ jobs:
             -validity 10000 \
             -dname "CN=Android Debug,O=Android,C=US"
 
+      - name: Check Project Structure
+        run: |
+          ls -la
+          ls -la brain-boost/ || echo "brain-boost folder not found"
+          find . -name "project.godot" 2>/dev/null
+
       - name: Build APK
         run: |
           mkdir -p build
           ./Godot_v4.6.1-stable_linux.x86_64 \
             --headless \
+            --path brain-boost \
             --export-debug "Android" \
-            build/BrainBoost.apk
+            $GITHUB_WORKSPACE/build/BrainBoost.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
