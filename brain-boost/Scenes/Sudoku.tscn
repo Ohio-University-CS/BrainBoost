@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://b71habscfywu1"]
 
 [ext_resource type="Script" uid="uid://cer0loffin371" path="res://Scripts/game_sudoku.gd" id="1_w2ve3"]
-[ext_resource type="FontFile" uid="uid://bk81ix1fq66ot" path="res://extraFonts/MontereyFLF-Bold.ttf" id="2_evte8"]
-[ext_resource type="FontFile" uid="uid://sr7vkvuyeamu" path="res://extraFonts/MontereyMediumFLF.ttf" id="3_od3f2"]
 [ext_resource type="FontFile" uid="uid://clqoluu6exw3m" path="res://extraFonts/MontereyFLF-Italic.ttf" id="4_od3f2"]
 
 [node name="Sudoku" type="Control" unique_id=991848561]
@@ -58,7 +56,6 @@ offset_right = 23.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_od3f2")
 theme_override_font_sizes/font_size = 50
 text = "Start"
 
@@ -72,7 +69,6 @@ offset_right = 29.5
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_evte8")
 theme_override_font_sizes/font_size = 70
 text = "Sudoku"
 
@@ -91,7 +87,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.24705882, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_evte8")
 theme_override_font_sizes/font_size = 60
 clip_text = true
 
@@ -99,12 +94,11 @@ clip_text = true
 layout_mode = 1
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_fonts/font = ExtResource("3_od3f2")
 theme_override_font_sizes/font_size = 40
 text = "Home"
 
 [node name="Timer" type="Timer" parent="." unique_id=1231511507]
-wait_time = 300.0
+wait_time = 3.0
 one_shot = true
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1494026441]
@@ -118,7 +112,6 @@ offset_top = 100.0
 offset_right = 20.0
 offset_bottom = 123.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_od3f2")
 theme_override_font_sizes/font_size = 45
 
 [node name="ReplayButton" type="Button" parent="." unique_id=1872748152]

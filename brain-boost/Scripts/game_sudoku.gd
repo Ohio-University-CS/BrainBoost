@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 	
 	if(checkWin()):
 		$Victory.text = "Winner"
-		$ColorRect.color = Color.GREEN
+		#$ColorRect.color = Color.GREEN
 
 
 func handleInput(number):
@@ -159,7 +159,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	$Victory.text = "Time's Up"
-	$ColorRect.color = Color.RED
+	#$ColorRect.color = Color.RED
 	$CenterContainer/GridContainer.hide()
 	$ReplayButton.text = "Replay"
 
