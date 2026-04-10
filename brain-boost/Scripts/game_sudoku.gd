@@ -40,6 +40,7 @@ var selectedCell : Button
 
 # 
 func _ready() -> void:
+	$ReplayButton.hide()
 	boardData.resize(81)
 	boardData.fill(0)
 #
@@ -161,6 +162,7 @@ func _on_timer_timeout() -> void:
 	$Victory.text = "Time's Up"
 	#$ColorRect.color = Color.RED
 	$CenterContainer/GridContainer.hide()
+	$ReplayButton.show()
 	$ReplayButton.text = "Replay"
 
 

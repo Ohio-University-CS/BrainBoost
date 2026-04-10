@@ -81,7 +81,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="Image" id="Image_myxjx"]
+[sub_resource type="Image" id="Image_77j64"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -91,7 +91,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_myxjx")
+image = SubResource("Image_77j64")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l18n7"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
