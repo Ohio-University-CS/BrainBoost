@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ckkpn2x3oj1aq" path="res://Scripts/home_menu.gd" id="1_yeqd6"]
 [ext_resource type="Script" uid="uid://cwoblr751htkx" path="res://Scripts/color_rect.gd" id="2_mx5gi"]
-[ext_resource type="Script" path="res://Scenes/texture_rect.gd" id="3_p3ope"]
+[ext_resource type="Script" uid="uid://c72cjhhcenf70" path="res://Scenes/texture_rect.gd" id="3_p3ope"]
 [ext_resource type="Texture2D" uid="uid://b1h5picyyi41j" path="res://Textures/pastime.png" id="4_u77pj"]
 [ext_resource type="Texture2D" uid="uid://bkgcbmbak020e" path="res://Textures/abc-block.png" id="5_qskiq"]
 [ext_resource type="Texture2D" uid="uid://b0733t8ppphy" path="res://Textures/card-game.png" id="6_2pdi2"]
 [ext_resource type="Texture2D" uid="uid://ch8jw327gb11y" path="res://Textures/book.png" id="7_0tv03"]
+[ext_resource type="Texture2D" uid="uid://bi507rhucohlr" path="res://Textures/brain1.png" id="8_u77pj"]
 
 [node name="Home_menu" type="Control" unique_id=179101004]
 layout_mode = 3
@@ -418,6 +419,22 @@ offset_top = 676.0
 offset_right = 1006.0
 offset_bottom = 943.0
 theme_override_font_sizes/font_size = 35
+
+[node name="BrainTex" type="TextureRect" parent="." unique_id=1294916875]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 340.0
+offset_right = -28.0
+offset_bottom = 372.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("8_u77pj")
 
 [connection signal="gui_input" from="ColorRect/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/MarginContainer" to="." method="_on_margin_container_gui_input"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
