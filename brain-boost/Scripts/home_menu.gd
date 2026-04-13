@@ -6,7 +6,8 @@ extends Control
 @onready var settings_menu = $"Popup Wrapper/Settings"
 @onready var stats_menu = $"Popup Wrapper/Stats"
 @onready var themes_drop_down = $"Popup Wrapper/Settings/VBoxContainer/HBoxContainer/OptionButton"
-
+@onready var global_scores = $"Popup Wrapper/Stats/GlobalList"
+@onready var personal_scores = $"Popup Wrapper/Stats/PersonalList"
 
 
 func _ready() -> void:
@@ -18,6 +19,15 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	pass
+
+func get_final_score(score_string: String) -> String:
+	# Split the string by the dash character
+	var parts = score_string.split("—")
+	
+	# Get the last element in the array and clean up whitespace
+	var final_score = parts[-1].strip_edges()
+	
+	return final_score
 
 # ─── Stats / Leaderboard ────────────────────────────────
 
@@ -31,7 +41,8 @@ func _on_leaderboard_loaded(data: Array) -> void:
 		if entry_name == "" or entry_name == null:
 			entry_name = profile.get("username", "Unknown")
 		var score = entry.get("score", 0)
-		global_list.add_item("#%d  %s  —  %d" % [i + 1, entry_name, score])
+		var game = entry.get("game_name", "")
+		global_list.add_item("%s  —  %d — %s" % [entry_name, score, game])
 
 func _on_my_scores_loaded(data: Array) -> void:
 	var personal_list = $"Popup Wrapper/Stats/PersonalList"
@@ -39,9 +50,43 @@ func _on_my_scores_loaded(data: Array) -> void:
 	for i in data.size():
 		var entry = data[i]
 		var score = entry.get("score", 0)
-		var date = entry.get("played_at", "").left(10)  # trims to "2026-04-05"
-		personal_list.add_item("#%d  %s  —  %d" % [i + 1, date, score])
+		var game = entry.get("game_name", "")
+		personal_list.add_item("%d — %s" % [score, game])
 
+func remove_hidden_scores(game: String):
+	global_scores.deselect_all()
+	
+	# Loop backwards: from (count - 1) down to 0
+	for i in range(global_scores.get_item_count() - 1, -1, -1):
+		# Use get_item_text(i) to get the label
+		var item_text = global_scores.get_item_text(i)
+		
+		# Your existing logic
+		if get_final_score(item_text) != game:
+			global_scores.remove_item(i)
+	
+	#same for user scores
+	for i in range(personal_scores.get_item_count() - 1, -1, -1):
+		# Use get_item_text(i) to get the label
+		var item_text = personal_scores.get_item_text(i)
+		
+		# Your existing logic
+		if get_final_score(item_text) != game:
+			personal_scores.remove_item(i)
+
+
+func load_all_scores():
+	if not AcountManager.is_logged_in:
+		return
+	if AcountManager.leaderboard_loaded.is_connected(_on_leaderboard_loaded):
+		AcountManager.leaderboard_loaded.disconnect(_on_leaderboard_loaded)
+	if AcountManager.my_scores_loaded.is_connected(_on_my_scores_loaded):
+		AcountManager.my_scores_loaded.disconnect(_on_my_scores_loaded)
+	AcountManager.leaderboard_loaded.connect(_on_leaderboard_loaded, CONNECT_ONE_SHOT)
+	AcountManager.my_scores_loaded.connect(_on_my_scores_loaded, CONNECT_ONE_SHOT)
+	AcountManager.get_leaderboard()
+	AcountManager.get_my_scores()
+	
 # ─── Button Handlers ────────────────────────────────────
 
 func _on_online_button_pressed():
@@ -56,12 +101,6 @@ func _on_settings_button_pressed() -> void:
 func _on_stats_button_pressed() -> void:
 	popup.show()
 	stats_menu.show()
-	if not AcountManager.is_logged_in:
-		return
-	AcountManager.leaderboard_loaded.connect(_on_leaderboard_loaded, CONNECT_ONE_SHOT)
-	AcountManager.my_scores_loaded.connect(_on_my_scores_loaded, CONNECT_ONE_SHOT)
-	AcountManager.get_leaderboard()
-	AcountManager.get_my_scores()
 
 # ─── Scene Navigation ───────────────────────────────────
 
@@ -80,5 +119,43 @@ func _on_margin_container_4_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		get_tree().change_scene_to_file("res://Scenes/Word_Stack.tscn")
  
+
+
 func _on_option_button_item_selected(index: int) -> void:
-	ThemeManager.apply_theme(index)
+	if not AcountManager.is_logged_in:
+		return
+
+	# Disconnect any existing connections before adding new ones
+	if AcountManager.leaderboard_loaded.is_connected(_on_leaderboard_loaded):
+		AcountManager.leaderboard_loaded.disconnect(_on_leaderboard_loaded)
+	if AcountManager.my_scores_loaded.is_connected(_on_my_scores_loaded):
+		AcountManager.my_scores_loaded.disconnect(_on_my_scores_loaded)
+
+	# Clear lists
+	global_scores.clear()
+	personal_scores.clear()
+
+	# Connect fresh one-shots
+	AcountManager.leaderboard_loaded.connect(_on_leaderboard_loaded, CONNECT_ONE_SHOT)
+	AcountManager.my_scores_loaded.connect(_on_my_scores_loaded, CONNECT_ONE_SHOT)
+
+	var selected_game = $"Popup Wrapper/Stats/OptionButton".get_item_text(index)
+	var loaded = [false, false]
+
+	AcountManager.leaderboard_loaded.connect(
+		func(_data):
+			loaded[0] = true
+			if loaded[1]:
+				remove_hidden_scores(selected_game),
+		CONNECT_ONE_SHOT
+	)
+	AcountManager.my_scores_loaded.connect(
+		func(_data):
+			loaded[1] = true
+			if loaded[0]:
+				remove_hidden_scores(selected_game),
+		CONNECT_ONE_SHOT
+	)
+
+	AcountManager.get_leaderboard()
+	AcountManager.get_my_scores()

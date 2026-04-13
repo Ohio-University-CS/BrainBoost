@@ -46,19 +46,11 @@ func _on_button_button_up() -> void:
 	print("!")
 	var email = $ColorRect/Email.text.strip_edges()
 	var password = $ColorRect/Password.text
-	#var username = "gamerboy07"
-	print(email)
-	print(password)
-	#AcountManager.signup(email, password, username)
 	AcountManager.login(email, password)
 	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
-	#$"Popup Wrapper/Stats/GlobalList"
-	#$"Popup Wrapper/Stats/PersonalList"
 func _exit_tree():
 	AcountManager.login_success.disconnect(_on_login_success)
 	AcountManager.login_failed.disconnect(_on_login_failed)
-	#AcountManager.signup_success.disconnect(_on_signup_success)
-	#AcountManager.signup_failed.disconnect(_on_signup_failed)
 
 
 

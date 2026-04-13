@@ -295,7 +295,7 @@ func _on_signup_complete(_result, response_code, _headers, body):
 
 func _on_login_complete(_result, response_code, _headers, body):
 	var raw = body.get_string_from_utf8()
-	print("Login code: ", response_code, " | body: ", raw)
+	#print("Login code: ", response_code, " | body: ", raw)
 	var json = JSON.parse_string(raw)
 	if response_code == 200:
 		access_token = json["access_token"]
