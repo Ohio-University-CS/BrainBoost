@@ -267,8 +267,23 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Stats"
 
+[node name="BrainTex" type="TextureRect" parent="." unique_id=1294916875]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 340.0
+offset_right = -28.0
+offset_bottom = 372.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("8_u77pj")
+
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -388,53 +403,54 @@ theme_type_variation = &"Areas"
 
 [node name="Global" type="RichTextLabel" parent="Popup Wrapper/Stats" unique_id=1285109892]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 4.0
-offset_right = 525.0
-offset_bottom = 77.0
+offset_left = 54.0
+offset_top = 337.0
+offset_right = 514.0
+offset_bottom = 410.0
 theme_override_font_sizes/normal_font_size = 40
 text = "Global Scores:"
 
 [node name="GlobalList" type="ItemList" parent="Popup Wrapper/Stats" unique_id=623832627]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 63.0
-offset_right = 1003.0
-offset_bottom = 611.0
+offset_left = 35.0
+offset_top = 395.0
+offset_right = 1015.0
+offset_bottom = 943.0
 theme_override_font_sizes/font_size = 35
 
 [node name="Personal" type="RichTextLabel" parent="Popup Wrapper/Stats" unique_id=2010834956]
 layout_mode = 0
 offset_left = 44.0
-offset_top = 612.0
+offset_top = 3.0
 offset_right = 504.0
-offset_bottom = 685.0
+offset_bottom = 76.0
 theme_override_font_sizes/normal_font_size = 40
 text = "Personal Scores:"
 
 [node name="PersonalList" type="ItemList" parent="Popup Wrapper/Stats" unique_id=782917933]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 676.0
-offset_right = 1006.0
-offset_bottom = 943.0
+offset_left = 28.0
+offset_top = 58.0
+offset_right = 629.0
+offset_bottom = 325.0
 theme_override_font_sizes/font_size = 35
 
-[node name="BrainTex" type="TextureRect" parent="." unique_id=1294916875]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = 340.0
-offset_right = -28.0
-offset_bottom = 372.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-texture = ExtResource("8_u77pj")
+[node name="OptionButton" type="OptionButton" parent="Popup Wrapper/Stats" unique_id=1323389784]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 52.0
+offset_right = 1029.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 40
+item_count = 4
+popup/item_0/text = "Scrambled"
+popup/item_0/id = 0
+popup/item_1/text = "Pattern"
+popup/item_1/id = 1
+popup/item_2/text = "Sudoku"
+popup/item_2/id = 2
+popup/item_3/text = "Word Stack"
+popup/item_3/id = 3
 
 [connection signal="gui_input" from="ColorRect/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/MarginContainer" to="." method="_on_margin_container_gui_input"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
@@ -445,3 +461,5 @@ texture = ExtResource("8_u77pj")
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Stats_button" to="." method="_on_stats_button_pressed"]
 [connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_focused" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_focused"]
+[connection signal="item_selected" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_selected"]

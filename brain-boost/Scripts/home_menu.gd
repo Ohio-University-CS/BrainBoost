@@ -42,7 +42,7 @@ func _on_leaderboard_loaded(data: Array) -> void:
 			entry_name = profile.get("username", "Unknown")
 		var score = entry.get("score", 0)
 		var game = entry.get("game_name", "")
-		global_list.add_item("%s  —  %d — %s" % [entry_name, score, game])
+		global_list.add_item("%s:  %d  —  %s" % [entry_name, score, game])
 
 func _on_my_scores_loaded(data: Array) -> void:
 	var personal_list = $"Popup Wrapper/Stats/PersonalList"
@@ -51,7 +51,7 @@ func _on_my_scores_loaded(data: Array) -> void:
 		var entry = data[i]
 		var score = entry.get("score", 0)
 		var game = entry.get("game_name", "")
-		personal_list.add_item("%d — %s" % [score, game])
+		personal_list.add_item("%d  —  %s" % [score, game])
 
 func remove_hidden_scores(game: String):
 	global_scores.deselect_all()
@@ -121,7 +121,10 @@ func _on_margin_container_4_gui_input(event: InputEvent) -> void:
  
 
 
+
+
 func _on_option_button_item_selected(index: int) -> void:
+	print("This is working")
 	if not AcountManager.is_logged_in:
 		return
 
