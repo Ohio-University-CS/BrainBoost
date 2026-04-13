@@ -268,7 +268,6 @@ size_flags_horizontal = 0
 text = "Stats"
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,6 +286,7 @@ color = Color(0, 0, 0, 0.5137255)
 script = ExtResource("2_mx5gi")
 
 [node name="Online" type="Panel" parent="Popup Wrapper" unique_id=868657331]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -310,6 +310,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Settings" type="Control" parent="Popup Wrapper" unique_id=1755817445]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -420,6 +421,7 @@ offset_right = 1006.0
 offset_bottom = 943.0
 theme_override_font_sizes/font_size = 35
 
+<<<<<<< Updated upstream
 [node name="BrainTex" type="TextureRect" parent="." unique_id=1294916875]
 layout_mode = 1
 anchors_preset = 8
@@ -435,6 +437,24 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 texture = ExtResource("8_u77pj")
+=======
+[node name="OptionButton" type="OptionButton" parent="Popup Wrapper/Stats" unique_id=1017367619]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 8.0
+offset_right = 946.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 40
+item_count = 4
+popup/item_0/text = "Scrambled"
+popup/item_0/id = 0
+popup/item_1/text = "Pattern"
+popup/item_1/id = 1
+popup/item_2/text = "Sudoku"
+popup/item_2/id = 2
+popup/item_3/text = "Word Stack"
+popup/item_3/id = 3
+>>>>>>> Stashed changes
 
 [connection signal="gui_input" from="ColorRect/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/MarginContainer" to="." method="_on_margin_container_gui_input"]
 [connection signal="gui_input" from="ColorRect/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
@@ -445,3 +465,4 @@ texture = ExtResource("8_u77pj")
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Stats_button" to="." method="_on_stats_button_pressed"]
 [connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_selected"]
