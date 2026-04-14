@@ -284,6 +284,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("8_u77pj")
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

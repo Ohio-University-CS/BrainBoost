@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bh25oh6jcxfuc" path="res://Scenes/Puzzle_generator.tscn" id="2_bamdy"]
 [ext_resource type="Texture2D" uid="uid://dpfe31ntjub7k" path="res://Textures/home.png" id="3_7a4y4"]
 [ext_resource type="Texture2D" uid="uid://dwip8c1ravemo" path="res://Textures/arrow-small-down.svg" id="3_flbnf"]
+[ext_resource type="Texture2D" uid="uid://b4ifqn81hk1bl" path="res://Textures/confetti.png" id="5_7a4y4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7i1l"]
 content_margin_left = 12.0
@@ -15,6 +16,68 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmyuw"]
 content_margin_left = 20.0
 content_margin_top = 10.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6rwyv"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_ul71a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.73513514, 0.9887641), 0.0, 0.0, 0, 0, Vector2(1, 0.3370787), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7a4y4"]
+curve = SubResource("Curve_ul71a")
+
+[sub_resource type="Gradient" id="Gradient_gb3ps"]
+offsets = PackedFloat32Array(0.36477986, 0.3836478, 0.6918239, 0.7169811)
+colors = PackedColorArray(0.4986834, 0.56554985, 1, 1, 1, 0.36778843, 0.3002166, 1, 1, 0.36862746, 0.3019608, 1, 1, 0.8392157, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6rwyv"]
+gradient = SubResource("Gradient_gb3ps")
+
+[sub_resource type="Curve" id="Curve_cmyuw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.21621624, 0.77528095), 0.02867105, 0.02867105, 0, 0, Vector2(1, 1), -2.2271273, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ul71a"]
+curve = SubResource("Curve_cmyuw")
+
+[sub_resource type="Curve" id="Curve_olkqw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5135135, 0.9550562), 0.0, 0.0, 0, 0, Vector2(1, 0.42696637), -2.9880626, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h605f"]
+curve = SubResource("Curve_olkqw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iaaqs"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 1, 0)
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 313.86
+initial_velocity_max = 384.21
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, 75, 0)
+linear_accel_min = 9.999997
+linear_accel_max = 29.999996
+damping_min = 74.0
+damping_max = 78.0
+damping_curve = SubResource("CurveTexture_ul71a")
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_h605f")
+color_initial_ramp = SubResource("GradientTexture1D_6rwyv")
+alpha_curve = SubResource("CurveTexture_7a4y4")
+hue_variation_min = -0.020000022
+hue_variation_max = 0.019999977
+anim_speed_min = 2.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
 
 [node name="WordStack" type="Control" unique_id=243639161]
 layout_mode = 3
@@ -348,6 +411,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Panel" unique_id=1068260563]
+material = SubResource("CanvasItemMaterial_6rwyv")
+position = Vector2(540, 750)
+emitting = false
+amount = 80
+texture = ExtResource("5_7a4y4")
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.97
+process_material = SubResource("ParticleProcessMaterial_iaaqs")
 
 [node name="Panel" type="Panel" parent="Panel" unique_id=1145209759]
 layout_mode = 1

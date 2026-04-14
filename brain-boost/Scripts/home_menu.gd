@@ -124,9 +124,7 @@ func _on_margin_container_4_gui_input(event: InputEvent) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	print("This is working")
-	if not AcountManager.is_logged_in:
-		return
+	ThemeManager.apply_theme(index)
 
 	# Disconnect any existing connections before adding new ones
 	if AcountManager.leaderboard_loaded.is_connected(_on_leaderboard_loaded):

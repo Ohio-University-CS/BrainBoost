@@ -15,6 +15,7 @@ extends Control
 @onready var final_response =$Panel/Panel/Label
 @onready var end_popup    = $Panel
 @onready var scoretxt = $Panel/Panel/Label2
+@onready var confetti = $Panel/GPUParticles2D
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 
@@ -65,6 +66,7 @@ func _process(delta: float) -> void:
 		end_popup.show()
 		scoretxt.text = _score(elapsed_seconds)
 		final_response.text = "YOU WON"
+		confetti.emitting = true
 		
 
 func format_time(seconds: int) -> String:
@@ -132,6 +134,7 @@ func _on_tile_removed(word: String) -> void:
 	print("Tile removed: ", word)
 
 func check_chain() -> void:
+	var checkCount = 0;
 	if not checks == 0:
 		var slots = get_tree().get_nodes_in_group("chain_slots")
 		slots.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
@@ -150,10 +153,15 @@ func check_chain() -> void:
 			return
 
 		for i in range(player_chain.size()):
-			if not player_chain[i] == current_puzzle[i]:
-				feedback.text = "Try again!"
+			if player_chain[i] != current_puzzle[i]:
+				print("Try again!")
+				break
 			else:
-				won = true
+				checkCount += 1
+		if checkCount == 7:
+			won = true
+
+		print(checkCount)
 		checks -= 1
 		check_btn.text = "Check" + " " + str(checks) + "/3"
 
