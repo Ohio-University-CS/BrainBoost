@@ -284,7 +284,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("8_u77pj")
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -303,6 +302,7 @@ color = Color(0, 0, 0, 0.5137255)
 script = ExtResource("2_mx5gi")
 
 [node name="Online" type="Panel" parent="Popup Wrapper" unique_id=868657331]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -368,7 +368,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Change Theme:"
 
-[node name="OptionButton" type="OptionButton" parent="Popup Wrapper/Settings/VBoxContainer/HBoxContainer" unique_id=2106225335]
+[node name="ThemeSelection" type="OptionButton" parent="Popup Wrapper/Settings/VBoxContainer/HBoxContainer" unique_id=2106225335]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -384,6 +384,7 @@ popup/item_2/text = "Blue"
 popup/item_2/id = 2
 
 [node name="Stats" type="Control" parent="Popup Wrapper" unique_id=518157743]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -461,6 +462,7 @@ popup/item_3/id = 3
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Online_button" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Stats_button" to="." method="_on_stats_button_pressed"]
-[connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_theme_selection_item_selected"]
 [connection signal="item_focused" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_focused"]
 [connection signal="item_selected" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_selected"]

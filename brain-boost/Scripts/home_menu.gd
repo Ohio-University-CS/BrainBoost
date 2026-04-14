@@ -18,7 +18,8 @@ func _ready() -> void:
 	stats_menu.hide()
 
 func _process(_delta: float) -> void:
-	pass
+	global_scores.deselect_all()
+	personal_scores.deselect_all()
 
 func get_final_score(score_string: String) -> String:
 	# Split the string by the dash character
@@ -92,15 +93,23 @@ func load_all_scores():
 func _on_online_button_pressed():
 	if !AcountManager.is_logged_in:
 		get_tree().change_scene_to_file("res://Scenes/login.tscn")
+	else:
+		popup.show()
+		online_menu.show()
+		stats_menu.hide()
+		settings_menu.hide()
 
 func _on_settings_button_pressed() -> void:
 	popup.show()
 	settings_menu.show()
 	stats.hide()
+	online_menu.hide()
 
 func _on_stats_button_pressed() -> void:
 	popup.show()
 	stats_menu.show()
+	settings_menu.hide()
+	online_menu.hide()
 
 # ─── Scene Navigation ───────────────────────────────────
 
@@ -124,8 +133,6 @@ func _on_margin_container_4_gui_input(event: InputEvent) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	ThemeManager.apply_theme(index)
-
 	# Disconnect any existing connections before adding new ones
 	if AcountManager.leaderboard_loaded.is_connected(_on_leaderboard_loaded):
 		AcountManager.leaderboard_loaded.disconnect(_on_leaderboard_loaded)
@@ -160,3 +167,7 @@ func _on_option_button_item_selected(index: int) -> void:
 
 	AcountManager.get_leaderboard()
 	AcountManager.get_my_scores()
+
+
+func _on_theme_selection_item_selected(index: int) -> void:
+	ThemeManager.apply_theme(index)
