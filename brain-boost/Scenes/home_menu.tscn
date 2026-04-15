@@ -462,7 +462,7 @@ popup/item_3/id = 3
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Online_button" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Stats_button" to="." method="_on_stats_button_pressed"]
-[connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_theme_selection_item_selected"]
+[connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_option_button_item_selected"]
 [connection signal="item_focused" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_focused"]
 [connection signal="item_selected" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_selected"]

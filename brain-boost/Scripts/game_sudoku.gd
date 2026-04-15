@@ -60,6 +60,7 @@ func selectButton(btn):
 # 
 func _process(delta: float) -> void:
 	
+	
 	var timeLeft = $Timer.time_left
 	var minutes = floor(timeLeft / 60.0)
 	var seconds = int(timeLeft) % 60
@@ -74,14 +75,6 @@ func _process(delta: float) -> void:
 		if(Input.is_action_just_pressed(action)):
 			handleInput(input[action])
 			
-	
-	
-	if(checkWin()):
-		$Victory.text = "Winner"
-		$Timer.paused = true
-		$ReplayButton.show()
-		$ReplayButton.text = "Replay"
-		
 
 
 func handleInput(number):
@@ -97,6 +90,19 @@ func handleInput(number):
 			selectedCell.text = ""
 			selectedCell.modulate = Color.RED
 			boardData[selectedCell.get_index()] = 0
+			
+	if(checkWin()):
+		var timeLeft = $Timer.time_left
+		$Victory.text = "Winner"
+		$Timer.paused = true
+		$ReplayButton.show()
+		$ReplayButton.text = "Replay"
+		#if(!Globals.flag):
+		if (AcountManager.is_logged_in):
+			AcountManager.save_score("Sudoku", timeLeft)
+			AcountManager.score_saved.connect(_on_score_saved, CONNECT_ONE_SHOT)
+		
+		
 
 #verify move is legal
 func isValidMove(cellIndex, number):
@@ -159,6 +165,10 @@ func _on_timer_timeout() -> void:
 	$CenterContainer/GridContainer.hide()
 	$ReplayButton.show()
 	$ReplayButton.text = "Replay"
+	
+	
+func _on_score_saved():
+	print("score saved")
 
 
 func _on_replay_button_pressed() -> void:
