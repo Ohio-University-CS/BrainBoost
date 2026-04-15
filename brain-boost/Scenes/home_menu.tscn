@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkgcbmbak020e" path="res://Textures/abc-block.png" id="5_qskiq"]
 [ext_resource type="Texture2D" uid="uid://b0733t8ppphy" path="res://Textures/card-game.png" id="6_2pdi2"]
 [ext_resource type="Texture2D" uid="uid://ch8jw327gb11y" path="res://Textures/book.png" id="7_0tv03"]
-[ext_resource type="Texture2D" uid="uid://bi507rhucohlr" path="res://Textures/brain1.png" id="8_u77pj"]
+[ext_resource type="Texture2D" uid="uid://cdgtq1rrbcrtj" path="res://Textures/brain5.png" id="7_u77pj"]
 
 [node name="Home_menu" type="Control" unique_id=179101004]
 layout_mode = 3
@@ -274,14 +274,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = 340.0
-offset_right = -28.0
-offset_bottom = 372.0
+offset_left = -64.0
+offset_top = 236.0
+offset_right = 64.0
+offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
-texture = ExtResource("8_u77pj")
+texture = ExtResource("7_u77pj")
+expand_mode = 1
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
 layout_mode = 1
