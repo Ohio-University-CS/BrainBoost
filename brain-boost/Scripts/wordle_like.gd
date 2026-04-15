@@ -110,7 +110,7 @@ func end_game() -> void:
 		AcountManager.score_saved.connect(_on_score_saved, CONNECT_ONE_SHOT)
 
 func _on_score_saved():
-	$ColorRect/Saved.show()
+	print("score saved")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scoreOutput.text = str(score)
