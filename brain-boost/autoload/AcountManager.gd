@@ -202,6 +202,7 @@ const SAVE_PATH = "user://session.cfg"
 var access_token = ""
 var user_id = ""
 var display_name = ""
+var email = ""
 var is_logged_in = false
 
 signal login_success(user_data)
@@ -282,6 +283,7 @@ func _on_signup_complete(_result, response_code, _headers, body):
 			access_token = json["access_token"]
 			user_id = json["user"]["id"]
 			display_name = json["user"]["user_metadata"].get("username", "Player")
+			email = json["user"]["email"]
 			is_logged_in = true
 			save_session()
 			emit_signal("login_success", json["user"])
@@ -301,6 +303,7 @@ func _on_login_complete(_result, response_code, _headers, body):
 		access_token = json["access_token"]
 		user_id = json["user"]["id"]
 		display_name = json["user"]["user_metadata"].get("username", "Player")
+		email = json["user"]["email"]
 		is_logged_in = true
 		save_session()
 		emit_signal("login_success", json["user"])
@@ -344,6 +347,7 @@ func save_session() -> void:
 	config.set_value("auth", "access_token", access_token)
 	config.set_value("auth", "user_id", user_id)
 	config.set_value("auth", "display_name", display_name)
+	config.set_value("auth", "email", email)
 	config.save(SAVE_PATH)
 
 func load_session() -> bool:
@@ -353,6 +357,7 @@ func load_session() -> bool:
 	access_token = config.get_value("auth", "access_token", "")
 	user_id = config.get_value("auth", "user_id", "")
 	display_name = config.get_value("auth", "display_name", "")
+	email = config.get_value("auth", "email", "")
 	if access_token != "":
 		is_logged_in = true
 		return true

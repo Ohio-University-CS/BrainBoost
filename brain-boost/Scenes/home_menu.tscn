@@ -253,7 +253,7 @@ alignment = 1
 custom_minimum_size = Vector2(357, 150)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Login"
+text = "Personal"
 
 [node name="Settings_button" type="Button" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=1348483410]
 custom_minimum_size = Vector2(360, 150)
@@ -301,8 +301,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.5137255)
 script = ExtResource("2_mx5gi")
 
-[node name="Online" type="Panel" parent="Popup Wrapper" unique_id=868657331]
-visible = false
+[node name="Personal" type="Panel" parent="Popup Wrapper" unique_id=868657331]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -312,20 +311,188 @@ offset_bottom = 960.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Popup Wrapper/Online" unique_id=1803023243]
+[node name="ColorRect" type="Panel" parent="Popup Wrapper/Personal" unique_id=118172029]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"Background"
 
-[node name="Item" type="ColorRect" parent="Popup Wrapper/Online" unique_id=592636152]
+[node name="Uname" type="RichTextLabel" parent="Popup Wrapper/Personal/ColorRect" unique_id=970365691]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 54.0
+offset_top = 250.0
+offset_right = 413.0
+offset_bottom = 318.0
+text = "USERNAME"
+fit_content = true
+
+[node name="Email" type="RichTextLabel" parent="Popup Wrapper/Personal/ColorRect" unique_id=1373435899]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 325.0
+offset_right = 551.0
+offset_bottom = 393.0
+text = "Email@email.com"
+fit_content = true
+
+[node name="Button" type="Button" parent="Popup Wrapper/Personal/ColorRect" unique_id=1924647172]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 325.0
+offset_right = 1052.0
+offset_bottom = 389.0
+text = "Edit Profile
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Popup Wrapper/Personal/ColorRect" unique_id=896649882]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 425.0
+offset_right = 509.0
+offset_bottom = 493.0
+text = "BRAIN POWER
+"
+fit_content = true
+
+[node name="BPNum" type="RichTextLabel" parent="Popup Wrapper/Personal/ColorRect" unique_id=1176497905]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 549.0
+offset_top = 425.0
+offset_right = -421.0
+offset_bottom = 493.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.9411765, 0.64705884, 0, 1)
+text = "100"
+fit_content = true
+
+[node name="Label" type="Label" parent="Popup Wrapper/Personal/ColorRect" unique_id=1367733721]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = 145.0
+offset_right = -299.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"BP_Lable"
+text = "Speed"
+
+[node name="MemBar" type="ProgressBar" parent="Popup Wrapper/Personal/ColorRect" unique_id=1955009559]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = 95.0
+offset_right = 399.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 14.2
+show_percentage = false
+
+[node name="Label2" type="Label" parent="Popup Wrapper/Personal/ColorRect" unique_id=1140574501]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 525.0
+offset_right = 294.0
+offset_bottom = 566.0
+theme_type_variation = &"BP_Lable"
+text = "Memeory"
+
+[node name="SpeBar" type="ProgressBar" parent="Popup Wrapper/Personal/ColorRect" unique_id=1988465713]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = 195.0
+offset_right = 399.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 38.18
+show_percentage = false
+
+[node name="Label3" type="Label" parent="Popup Wrapper/Personal/ColorRect" unique_id=1474308940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = 245.0
+offset_right = -154.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"BP_Lable"
+text = "Vocabulary"
+
+[node name="VocabBar" type="ProgressBar" parent="Popup Wrapper/Personal/ColorRect" unique_id=195730408]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = 295.0
+offset_right = 399.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 20.62
+show_percentage = false
+
+[node name="Label4" type="Label" parent="Popup Wrapper/Personal/ColorRect" unique_id=1569281056]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = 345.0
+offset_right = -268.0
+offset_bottom = 386.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"BP_Lable"
+text = "Stamina"
+
+[node name="StamBar" type="ProgressBar" parent="Popup Wrapper/Personal/ColorRect" unique_id=642298679]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = 395.0
+offset_right = 399.0
+offset_bottom = 421.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 54.31
+show_percentage = false
 
 [node name="Settings" type="Control" parent="Popup Wrapper" unique_id=1755817445]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5

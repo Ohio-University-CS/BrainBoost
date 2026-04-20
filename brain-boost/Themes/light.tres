@@ -53,7 +53,24 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="Image" id="Image_hkg3h"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3xnp"]
+bg_color = Color(0.9098039, 0.8666667, 0.8156863, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 15
+shadow_color = Color(0, 0, 0, 0.1764706)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_730oo"]
+bg_color = Color(0.49155158, 0.6727953, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Image" id="Image_qn43c"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -63,7 +80,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_hkg3h")
+image = SubResource("Image_qn43c")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnuqk"]
 bg_color = Color(1, 1, 1, 1)
@@ -95,6 +112,10 @@ Accent/base_type = &"Panel"
 Accent/styles/panel = SubResource("StyleBoxFlat_olkqw")
 Areas/base_type = &"Panel"
 Areas/styles/panel = SubResource("StyleBoxFlat_1qt06")
+BP_Lable/base_type = &"Label"
+BP_Lable/colors/font_color = Color(0.3529412, 0.24313726, 0.15686275, 1)
+BP_Lable/font_sizes/font_size = 37
+BP_Lable/fonts/font = ExtResource("1_hkg3h")
 Background/base_type = &"Panel"
 Background/styles/panel = SubResource("StyleBoxFlat_ngbyh")
 Button/colors/font_color = Color(0.3529412, 0.24313726, 0.15686275, 1)
@@ -136,6 +157,8 @@ PopupMenu/font_sizes/font_size = 46
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_goyot")
 Popups/base_type = &"Panel"
 Popups/styles/panel = SubResource("StyleBoxFlat_j7wmh")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_k3xnp")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_730oo")
 RichTextLabel/colors/default_color = Color(0.3529412, 0.24313726, 0.15686275, 1)
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/outline_size = 0

@@ -2,18 +2,22 @@ extends Control
 
 @onready var popup = $"Popup Wrapper"
 @onready var stats = $"Popup Wrapper/Stats"
-@onready var online_menu = $"Popup Wrapper/Online"
+@onready var personal_menu = $"Popup Wrapper/Personal"
 @onready var settings_menu = $"Popup Wrapper/Settings"
 @onready var stats_menu = $"Popup Wrapper/Stats"
 @onready var themes_drop_down = $"Popup Wrapper/Settings/VBoxContainer/HBoxContainer/OptionButton"
 @onready var global_scores = $"Popup Wrapper/Stats/GlobalList"
 @onready var personal_scores = $"Popup Wrapper/Stats/PersonalList"
 
+@onready var uname = $"Popup Wrapper/Personal/ColorRect/Uname"
+@onready var email = $"Popup Wrapper/Personal/ColorRect/Email"
+@onready var bp = $"Popup Wrapper/Personal/ColorRect/BPNum"
+
 
 func _ready() -> void:
 	ThemeManager.load_saved_theme()
 	popup.hide()
-	online_menu.hide()
+	personal_menu.hide()
 	settings_menu.hide()
 	stats_menu.hide()
 
@@ -94,8 +98,10 @@ func _on_online_button_pressed():
 	if !AcountManager.is_logged_in:
 		get_tree().change_scene_to_file("res://Scenes/login.tscn")
 	else:
+		uname.text = AcountManager.display_name
+		email.text = AcountManager.email
 		popup.show()
-		online_menu.show()
+		personal_menu.show()
 		stats_menu.hide()
 		settings_menu.hide()
 
@@ -103,13 +109,13 @@ func _on_settings_button_pressed() -> void:
 	popup.show()
 	settings_menu.show()
 	stats.hide()
-	online_menu.hide()
+	personal_menu.hide()
 
 func _on_stats_button_pressed() -> void:
 	popup.show()
 	stats_menu.show()
 	settings_menu.hide()
-	online_menu.hide()
+	personal_menu.hide()
 
 # ─── Scene Navigation ───────────────────────────────────
 
