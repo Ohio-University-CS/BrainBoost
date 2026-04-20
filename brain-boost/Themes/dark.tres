@@ -81,7 +81,24 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="Image" id="Image_77j64"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cskv"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 15
+shadow_color = Color(0, 0, 0, 0.1764706)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_730oo"]
+bg_color = Color(0.49155158, 0.6727953, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Image" id="Image_fnyqo"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -91,7 +108,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_77j64")
+image = SubResource("Image_fnyqo")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l18n7"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -123,6 +140,9 @@ Accent/base_type = &"Popups"
 Accent/styles/panel = SubResource("StyleBoxFlat_olkqw")
 Areas/base_type = &"Popups"
 Areas/styles/panel = SubResource("StyleBoxFlat_77j64")
+BP_Lable/colors/font_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+BP_Lable/font_sizes/font_size = 37
+BP_Lable/fonts/font = ExtResource("1_77j64")
 Background/base_type = &"Popups"
 Background/styles/panel = SubResource("StyleBoxFlat_xmoxs")
 Button/colors/font_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
@@ -165,6 +185,8 @@ PopupMenu/font_sizes/font_size = 46
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_sqely")
 Popups/base_type = &"Panel"
 Popups/styles/panel = SubResource("StyleBoxFlat_p0lod")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_4cskv")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_730oo")
 RichTextLabel/colors/default_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/outline_size = 0
