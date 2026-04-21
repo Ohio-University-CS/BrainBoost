@@ -12,18 +12,26 @@ corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qt06"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.9607843, 0.9372549, 0.9019608, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngbyh"]
 bg_color = Color(0.9098039, 0.8666667, 0.8156863, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpufo"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j27p0"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.86083734, 0.7857052, 0.6718493, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ksda"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.8627451, 0.78431374, 0.67058825, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4a86"]
@@ -70,7 +78,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="Image" id="Image_qn43c"]
+[sub_resource type="Image" id="Image_hkg3h"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -80,7 +88,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_qn43c")
+image = SubResource("Image_hkg3h")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnuqk"]
 bg_color = Color(1, 1, 1, 1)

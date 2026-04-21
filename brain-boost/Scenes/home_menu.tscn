@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bkgcbmbak020e" path="res://Textures/abc-block.png" id="5_qskiq"]
 [ext_resource type="Texture2D" uid="uid://b0733t8ppphy" path="res://Textures/card-game.png" id="6_2pdi2"]
 [ext_resource type="Texture2D" uid="uid://ch8jw327gb11y" path="res://Textures/book.png" id="7_0tv03"]
+[ext_resource type="Texture2D" uid="uid://go5hcw2sejlh" path="res://Textures/user.png" id="7_8u0p2"]
 [ext_resource type="Texture2D" uid="uid://cvpprw5yc7f4u" path="res://Textures/brain1.png" id="8_u77pj"]
+[ext_resource type="Texture2D" uid="uid://cftonwudlaujx" path="res://Textures/settings(2).png" id="8_vybei"]
+[ext_resource type="Texture2D" uid="uid://djutrpxtg4xmj" path="res://Textures/bar-chart.png" id="9_8u0p2"]
+[ext_resource type="Texture2D" uid="uid://c32ygx3lfk8o5" path="res://Textures/user(2).png" id="9_qskiq"]
 
 [node name="Home_menu" type="Control" unique_id=179101004]
 layout_mode = 3
@@ -253,19 +257,37 @@ alignment = 1
 custom_minimum_size = Vector2(357, 150)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 62
 text = "Personal"
+icon = ExtResource("7_8u0p2")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Settings_button" type="Button" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=1348483410]
 custom_minimum_size = Vector2(360, 150)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 62
 text = "Settings"
+icon = ExtResource("8_vybei")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Stats_button" type="Button" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=991923142]
 custom_minimum_size = Vector2(357, 150)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 62
 text = "Stats"
+icon = ExtResource("9_8u0p2")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="BrainTex" type="TextureRect" parent="." unique_id=1294916875]
 layout_mode = 1
@@ -275,15 +297,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = 236.0
+offset_top = 440.0
 offset_right = 64.0
-offset_bottom = 364.0
+offset_bottom = 568.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_u77pj")
 expand_mode = 1
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -322,28 +345,35 @@ theme_type_variation = &"Background"
 
 [node name="Uname" type="RichTextLabel" parent="Popup Wrapper/Personal/ColorRect" unique_id=970365691]
 layout_mode = 0
-offset_left = 54.0
-offset_top = 250.0
-offset_right = 413.0
-offset_bottom = 318.0
+offset_left = 350.0
+offset_top = 84.0
+offset_right = 709.0
+offset_bottom = 152.0
 text = "USERNAME"
 fit_content = true
 
 [node name="Email" type="RichTextLabel" parent="Popup Wrapper/Personal/ColorRect" unique_id=1373435899]
 layout_mode = 0
-offset_left = 54.0
-offset_top = 325.0
-offset_right = 551.0
-offset_bottom = 393.0
+offset_left = 350.0
+offset_top = 184.0
+offset_right = 847.0
+offset_bottom = 252.0
 text = "Email@email.com"
 fit_content = true
 
 [node name="Button" type="Button" parent="Popup Wrapper/Personal/ColorRect" unique_id=1924647172]
-layout_mode = 0
-offset_left = 729.0
-offset_top = 325.0
-offset_right = 1052.0
-offset_bottom = 389.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -180.0
+offset_right = 161.5
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Edit Profile
 "
 
@@ -490,6 +520,16 @@ grow_horizontal = 2
 grow_vertical = 2
 value = 54.31
 show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="Popup Wrapper/Personal/ColorRect" unique_id=1654928576]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 54.0
+offset_right = 279.0
+offset_bottom = 279.0
+texture = ExtResource("9_qskiq")
+stretch_mode = 4
+script = ExtResource("3_p3ope")
 
 [node name="Settings" type="Control" parent="Popup Wrapper" unique_id=1755817445]
 visible = false

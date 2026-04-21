@@ -24,18 +24,28 @@ bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
 bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugokb"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvp87"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lia5"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_100c6"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntusq"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a285h"]
@@ -95,7 +105,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="Image" id="Image_dkvao"]
+[sub_resource type="Image" id="Image_gccnb"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -105,7 +115,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_dkvao")
+image = SubResource("Image_gccnb")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avqvx"]
 bg_color = Color(0.11764706, 0.1764706, 0.3137255, 1)
