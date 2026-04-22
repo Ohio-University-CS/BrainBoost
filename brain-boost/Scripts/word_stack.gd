@@ -16,6 +16,8 @@ extends Control
 @onready var end_popup    = $Panel
 @onready var scoretxt = $Panel/Panel/Label2
 @onready var confetti = $Panel/GPUParticles2D
+@onready var time_taken = $Panel/Panel/HFlowContainer/VFlowContainer/TimeTaken
+@onready var checks_left = $Panel/Panel/HFlowContainer/VFlowContainer2/ChecksLeft
 
 const WordTileScene = preload("res://Scenes/Word_Tile.tscn")
 
@@ -62,10 +64,20 @@ func _process(delta: float) -> void:
 		end_popup.show()
 		feedback.text = "Defeat"
 		final_response.text = "YOU LOST"
+		
+		scoretxt.text = "TRY AGAIN!"
+		scoretxt.label_settings.font_color = Color.RED
+		checks_left.text = str(checks) + "/3"
+		time_taken.text = "DNF"
+		confetti.emitting = false
+		
 	if won:
 		end_popup.show()
-		scoretxt.text = _score(elapsed_seconds)
-		final_response.text = "YOU WON"
+		scoretxt.text = _score(elapsed_seconds) + " " + "Pts."
+		scoretxt.label_settings.font_color = Color("#f0a500")
+		final_response.text = "PUZZLE SOLVED"
+		checks_left.text = str(checks) + "/3"
+		time_taken.text = label.text
 		confetti.emitting = true
 		
 
@@ -160,6 +172,7 @@ func check_chain() -> void:
 				checkCount += 1
 		if checkCount == 7:
 			won = true
+			return
 
 		print(checkCount)
 		checks -= 1

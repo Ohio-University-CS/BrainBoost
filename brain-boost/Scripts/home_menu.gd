@@ -5,7 +5,7 @@ extends Control
 @onready var personal_menu = $"Popup Wrapper/Personal"
 @onready var settings_menu = $"Popup Wrapper/Settings"
 @onready var stats_menu = $"Popup Wrapper/Stats"
-@onready var themes_drop_down = $"Popup Wrapper/Settings/VBoxContainer/HBoxContainer/OptionButton"
+@onready var themes_drop_down = $"Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection"
 @onready var global_scores = $"Popup Wrapper/Stats/GlobalList"
 @onready var personal_scores = $"Popup Wrapper/Stats/PersonalList"
 

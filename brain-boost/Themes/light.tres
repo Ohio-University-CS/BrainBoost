@@ -1,7 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://bxn51s4owfxin"]
 
 [ext_resource type="FontFile" uid="uid://bk81ix1fq66ot" path="res://extraFonts/MontereyFLF-Bold.ttf" id="1_hkg3h"]
-[ext_resource type="FontFile" uid="uid://nptjjo0vvi4e" path="res://extraFonts/AgentOrange.ttf" id="1_ltvan"]
 [ext_resource type="FontFile" uid="uid://dvnxigegh0fto" path="res://extraFonts/Starjedi.ttf" id="3_n4a86"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olkqw"]
@@ -15,6 +14,10 @@ corner_radius_bottom_left = 60
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.9607843, 0.9372549, 0.9019608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngbyh"]
 bg_color = Color(0.9098039, 0.8666667, 0.8156863, 1)
@@ -28,11 +31,26 @@ bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.86083734, 0.7857052, 0.6718493, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ksda"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.8627451, 0.78431374, 0.67058825, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn43c"]
+bg_color = Color(0.3529412, 0.24313726, 0.15686275, 0.49411765)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4a86"]
 bg_color = Color(0.9607843, 0.9372549, 0.9019608, 1)
@@ -78,7 +96,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="Image" id="Image_hkg3h"]
+[sub_resource type="Image" id="Image_srnke"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -88,7 +106,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_hkg3h")
+image = SubResource("Image_srnke")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnuqk"]
 bg_color = Color(1, 1, 1, 1)
@@ -147,6 +165,8 @@ Button/styles/hover = SubResource("StyleBoxFlat_j27p0")
 Button/styles/hover_mirrored = SubResource("StyleBoxFlat_1qt06")
 Button/styles/normal = SubResource("StyleBoxFlat_1qt06")
 Button/styles/pressed = SubResource("StyleBoxFlat_4ksda")
+Divider/base_type = &"Panel"
+Divider/styles/panel = SubResource("StyleBoxFlat_qn43c")
 FirstWord/base_type = &"Label"
 FirstWord/colors/font_color = Color(0.9411765, 0.64705884, 0, 1)
 Label/colors/font_color = Color(0.3529412, 0.24313726, 0.15686275, 1)
@@ -156,8 +176,8 @@ LineEdit/styles/normal = SubResource("StyleBoxFlat_n4a86")
 MMBtn/base_type = &"Panel"
 MMBtn/styles/panel = SubResource("StyleBoxFlat_srnke")
 MMLable/base_type = &"Label"
-MMLable/font_sizes/font_size = 42
-MMLable/fonts/font = ExtResource("1_ltvan")
+MMLable/font_sizes/font_size = 74
+MMLable/fonts/font = ExtResource("1_hkg3h")
 MMLable/styles/focus = null
 MMLable/styles/normal = SubResource("StyleBoxFlat_hkg3h")
 PopupMenu/colors/font_color = Color(0.3529412, 0.24313726, 0.15686275, 1)

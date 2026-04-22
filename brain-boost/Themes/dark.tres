@@ -1,7 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://cw4qcyl50232v"]
 
 [ext_resource type="FontFile" uid="uid://bk81ix1fq66ot" path="res://extraFonts/MontereyFLF-Bold.ttf" id="1_77j64"]
-[ext_resource type="FontFile" uid="uid://nptjjo0vvi4e" path="res://extraFonts/AgentOrange.ttf" id="2_xmoxs"]
 [ext_resource type="FontFile" uid="uid://dvnxigegh0fto" path="res://extraFonts/Starjedi.ttf" id="3_jbjim"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olkqw"]
@@ -27,27 +26,58 @@ bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_novjm"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.05490196, 0.05490196, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aewef"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86hlh"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7asn"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b34mi"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.056291588, 0.056291603, 0.056291595, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpcon"]
+bg_color = Color(0.8666667, 0.8666667, 0.8666667, 0.5058824)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h14ly"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
@@ -106,7 +136,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="Image" id="Image_77j64"]
+[sub_resource type="Image" id="Image_hpcon"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -116,7 +146,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_77j64")
+image = SubResource("Image_hpcon")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l18n7"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -176,6 +206,7 @@ Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_aewef")
 Button/styles/normal = SubResource("StyleBoxFlat_86hlh")
 Button/styles/normal_mirrored = SubResource("StyleBoxFlat_d7asn")
 Button/styles/pressed = SubResource("StyleBoxFlat_b34mi")
+Divider/styles/panel = SubResource("StyleBoxFlat_hpcon")
 FirstWord/base_type = &"Label"
 FirstWord/colors/font_color = Color(0.9411765, 0.64705884, 0, 1)
 Label/colors/font_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
@@ -184,8 +215,8 @@ LineEdit/styles/normal = SubResource("StyleBoxFlat_h14ly")
 MMBtn/styles/panel = SubResource("StyleBoxFlat_1wac7")
 MMLable/base_type = &"Label"
 MMLable/colors/font_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
-MMLable/font_sizes/font_size = 42
-MMLable/fonts/font = ExtResource("2_xmoxs")
+MMLable/font_sizes/font_size = 74
+MMLable/fonts/font = ExtResource("1_77j64")
 MMLable/styles/focus = SubResource("StyleBoxFlat_r7t5n")
 MMLable/styles/normal = SubResource("StyleBoxFlat_hkg3h")
 PopupMenu/colors/font_color = Color(0.8666667, 0.8666667, 0.8666667, 1)

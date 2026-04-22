@@ -1,7 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://c32ih3n5kvtbr"]
 
 [ext_resource type="FontFile" uid="uid://bk81ix1fq66ot" path="res://extraFonts/MontereyFLF-Bold.ttf" id="1_gccnb"]
-[ext_resource type="FontFile" uid="uid://nptjjo0vvi4e" path="res://extraFonts/AgentOrange.ttf" id="2_pd284"]
 [ext_resource type="FontFile" uid="uid://dvnxigegh0fto" path="res://extraFonts/Starjedi.ttf" id="3_oh52j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olkqw"]
@@ -27,26 +26,53 @@ bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvp87"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lia5"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_100c6"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntusq"]
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0.05490196, 0.08627451, 0.1764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sfbd"]
+bg_color = Color(0.9098039, 0.9098039, 0.9411765, 0.49019608)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a285h"]
 bg_color = Color(0.08627451, 0.12941177, 0.24313726, 1)
@@ -105,7 +131,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="Image" id="Image_gccnb"]
+[sub_resource type="Image" id="Image_0sfbd"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -115,7 +141,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_86m5u"]
-image = SubResource("Image_gccnb")
+image = SubResource("Image_0sfbd")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avqvx"]
 bg_color = Color(0.11764706, 0.1764706, 0.3137255, 1)
@@ -174,6 +200,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_dvp87")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_6lia5")
 Button/styles/normal = SubResource("StyleBoxFlat_100c6")
 Button/styles/pressed = SubResource("StyleBoxFlat_ntusq")
+Divider/styles/panel = SubResource("StyleBoxFlat_0sfbd")
 FirstWord/base_type = &"Label"
 FirstWord/colors/font_color = Color(0.9411765, 0.64705884, 0, 1)
 Label/colors/font_color = Color(0.9098039, 0.9098039, 0.9411765, 1)
@@ -182,8 +209,8 @@ LineEdit/styles/normal = SubResource("StyleBoxFlat_a285h")
 MMBtn/styles/panel = SubResource("StyleBoxFlat_pta55")
 MMLable/base_type = &"Label"
 MMLable/colors/font_color = Color(0.9098039, 0.9098039, 0.9411765, 1)
-MMLable/font_sizes/font_size = 42
-MMLable/fonts/font = ExtResource("2_pd284")
+MMLable/font_sizes/font_size = 74
+MMLable/fonts/font = ExtResource("1_gccnb")
 MMLable/styles/focus = SubResource("StyleBoxFlat_mbhfg")
 MMLable/styles/normal = SubResource("StyleBoxFlat_kb38g")
 PopupMenu/colors/font_color = Color(0.9098039, 0.9098039, 0.9411765, 1)
