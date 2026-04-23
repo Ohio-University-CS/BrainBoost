@@ -21,6 +21,7 @@ func _ready() -> void:
 	personal_menu.hide()
 	settings_menu.hide()
 	stats_menu.hide()
+	await  AcountManager.login_success
 	_show_streak()
 
 func _process(_delta: float) -> void:
