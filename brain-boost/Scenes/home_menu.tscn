@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cftonwudlaujx" path="res://Textures/settings(2).png" id="8_vybei"]
 [ext_resource type="Texture2D" uid="uid://djutrpxtg4xmj" path="res://Textures/bar-chart.png" id="9_8u0p2"]
 [ext_resource type="Texture2D" uid="uid://c32ygx3lfk8o5" path="res://Textures/user(2).png" id="9_qskiq"]
+[ext_resource type="FontFile" uid="uid://cjh7ktg12uu85" path="res://extraFonts/Monster AG.ttf" id="11_vybei"]
 
 [node name="Home_menu" type="Control" unique_id=179101004]
 layout_mode = 3
@@ -304,6 +305,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_u77pj")
 expand_mode = 1
+
+[node name="BrainText" type="RichTextLabel" parent="BrainTex" unique_id=1883385018]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 31.0
+offset_right = 129.0
+offset_bottom = 89.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/table_border = Color(0.9607843, 0.72156864, 0.85490197, 1)
+theme_override_fonts/normal_font = ExtResource("11_vybei")
+theme_override_font_sizes/normal_font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
 visible = false

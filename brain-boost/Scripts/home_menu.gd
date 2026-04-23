@@ -12,6 +12,7 @@ extends Control
 @onready var uname = $"Popup Wrapper/Personal/ColorRect/Uname"
 @onready var email = $"Popup Wrapper/Personal/ColorRect/Email"
 @onready var bp = $"Popup Wrapper/Personal/ColorRect/BPNum"
+@onready var brain_text = $BrainTex/BrainText
 
 
 func _ready() -> void:
@@ -20,6 +21,7 @@ func _ready() -> void:
 	personal_menu.hide()
 	settings_menu.hide()
 	stats_menu.hide()
+	_show_streak()
 
 func _process(_delta: float) -> void:
 	global_scores.deselect_all()
@@ -58,6 +60,7 @@ func _on_my_scores_loaded(data: Array) -> void:
 		var game = entry.get("game_name", "")
 		personal_list.add_item("%d  —  %s" % [score, game])
 
+
 func remove_hidden_scores(game: String):
 	global_scores.deselect_all()
 	
@@ -78,6 +81,14 @@ func remove_hidden_scores(game: String):
 		# Your existing logic
 		if get_final_score(item_text) != game:
 			personal_scores.remove_item(i)
+
+func _show_streak() -> void:
+	AcountManager.streak_loaded.connect(_on_streak_loaded, CONNECT_ONE_SHOT)
+	AcountManager.get_streak()
+
+func _on_streak_loaded(count: int) -> void:
+	print("Current streak: ", count, " day(s)")
+	brain_text.text = str(count)
 
 
 func load_all_scores():
