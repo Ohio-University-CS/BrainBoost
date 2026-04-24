@@ -204,14 +204,18 @@ func _on_streak_date_checked(response_code: int, body: PackedByteArray, date: St
 	
 	var raw = body.get_string_from_utf8()
 	var json = JSON.parse_string(raw)
+	var prev_date = _date_minus_one(date)
 	
 	# Base case: no activity found for this date
 	if json == null or json.size() == 0:
-		emit_signal("streak_loaded", current_streak)
-		return
+		if date != Time.get_date_string_from_system():
+			emit_signal("streak_loaded", current_streak)
+			return
+		else:
+			_check_date_for_activity(prev_date, current_streak)
+			return
 	
 	# Recursive case: activity found, check the previous day
-	var prev_date = _date_minus_one(date)
 	if prev_date == "NA":
 		emit_signal("streak_loaded", current_streak + 1)
 		return

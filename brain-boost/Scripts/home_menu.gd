@@ -21,6 +21,9 @@ func _ready() -> void:
 	personal_menu.hide()
 	settings_menu.hide()
 	stats_menu.hide()
+	if AcountManager.is_logged_in:
+		_show_streak()
+	#if you just logged in might take a second to load so wait just in case
 	await  AcountManager.login_success
 	_show_streak()
 
