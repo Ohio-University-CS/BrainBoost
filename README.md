@@ -107,7 +107,7 @@ Abby Gorrell – Pattern Game Logic, Unit Testing, & Documentation
 
 Jacen Killian – Release Management & Lead Development
 
-Adam Ghose – Word Hunt Mechanics & Game Logic
+Adam Ghose – Scrambled & Server Managment
 
 Caden Rogers – UI/UX Design & Sudoku Implementation
 
