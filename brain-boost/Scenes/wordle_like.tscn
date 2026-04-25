@@ -78,23 +78,13 @@ tab_size = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Saved" type="ColorRect" parent="ColorRect" unique_id=419559467]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 16.0
-offset_right = 690.0
-offset_bottom = 189.0
-color = Color(0.3117309, 0.7245022, 0.369421, 1)
-
 [node name="GameEndPopUp" type="ColorRect" parent="." unique_id=1742893636]
 visible = false
 layout_mode = 0
-offset_left = 200.0
-offset_top = 198.0
-offset_right = 883.0
-offset_bottom = 926.0
-color = Color(0.27450982, 1, 1, 1)
+offset_left = 198.0
+offset_top = 369.0
+offset_right = 881.0
+offset_bottom = 1097.0
 
 [node name="Final Score" type="RichTextLabel" parent="GameEndPopUp" unique_id=2040610020]
 layout_mode = 0
@@ -118,8 +108,10 @@ fit_content = true
 
 [node name="Exit" type="MarginContainer" parent="GameEndPopUp" unique_id=6715497]
 layout_mode = 1
-offset_right = 250.0
-offset_bottom = 150.0
+offset_left = 225.0
+offset_top = 418.0
+offset_right = 520.0
+offset_bottom = 597.0
 accessibility_name = "Exit"
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50

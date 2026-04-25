@@ -620,7 +620,6 @@ popup/item_2/text = "Blue"
 popup/item_2/id = 2
 
 [node name="Stats" type="Control" parent="Popup Wrapper" unique_id=518157743]
-visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -673,7 +672,7 @@ offset_right = 629.0
 offset_bottom = 325.0
 theme_override_font_sizes/font_size = 35
 
-[node name="OptionButton" type="OptionButton" parent="Popup Wrapper/Stats" unique_id=1323389784]
+[node name="GameScoreSelect" type="OptionButton" parent="Popup Wrapper/Stats" unique_id=1323389784]
 layout_mode = 0
 offset_left = 691.0
 offset_top = 52.0
@@ -701,5 +700,6 @@ popup/item_3/id = 3
 [connection signal="button_up" from="Popup Wrapper/Personal/ColorRect/LogoutButton" to="." method="_on_logout_button_button_up"]
 [connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_theme_selection_item_selected"]
 [connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_option_button_item_selected"]
-[connection signal="item_focused" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_focused"]
-[connection signal="item_selected" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_focused" from="Popup Wrapper/Stats/GameScoreSelect" to="." method="_on_option_button_item_focused"]
+[connection signal="item_selected" from="Popup Wrapper/Stats/GameScoreSelect" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Popup Wrapper/Stats/GameScoreSelect" to="." method="_on_game_score_select_item_selected"]

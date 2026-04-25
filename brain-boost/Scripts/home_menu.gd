@@ -21,11 +21,13 @@ func _ready() -> void:
 	personal_menu.hide()
 	settings_menu.hide()
 	stats_menu.hide()
-	if AcountManager.is_logged_in:
-		_show_streak()
+	#if AcountManager.is_logged_in:
+		#_show_streak()
 	#if you just logged in might take a second to load so wait just in case
-	await  AcountManager.login_success
+	#await  AcountManager.login_success
+	brain_text.text = Global.streak
 	_show_streak()
+	
 
 func _process(_delta: float) -> void:
 	global_scores.deselect_all()
@@ -87,12 +89,16 @@ func remove_hidden_scores(game: String):
 			personal_scores.remove_item(i)
 
 func _show_streak() -> void:
+	if !AcountManager.is_logged_in:
+		brain_text.text = ""
+		return
 	AcountManager.streak_loaded.connect(_on_streak_loaded, CONNECT_ONE_SHOT)
 	AcountManager.get_streak()
 
 func _on_streak_loaded(count: int) -> void:
 	print("Current streak: ", count, " day(s)")
-	brain_text.text = str(count)
+	Global.streak = str(count)
+	brain_text.text = Global.streak
 
 
 func load_all_scores():
@@ -154,6 +160,21 @@ func _on_margin_container_4_gui_input(event: InputEvent) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
+	pass
+
+
+func _on_theme_selection_item_selected(index: int) -> void:
+	ThemeManager.apply_theme(index)
+
+
+func _on_logout_button_button_up() -> void:
+	AcountManager.logout()
+	brain_text.text = ""
+	personal_menu.hide()
+	popup.hide()
+
+
+func _on_game_score_select_item_selected(index: int) -> void:
 	# Disconnect any existing connections before adding new ones
 	if AcountManager.leaderboard_loaded.is_connected(_on_leaderboard_loaded):
 		AcountManager.leaderboard_loaded.disconnect(_on_leaderboard_loaded)
@@ -168,7 +189,7 @@ func _on_option_button_item_selected(index: int) -> void:
 	AcountManager.leaderboard_loaded.connect(_on_leaderboard_loaded, CONNECT_ONE_SHOT)
 	AcountManager.my_scores_loaded.connect(_on_my_scores_loaded, CONNECT_ONE_SHOT)
 
-	var selected_game = $"Popup Wrapper/Stats/OptionButton".get_item_text(index)
+	var selected_game = $"Popup Wrapper/Stats/GameScoreSelect".get_item_text(index)
 	var loaded = [false, false]
 
 	AcountManager.leaderboard_loaded.connect(
@@ -188,14 +209,3 @@ func _on_option_button_item_selected(index: int) -> void:
 
 	AcountManager.get_leaderboard()
 	AcountManager.get_my_scores()
-
-
-func _on_theme_selection_item_selected(index: int) -> void:
-	ThemeManager.apply_theme(index)
-
-
-func _on_logout_button_button_up() -> void:
-	AcountManager.logout()
-	brain_text.text = ""
-	personal_menu.hide()
-	popup.hide()

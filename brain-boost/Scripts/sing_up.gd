@@ -30,11 +30,12 @@ func _on_button_button_up() -> void:
 	print("!")
 	var email = $ColorRect/Email.text.strip_edges()
 	var password = $ColorRect/Password.text
+	var confrm_pass = $"ColorRect/Confrm Password".text
 	var username = $ColorRect/Username.text.strip_edges()
-	print(email)
-	print(password)
-	AcountManager.signup(email, password, username)
-	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
+	if password == confrm_pass:
+		AcountManager.signup(email, password, username)
+		get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
+	print("Passwords do not match")
 
 func _exit_tree():
 	AcountManager.signup_success.disconnect(_on_signup_success)

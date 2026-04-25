@@ -27,6 +27,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 200.0
 grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 82
 text = "Login Now!
 "
 horizontal_alignment = 1
@@ -46,7 +47,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="ColorRect/MarginContainer3" unique_id=1759023470]
+[node name="Sign Up" type="Button" parent="ColorRect/MarginContainer3" unique_id=1759023470]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer3" unique_id=46325258]
@@ -70,7 +71,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="ColorRect/MarginContainer2" unique_id=1978095389]
+[node name="Login In" type="Button" parent="ColorRect/MarginContainer2" unique_id=1978095389]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer2" unique_id=188543570]
@@ -102,6 +103,17 @@ theme_override_font_sizes/font_size = 55
 placeholder_text = "PASSWORD"
 alignment = 1
 
-[connection signal="pressed" from="ColorRect/MarginContainer3/Button" to="." method="_on_button_pressed"]
+[node name="Status" type="RichTextLabel" parent="." unique_id=1810893875]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 973.0
+offset_right = 844.0
+offset_bottom = 1098.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ColorRect/MarginContainer3/Sign Up" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer3/Sign Up" to="." method="_on_sign_up_pressed"]
 [connection signal="gui_input" from="ColorRect/MarginContainer2" to="." method="_on_margin_container_2_gui_input"]
-[connection signal="button_up" from="ColorRect/MarginContainer2/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer2/Login In" to="." method="_on_login_in_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer2/Login In" to="." method="_on_button_button_up"]
