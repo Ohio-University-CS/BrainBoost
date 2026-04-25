@@ -192,3 +192,10 @@ func _on_option_button_item_selected(index: int) -> void:
 
 func _on_theme_selection_item_selected(index: int) -> void:
 	ThemeManager.apply_theme(index)
+
+
+func _on_logout_button_button_up() -> void:
+	AcountManager.logout()
+	brain_text.text = ""
+	personal_menu.hide()
+	popup.hide()

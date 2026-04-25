@@ -308,10 +308,9 @@ expand_mode = 1
 
 [node name="BrainText" type="RichTextLabel" parent="BrainTex" unique_id=1883385018]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 31.0
-offset_right = 129.0
-offset_bottom = 89.0
+offset_top = 29.0
+offset_right = 130.0
+offset_bottom = 87.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/table_border = Color(0.9607843, 0.72156864, 0.85490197, 1)
 theme_override_fonts/normal_font = ExtResource("11_vybei")
@@ -320,7 +319,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Popup Wrapper" type="Control" parent="." unique_id=728098945]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -372,6 +370,7 @@ offset_left = 350.0
 offset_top = 184.0
 offset_right = 847.0
 offset_bottom = 252.0
+theme_override_font_sizes/normal_font_size = 40
 text = "Email@email.com"
 fit_content = true
 
@@ -382,13 +381,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -161.5
-offset_top = -180.0
-offset_right = 161.5
-offset_bottom = -116.0
+offset_left = -248.0
+offset_top = -220.0
+offset_right = 75.0
+offset_bottom = -126.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Edit Profile
+"
+
+[node name="LogoutButton" type="Button" parent="Popup Wrapper/Personal/ColorRect" unique_id=967040259]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 130.0
+offset_top = -216.0
+offset_right = 453.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Logout
 "
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Popup Wrapper/Personal/ColorRect" unique_id=896649882]
@@ -683,6 +698,7 @@ popup/item_3/id = 3
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Online_button" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer2/HBoxContainer/Stats_button" to="." method="_on_stats_button_pressed"]
+[connection signal="button_up" from="Popup Wrapper/Personal/ColorRect/LogoutButton" to="." method="_on_logout_button_button_up"]
 [connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_theme_selection_item_selected"]
 [connection signal="item_selected" from="Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection" to="." method="_on_option_button_item_selected"]
 [connection signal="item_focused" from="Popup Wrapper/Stats/OptionButton" to="." method="_on_option_button_item_focused"]
