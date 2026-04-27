@@ -50,3 +50,7 @@ func _on_login_in_button_up() -> void:
 	$"ColorRect/MarginContainer2/Login In".disabled = true
 	$"ColorRect/MarginContainer3/Sign Up".disabled = true
 	AcountManager.login(email, password)
+
+
+func _on_home_button_button_up() -> void:
+	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")

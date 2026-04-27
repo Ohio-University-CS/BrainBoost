@@ -8,7 +8,7 @@ extends Control
 @onready var themes_drop_down = $"Popup Wrapper/Settings/VBoxContainer/HBoxContainer/ThemeSelection"
 @onready var global_scores = $"Popup Wrapper/Stats/GlobalList"
 @onready var personal_scores = $"Popup Wrapper/Stats/PersonalList"
-
+@onready var game_stat_select = $"Popup Wrapper/Stats/GameScoreSelect"
 @onready var uname = $"Popup Wrapper/Personal/ColorRect/Uname"
 @onready var email = $"Popup Wrapper/Personal/ColorRect/Email"
 @onready var bp = $"Popup Wrapper/Personal/ColorRect/BPNum"
@@ -21,10 +21,7 @@ func _ready() -> void:
 	personal_menu.hide()
 	settings_menu.hide()
 	stats_menu.hide()
-	#if AcountManager.is_logged_in:
-		#_show_streak()
-	#if you just logged in might take a second to load so wait just in case
-	#await  AcountManager.login_success
+	game_stat_select.modulate = game_stat_select.modulate.darkened(0.2)
 	brain_text.text = Global.streak
 	_show_streak()
 	
@@ -195,14 +192,14 @@ func _on_game_score_select_item_selected(index: int) -> void:
 	AcountManager.leaderboard_loaded.connect(
 		func(_data):
 			loaded[0] = true
-			if loaded[1]:
+			if loaded[1] && game_stat_select.text != "All":
 				remove_hidden_scores(selected_game),
 		CONNECT_ONE_SHOT
 	)
 	AcountManager.my_scores_loaded.connect(
 		func(_data):
 			loaded[1] = true
-			if loaded[0]:
+			if loaded[0] && game_stat_select.text != "All":
 				remove_hidden_scores(selected_game),
 		CONNECT_ONE_SHOT
 	)

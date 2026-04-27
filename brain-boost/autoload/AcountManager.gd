@@ -73,7 +73,7 @@ func get_leaderboard() -> void:
 func get_my_scores() -> void:
 	var url = SUPABASE_URL + \
 		"/rest/v1/scores?user_id=eq." + user_id + \
-		"&order=played_at.desc&limit=20"
+		"&order=score.desc&limit=20"
 	var http = _make_request(url, HTTPClient.METHOD_GET, _read_headers(), "")
 	http.request_completed.connect(_on_my_scores_loaded)
 
