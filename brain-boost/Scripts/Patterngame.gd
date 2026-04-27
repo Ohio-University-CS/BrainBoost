@@ -5,12 +5,15 @@ var cpu_sequence = []
 var player_sequence = []
 var is_cpu_playing = false
 var high_score = 0
+"res://Scripts/Patterngame.gd"
 
 # These link the code to your Scene Dock nodes
 @onready var buttons = []
 @onready var instructions = %Instructions
 @onready var score_label = %Score
 @onready var high_score_label = %HighScore
+
+var score = 0
 
 func _ready():
 	# 1. Manually fill the button array to prevent "Index" errors
@@ -80,12 +83,24 @@ func _on_button_pressed(index: int):
 func check_answer():
 	var last_index = player_sequence.size() - 1
 	
-	# WRONG ANSWER
+	# 1. WRONG ANSWER LOGIC
 	if player_sequence[last_index] != cpu_sequence[last_index]:
-		is_cpu_playing = true # Stop inputs
-		$FailSound.play()
+		is_cpu_playing = true # Stop inputs immediately
 		
+		# Play fail sound if it exists
+		if has_node("FailSound"):
+			$FailSound.play()
+		
+		# Calculate the score BEFORE we clear the sequence
 		var current_score = cpu_sequence.size() - 1
+		
+		# Save to your AcountManager leaderboard
+		if AcountManager.is_logged_in: 
+			AcountManager.save_score("Pattern", current_score)
+			if not AcountManager.score_saved.is_connected(_on_score_saved):
+				AcountManager.score_saved.connect(_on_score_saved, CONNECT_ONE_SHOT)
+				
+		# Update High Score UI
 		if current_score > high_score:
 			high_score = current_score
 			high_score_label.text = "Best: " + str(high_score)
@@ -93,22 +108,34 @@ func check_answer():
 		else:
 			instructions.text = "GAME OVER!"
 		
-		# Reset for the next game
+		# Reset game variables
 		cpu_sequence = []
 		player_sequence = []
 		
+		# Wait 2 seconds so the player can see their "Game Over" message
 		await get_tree().create_timer(2.0).timeout
 		start_new_round()
-		return
-	
-	# CORRECT SEQUENCE FINISHED
+		
+		# STOP HERE. This return prevents the crash!
+		return 
+
+	# 2. CORRECT ANSWER LOGIC
+	# If the code reaches this point, the last click was correct.
+	# Now check if they finished the ENTIRE pattern for this round.
 	if player_sequence.size() == cpu_sequence.size():
 		score_label.text = "Current: " + str(cpu_sequence.size())
 		instructions.text = "NICE!"
-		$WinSound.play()
+		
+		if has_node("WinSound"):
+			$WinSound.play()
+			
+		# Wait a moment before starting the next round with a new button
 		await get_tree().create_timer(0.8).timeout
 		start_new_round()
 
 func _on_backbutton_pressed() -> void:
 	print("Back button clicked! Heading home...")
 	get_tree().change_scene_to_file("res://Scenes/home_menu.tscn")
+	
+func _on_score_saved(status):
+	print("Score saved to leaderboard! Status: ", status)
