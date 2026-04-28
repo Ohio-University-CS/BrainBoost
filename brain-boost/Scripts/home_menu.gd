@@ -31,8 +31,7 @@ func update_brain() ->void:
 	if brain_text.text  == "":
 		return
 	if int(brain_text.text) < 14:
-		print("res://Textures/brain" + str(brain_text.text) + ".png")
-		brain.texture = load( "res://Textures/brain" + str(brain_text.text) + ".png")
+		brain.texture = load( "res://Textures/brain" + str(int(brain_text.text) + 1) + ".png")
 	else:
 		brain.texture = load("res://Textures/brain14.png")
 
@@ -177,6 +176,8 @@ func _on_theme_selection_item_selected(index: int) -> void:
 func _on_logout_button_button_up() -> void:
 	AcountManager.logout()
 	brain_text.text = ""
+	Global.streak = ""
+	brain.texture = load("res://Textures/brain1.png")
 	personal_menu.hide()
 	popup.hide()
 
