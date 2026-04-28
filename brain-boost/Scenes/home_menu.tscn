@@ -15,7 +15,7 @@
 [ext_resource type="FontFile" uid="uid://cjh7ktg12uu85" path="res://extraFonts/Monster AG.ttf" id="11_vybei"]
 [ext_resource type="Texture2D" uid="uid://dehf6s5yx4xyh" path="res://Textures/on-off(1).png" id="14_507u4"]
 [ext_resource type="Texture2D" uid="uid://c5s23gcote6lj" path="res://Textures/on-off.png" id="15_r2j3b"]
-[ext_resource type="Script" uid="uid://ct7tk5x8ipjr1" path="res://Scripts/toggle_color.gd" id="16_r2j3b"]
+[ext_resource type="Script" path="res://Scripts/toggle_color.gd" id="16_r2j3b"]
 [ext_resource type="Texture2D" uid="uid://c0agxcuk3kpkh" path="res://Textures/angle-right.png" id="17_s6bkw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_507u4"]

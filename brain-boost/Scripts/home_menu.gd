@@ -13,6 +13,7 @@ extends Control
 @onready var email = $"Popup Wrapper/Personal/ColorRect/Email"
 @onready var bp = $"Popup Wrapper/Personal/ColorRect/BPNum"
 @onready var brain_text = $BrainTex/BrainText
+@onready var brain = $BrainTex
 
 
 func _ready() -> void:
@@ -22,9 +23,18 @@ func _ready() -> void:
 	settings_menu.hide()
 	stats_menu.hide()
 	game_stat_select.modulate = game_stat_select.modulate.darkened(0.2)
-	brain_text.text = Global.streak
+	update_brain()
 	_show_streak()
 	
+func update_brain() ->void:
+	brain_text.text = Global.streak
+	if brain_text.text  == "":
+		return
+	if int(brain_text.text) < 14:
+		print("res://Textures/brain" + str(brain_text.text) + ".png")
+		brain.texture = load( "res://Textures/brain" + str(brain_text.text) + ".png")
+	else:
+		brain.texture = load("res://Textures/brain14.png")
 
 func _process(_delta: float) -> void:
 	global_scores.deselect_all()
@@ -95,7 +105,7 @@ func _show_streak() -> void:
 func _on_streak_loaded(count: int) -> void:
 	print("Current streak: ", count, " day(s)")
 	Global.streak = str(count)
-	brain_text.text = Global.streak
+	update_brain()
 
 
 func load_all_scores():
