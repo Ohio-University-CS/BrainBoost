@@ -50,11 +50,10 @@ func _ready():
 	elapsed_seconds = 0
 	$".".theme =load("res://Scenes/home_menu.tscn")
 
-func _score(elpsed_seconds: int) -> String:
-	var time = elapsed_seconds
-	var score = (elapsed_seconds * 258) * checks
+func _score() -> int:
+	var score = (10000 -(elapsed_seconds * 258)) * checks
 	
-	return str(int(score))
+	return score
 
 func _process(delta: float) -> void:
 	if not won:
@@ -73,7 +72,7 @@ func _process(delta: float) -> void:
 		
 	if won:
 		end_popup.show()
-		scoretxt.text = _score(elapsed_seconds) + " " + "Pts."
+		scoretxt.text = str(_score()) + " " + "Pts."
 		scoretxt.label_settings.font_color = Color("#f0a500")
 		final_response.text = "PUZZLE SOLVED"
 		checks_left.text = str(checks) + "/3"
@@ -172,6 +171,10 @@ func check_chain() -> void:
 				checkCount += 1
 		if checkCount == 7:
 			won = true
+			if AcountManager.is_logged_in:
+				AcountManager.save_score("WordStack", _score())
+				if not AcountManager.score_saved.is_connected(_on_score_saved):
+					AcountManager.score_saved.connect(_on_score_saved, CONNECT_ONE_SHOT)
 			return
 
 		print(checkCount)
@@ -187,7 +190,8 @@ func reset_puzzle() -> void:
 		tile.queue_free()
 	_render()
 
-
+func _on_score_saved():
+	print("score saved")
 
 func _set_buttons_disabled(val: bool) -> void:
 	check_btn.disabled = val
