@@ -3,6 +3,8 @@ BrainBoost 🧠
 
 Stop Scrolling. Start Strengthening.
 
+Click here to watch the demo video: https://youtube.com/shorts/MkIZ60yTKhI?feature=share
+
 BrainBoost is a mobile application designed to replace the habit of mindless "doom-scrolling" with quick, engaging, and cognitively stimulating mini-games. Whether you have 5 or 10 minutes, BrainBoost helps you stay sharp during your free time.
 
 <img width="400" height="500" alt="Screenshot 2026-03-31 124100" src="https://github.com/user-attachments/assets/83cb1138-4288-4857-9cd9-3196fe55ad3a" />
@@ -97,6 +99,12 @@ git clone https://github.com/Ohio-University-CS/BrainBoost.git
 Open Godot 4.x and import project.godot.
 
 Unit Tests: To view or run tests for specific modules (e.g., the Pattern Game), navigate to the unit_tests/ directory within the Godot editor.
+
+Issues/Future Work
+
+Known issues: occasional lag on older Android devices. 
+
+Future Work: More game modes and adding fun prizes for beating scores. 
 
 
 
