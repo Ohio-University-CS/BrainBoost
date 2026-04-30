@@ -7,15 +7,12 @@ Click here to watch the demo video: https://youtube.com/shorts/MkIZ60yTKhI?featu
 
 BrainBoost is a mobile application designed to replace the habit of mindless "doom-scrolling" with quick, engaging, and cognitively stimulating mini-games. Whether you have 5 or 10 minutes, BrainBoost helps you stay sharp during your free time.
 
-<img width="400" height="500" alt="Screenshot 2026-03-31 124100" src="https://github.com/user-attachments/assets/83cb1138-4288-4857-9cd9-3196fe55ad3a" />
+<img width="400" height="600" alt="Screenshot 2026-04-30 172652" src="https://github.com/user-attachments/assets/af6d43fa-64c3-4b7e-845f-471f89938aec" />
+<img width="400" height="600" alt="Screenshot 2026-04-30 172707" src="https://github.com/user-attachments/assets/103e02d5-de33-43c9-b737-8443ce119d73" />
 
-<img width="400" height="500" alt="Screenshot 2026-03-31 124256" src="https://github.com/user-attachments/assets/fadec393-24d8-4f2a-aca0-15c8f7c3cabe" />
-
-<img width="400" height="500" alt="Screenshot 2026-03-31 124333" src="https://github.com/user-attachments/assets/856afc91-5b22-4cee-9543-29f39653e70a" />
-
-<img width="400" height="500" alt="Screenshot 2026-03-31 124420" src="https://github.com/user-attachments/assets/6cd01437-4df9-46e0-a0bd-d0ea612cc7ac" />
-
-<img width="400" height="500" alt="Screenshot 2026-03-31 124506" src="https://github.com/user-attachments/assets/5486597f-2b73-47d3-8b16-34771f6f3c14" />
+<img width="400" height="600" alt="Screenshot 2026-04-30 172717" src="https://github.com/user-attachments/assets/c5a1c3a2-873b-49fd-b682-8c879e06f762" />
+<img width="400" height="600" alt="Screenshot 2026-04-30 172722" src="https://github.com/user-attachments/assets/634ceccd-fbae-4686-bdec-149909a5ff06" />
+<img width="400" height="600" alt="Screenshot 2026-04-30 172728" src="https://github.com/user-attachments/assets/1f0b99f2-42a1-49f5-9aba-3c13c210035d" />
 
 
 
