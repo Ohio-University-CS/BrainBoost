@@ -51,6 +51,7 @@ Word Hunt: Find hidden words in a grid to expand your vocabulary.
 
 Pattern Matching: A fast-paced game to test and improve your short-term memory and visual processing.
 
+Scrambled: Guess word from scrabled text
 
 
 🛠️ Tech Stack
@@ -59,6 +60,7 @@ Pattern Matching: A fast-paced game to test and improve your short-term memory a
 Engine: Godot 4.x
 
 Scripting: GDScript
+Account Management: Supabase
 
 Target Platform: Android (.apk)
 
@@ -99,7 +101,7 @@ Unit Tests: To view or run tests for specific modules (e.g., the Pattern Game), 
 
 Issues/Future Work
 
-Known issues: occasional lag on older Android devices. 
+Known issues: occasional lag on older Android devices. Leaderboards will often flicker when loading.
 
 Future Work: More game modes and adding fun prizes for beating scores. 
 
@@ -110,7 +112,7 @@ Future Work: More game modes and adding fun prizes for beating scores.
 
 Abby Gorrell – Pattern Game Logic, Unit Testing, & Documentation
 
-Jacen Killian – Release Management & Lead Development
+Jacen Killian – Release Management, Word Stack, & Lead Development
 
 Adam Ghose – Scrambled & Server Managment
 
